@@ -10,3 +10,7 @@ APCS1 pd04
 6. Create a basic instance of heroes and monsters.
 7. Create battle system.
 8. Add an option to test battles on the start page.
+9. Implement random battles.
+10. Implement Inventory class.
+11. Make a Game class
+12. Add an end screen, whether victory or not.
