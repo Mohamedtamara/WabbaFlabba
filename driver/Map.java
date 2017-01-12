@@ -83,12 +83,19 @@ public class Map {
 	test[playerYpos].remove(playerXpos);
 	if (movementSignal == 2) {
 	    test[playerYpos].add(playerXpos - 1, 'o');
+	    System.out.println ("Character has moved one unit to the right!");
 	}
 	else if (movementSignal == 4) {
 	    test[playerYpos].add(playerXpos, 'o');
 	    test[playerYpos].add(playerXpos + 1, '*');
+	    System.out.println ("Character has moved one unit to the left!");
+	}
+	else if (movementSignal == 1) {
+	    test [playerYpos].add(playerXpos, 'o');
+	    System.out.println ("Character has moved one unit up!");
 	}
 	else {
+	    System.out.println ("Character has moved one unit down!");
 	    test[playerYpos].add(playerXpos, 'o');
 	}
 	test[oldPlayerYpos].add(oldPlayerXpos, 'm');
