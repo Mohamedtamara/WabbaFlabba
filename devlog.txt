@@ -6,23 +6,6 @@ pd 4
 ---------------------
 The Ultimate RPG
 
-
-Suggested usage: 
-* Replace all fields, angle brackets included, with specified info.
-  eg, pd <pd#> --> pd 3
-* Delete these instructions once all teammates understand usage.
-
-devlog--
-Use keyboard shortcut to jump to end,
- replicate entry template,
- modify appropriately.
-
-zone of reflection--
-Flesh out each category whenever necessary, appropriate.
- Need not be fully filled in until end of project,
- but best done as you go along.
-
-
 /////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
 OBSTACLES OVERCOME
@@ -51,7 +34,7 @@ tales of wisdom gained...
 
  ______   ______   __   __   __       ______   _______     
 /_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
-\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
+cd ../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
  \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
   \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
    \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
