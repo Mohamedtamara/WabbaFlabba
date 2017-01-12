@@ -4,7 +4,7 @@ public class Map {
     int playerXpos = 5;
     int playerYpos = 5;
 
-    public ArrayList [] test = new ArrayList [9];
+    public ArrayList [] test = new ArrayList [11];
    
     public Map () {
        	for (int i = 0; i < test.length; i ++) {
@@ -12,7 +12,7 @@ public class Map {
 	}
 	for (int x = 0; x < test.length; x ++) {
 	    int exes = 0;
-	    while (exes < 10) {
+	    while (exes < 11) {
 		test [x].add('*');
 		exes++;
 	    }
@@ -22,7 +22,7 @@ public class Map {
     public String toString() {
 	String retStr = "";
 	int x = 0;
-	while (x < 9) {
+	while (x < 11) {
 	    retStr += test [x];
 	    retStr += "\n";
 	    x++;
