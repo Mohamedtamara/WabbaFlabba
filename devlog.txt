@@ -49,7 +49,32 @@ cd ../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
 
 2017-1-9 through 11
 --------------------------------------------------------------
-Max :: Brainstormed for the todo list, proposal, UML, and flowchart. Typed part of proposal.
-Mohamed :: Brainstormed for the todo list, proposal, UML and flowchart. Typed the todo list.
-Alitquan :: Brainstormed for the todo list, proposal, UML and flowchart. Typed the proposal, Flowchart, and UML. Created a prototype for the Map and created a working basic algorythm.
 ==============================================================
+2017-01-12, 20:39
+Alitquan Mallick:: modified Map.java to include a spawn method and helper 
+methods such as moveUp(), moveDown(), moveRight(), moveLeft(). Also 
+added a userMove() wrapper function that calls these depending on user 
+input, and actually moves the player on the map according to the input.
+It also places markers on areas that had previously been explored. Also 
+corrected devlog.txt to reflect actual process of making this program.
+==============================================================
+2017-01-11
+Max Korsun:: added devlog.txt to the team repository
+==============================================================
+2017-01-10, approximately 23:30
+Mohamed Tamara:: added to-do list to the repo. Contributed partially to the 
+development of the flow chart via typing
+Alitquan Mallick:: typed up the large majority of the flow chart.
+==============================================================
+2017-01-10, approximately 00:30 
+Alitquan Mallick :: Redid vast majority of the proposal, typed up entire UML 
+diagram, created directory in the WabbaFlabba repository known as driver, 
+which contains all of the files that our program will run using. Created 
+Map.java with basic algorithm for creating a default map (using a 
+default constructor) and created a toString method to print out the map.
+Max Korsun:: provided names of 13 variables and/or classes that Alitquan 
+Mallick used to create the UML diagram. Slightly modified the redrafted 
+Proposal.
+Mohamed Tamara:: slightly modified the redrafted proposal
+==============================================================
+

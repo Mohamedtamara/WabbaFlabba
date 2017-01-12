@@ -31,36 +31,94 @@ public class Map {
     }
     
     public void moveUp () {
-	playerYpos = playerYpos + 1;
+	playerYpos --; 
     }
     
     public void moveLeft () {
-	playerXpos = playerXpos - 1;
+	playerXpos --; 
     }
     
     public void moveRight () {
-	playerYpos = playerXpos + 1;
+       	playerXpos ++;
     }
     
     public void moveDown () {
-	playerYpos = playerYpos - 1;
+	playerYpos ++;
     }
     
-    public void visualMove () {
+    public void userSpawn () {
 	test[playerYpos].remove(playerXpos);
 	test[playerYpos].add(playerXpos, 'o');
+	System.out.println (this);
     }
+
+    public void userMove(int movementSignal) {
+	int oldPlayerYpos = playerYpos;
+	int oldPlayerXpos = playerXpos;
+	/*
+	// Testing	
+	System.out.println ("playerXpos = " + playerXpos);
+	System.out.println ("playerYpos = " + playerYpos);
+	System.out.println ("oldPlayerXpos = " + oldPlayerXpos);
+	System.out.println ("oldPlayerYpos = " + oldPlayerYpos);
+	System.out.println();
+	*/
+	test[playerYpos].remove(playerXpos);
+	if (movementSignal == 1) {
+	    moveUp();
+	}
+	else if (movementSignal == 2) {
+	    moveRight();
+	}
+	else if (movementSignal == 3) {
+	    moveDown();
+	}
+	else if (movementSignal == 4) {
+	    moveLeft();
+	}
+	else {
+	    System.out.println ("NO! follow the instructions\n");
+	    return;
+	}
+	test[playerYpos].remove(playerXpos);
+	if (movementSignal == 2) {
+	    test[playerYpos].add(playerXpos - 1, 'o');
+	}
+	else if (movementSignal == 4) {
+	    test[playerYpos].add(playerXpos, 'o');
+	    test[playerYpos].add(playerXpos + 1, '*');
+	}
+	else {
+	    test[playerYpos].add(playerXpos, 'o');
+	}
+	test[oldPlayerYpos].add(oldPlayerXpos, 'm');
+	System.out.println (this);
+		/*
+	// Testing	
+	System.out.println ("playerXpos = " + playerXpos);
+	System.out.println ("playerYpos = " + playerYpos);
+	System.out.println ("oldPlayerXpos = " + oldPlayerXpos);
+	System.out.println ("oldPlayerYpos = " + oldPlayerYpos);
+	System.out.println();
+	*/
+    }
+	
+        
+	
 	
 
     public static void main (String [] args) {
 	ArrayList glen = new ArrayList ();
 	glen.add("Hello");
         Map one = new Map ();
-	System.out.println (one);
 	System.out.println (glen);
-	one.visualMove ();
-	System.out.println (one);
-	one.moveLeft();
-	System.out.println (one);
+	one.userSpawn();
+	one.userMove(3);
+	one.userMove(2);
+	one.userMove(3);
+	one.userMove(2);
+	one.userMove(5);
+	one.userMove(4);
+	one.userMove(1);
     }
 }
