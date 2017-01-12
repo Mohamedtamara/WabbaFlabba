@@ -6,11 +6,7 @@ pd 4
 ---------------------
 The Ultimate RPG
 
-2017-01-10
-Alitquan Mallick: created the driver directory and a Map file with a default constructor that constructs a visual map using an array of ArrayList.
 
-2017-01-12
-Alitquan Mallick: made a method within Map.java to spawn the player's locations and methods (albeit currently unsuccessful) to change the player's postion.
 /////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
 OBSTACLES OVERCOME
@@ -57,6 +53,9 @@ added a userMove() wrapper function that calls these depending on user
 input, and actually moves the player on the map according to the input.
 It also places markers on areas that had previously been explored. Also 
 corrected devlog.txt to reflect actual process of making this program.
+2017-01-12, 23:58
+Alitquan Mallick: added messages to movement methods in Map.java
+to help track movement of the player.
 ==============================================================
 2017-01-11
 Max Korsun:: added devlog.txt to the team repository
