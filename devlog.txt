@@ -6,6 +6,11 @@ pd 4
 ---------------------
 The Ultimate RPG
 
+2017-01-10
+Alitquan Mallick: created the driver directory and a Map file with a default constructor that constructs a visual map using an array of ArrayList.
+
+2017-01-12
+Alitquan Mallick: made a method within Map.java to spawn the player's locations and methods (albeit currently unsuccessful) to change the player's postion.
 /////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
 OBSTACLES OVERCOME

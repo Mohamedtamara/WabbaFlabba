@@ -1,34 +1,15 @@
 import java.util.ArrayList;
 
 public class Map {
+    int playerXpos = 5;
+    int playerYpos = 5;
+
     public ArrayList [] test = new ArrayList [9];
    
     public Map () {
        	for (int i = 0; i < test.length; i ++) {
 	    test [i] = new ArrayList <Character>();
 	}
-	/*	test [0] = new ArrayList <Character>();
-	test [1] = new ArrayList <Character>();
-	test [2] = new ArrayList <Character>();
-	test [3] = new ArrayList <Character>();
-	test [4] = new ArrayList <Character>();
-	test [5] = new ArrayList <Character>();
-	test [6] = new ArrayList <Character>();
-	test [7] = new ArrayList <Character>();
-	test [8] = new ArrayList <Character>();
-	*/
-
-	    //	}
-	/*	test[0].add('*');
-	test[1].add('*');
-	test[2].add('*');
-	test[3].add('*');
-	test[4].add('*');
-	test[5].add('*');
-	test[6].add('*');
-	test[7].add('*');
-       	test[8].add('*');
-	*/
 	for (int x = 0; x < test.length; x ++) {
 	    int exes = 0;
 	    while (exes < 10) {
@@ -48,6 +29,28 @@ public class Map {
 	}
 	return retStr;
     }
+    
+    public void moveUp () {
+	playerYpos = playerYpos + 1;
+    }
+    
+    public void moveLeft () {
+	playerXpos = playerXpos - 1;
+    }
+    
+    public void moveRight () {
+	playerYpos = playerXpos + 1;
+    }
+    
+    public void moveDown () {
+	playerYpos = playerYpos - 1;
+    }
+    
+    public void visualMove () {
+	test[playerYpos].remove(playerXpos);
+	test[playerYpos].add(playerXpos, 'o');
+    }
+	
 
     public static void main (String [] args) {
 	ArrayList glen = new ArrayList ();
@@ -55,5 +58,9 @@ public class Map {
         Map one = new Map ();
 	System.out.println (one);
 	System.out.println (glen);
+	one.visualMove ();
+	System.out.println (one);
+	one.moveLeft();
+	System.out.println (one);
     }
 }
