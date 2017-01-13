@@ -50,6 +50,11 @@ cd ../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
 2017-01-13, 01:11
 Alitquan Mallick:: Updated map so that character spawns in
 center.
+01:17
+Max Korsun:: Began work on updating driver file to allow for Map() Usage.
+Uses Keyboard.class to read terminal commands. 
+01:49
+Max Korsun:: Woo.java now has MVP Map functionality. There are still a few bugs left, but they are mostly trivial and can easily be fixed.
 ==============================================================
 2017-01-12, 20:39
 Alitquan Mallick:: modified Map.java to include a spawn method and helper 

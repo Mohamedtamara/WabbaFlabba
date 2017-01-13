@@ -87,7 +87,7 @@ public class Map {
 	}
 	else if (movementSignal == 4) {
 	    test[playerYpos].add(playerXpos, 'o');
-	    test[playerYpos].add(playerXpos + 1, '*');
+	    //test[playerYpos].add(playerXpos + 1, '*');
 	    System.out.println ("Character has moved one unit to the left!");
 	}
 	else if (movementSignal == 1) {
@@ -114,7 +114,7 @@ public class Map {
 	
 	
 
-    public static void main (String [] args) {
+    /*  public static void main (String [] args) {
 	ArrayList glen = new ArrayList ();
 	glen.add("Hello");
         Map one = new Map ();
@@ -127,5 +127,5 @@ public class Map {
 	one.userMove(5);
 	one.userMove(4);
 	one.userMove(1);
-    }
+	}*/
 }
