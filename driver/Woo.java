@@ -5,17 +5,40 @@ public class Woo{
 
     public static void main(String[] args){
 	int choose = 0;
-	System.out.println("Wanna C some wild stuff?\nPress 1 for maps, press 2 for a battle.");
-choose = Keyboard.readInt();
-	if(choose < 1 || choose > 2){
-	    throw new ClassException("What the hell bro you had 1 job. It's either 1 or 2.");
-	}
-	if(choose == 1){
-	    Map A = new Map();
-	    for( int i = 0; i < 4; i++){
-		A.move();
+	System.out.println("To move on the map, press the w key to move up, the a key to move left, s to move down, and d to move down. To exit the game, write the word exit.");
+	Map A = new Map();
+	A.userSpawn();
+	
+	boolean exit = false;
+	while(!exit){
+	    String direction = Keyboard.readString();
+	    if(direction == "w"){
+		A.userMove(1);
+		System.out.println(A);
+	    }else
+	    if(direction == "d"){
+		A.userMove(2);
+		System.out.println(A);
+	    }else
+	    if(direction == "s"){
+		A.userMove(3);
+		System.out.println(A);
+	    }else
+	    if(direction == "a"){
+		A.userMove(4);
+		System.out.println(A);
+	    }else
+	    if(direction == "exit"){
+		exit = true;
 	    }
 	}
     }
 }
+
+	    
+
+	
+    
+
+
 
