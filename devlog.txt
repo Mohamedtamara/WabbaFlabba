@@ -55,6 +55,8 @@ Max Korsun:: Began work on updating driver file to allow for Map() Usage.
 Uses Keyboard.class to read terminal commands. 
 01:49
 Max Korsun:: Woo.java now has MVP Map functionality. There are still a few bugs left, but they are mostly trivial and can easily be fixed.
+03:21
+max Korsun:: the MVp is now complete. there is a bug where HP can increase, but the fix is easy. 
 ==============================================================
 2017-01-12, 20:39
 Alitquan Mallick:: modified Map.java to include a spawn method and helper 

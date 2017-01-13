@@ -1,19 +1,19 @@
 public class Player extends Character{
 
-    public void Player(){
-	health = 100;
-	attack = 100;
-	defense = 100;
+    public Player(){
+	HP = 100;
+	atk = 100;
+	def = 100;
     }
 
-    public int attack( Character a){
-	health -= ((a.attack/a.defense) + a.attack);
-	return health;
+    public void attack( ){
+        atk +=5;
+	def -=5;
 	}
 
-    public int defend( Character a){
-	health += (.2*defense);
-	return health;
+    public void defend( ){
+        def+=5;
+	atk-=5;
     }
     
 }

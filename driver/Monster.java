@@ -1,19 +1,20 @@
 public class Monster extends Character{
 
-    public void Monster(){
-	health = 80;
-	attack = 75;
-	defense = 50;
+    public Monster(){
+	HP = 80;
+	atk = 75;
+	def = 50;
     }
 
-    public int attack( Character a){
-	health -= ((a.attack/a.defense) + a.attack);
-	return health;
+    public void attack( ){
+        atk +=5;
+	def -=5;
 	}
 
-    public int defend( Character a){
-	health += (.2*defense);
-	return health;
+    public void defend( ){
+	def +=5;
+	atk -=5;
+
     }
     
 }

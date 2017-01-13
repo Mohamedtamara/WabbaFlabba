@@ -1,9 +1,26 @@
 public abstract class Character{
     
-    protected int health, attack, defense;
+    protected int HP, atk, def;
 
-    public abstract int attack( Character a);
+    public abstract void attack();
 
-    public abstract  int defend( Character a);
-    
+    public abstract  void defend();
+
+    public int getHP(){
+	return HP;
 }
+
+    public int getDefense(){
+	return def;
+    }
+    public void lowerHP(int damage){
+	HP-= damage;
+    }
+    public int attack(Character w){
+	int damage = (int)(atk - w.getDefense());
+	w.lowerHP(damage);
+	return damage;
+    }
+}
+			   
+
