@@ -86,4 +86,8 @@ Mallick used to create the UML diagram. Slightly modified the redrafted
 Proposal.
 Mohamed Tamara:: slightly modified the redrafted proposal
 ==============================================================
+2017-01-10, 2:26 (The best time to code)
+Mohamd Tamara: Started work on classes Character, Player, and Monster. Made minor
+changes to Map.java.
+
 
