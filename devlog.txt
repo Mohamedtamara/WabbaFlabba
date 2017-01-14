@@ -50,7 +50,12 @@ have yet to be taken)
 
 00:49
 Alitquan Mallick: added movement restriction to userMove() in
-Map.java so that movement to 'x' areas is prohibited
+Map.java so that movement to 'x' areas is prohibited.
+
+02:14
+Alitquan Mallick: added a second constructor to Map.java, one
+which takes an integer parameter and loads the corresponding 
+map.
 ==============================================================
 2017-01-14, 19:59
 Alitquan Mallick:: put all of the developed files into the
