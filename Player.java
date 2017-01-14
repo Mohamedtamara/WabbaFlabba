@@ -1,20 +1,25 @@
 public class Player extends Character{
 
     public Player(){
-	HP = 100;
-	atk = 100;
-	def = 100;
+	HP = origHP = 100;
+	atk = origAtk = tempAtk = 30;
+	def = origDef = tempDef = 15;
+        evasion = tempEvasion =  origEvasion = 30;
+	state = 0;
+	attackName[0]="Attack";
+	attackName[1]="Kung Fu Fist"; //attack 2
+	attackName[2]="Tae Kwon Do Kick";// attack 3
+	attackName[3]="Double Karate Chop";// attack 4
+	identity=1;
+    } 
+
+    public attack( ){
+        super.attack();
     }
 
-    public void attack( ){
-        atk +=5;
-	def -=5;
-	}
-
-    public void defend( ){
-        def+=5;
-	atk-=5;
+    public defend( ){
+        super.defend();
     }
-    
+
 }
 	
