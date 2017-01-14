@@ -12,13 +12,25 @@ public class Map {
        	for (int i = 0; i < test.length; i ++) {
 	    test [i] = new ArrayList <Character>();
 	}
-	for (int x = 0; x < test.length; x ++) {
-	    int exes = 0;
-	    while (exes < 11) {
+	for (int x = 0; x< test.length; x++) {
+	    test[0].add('x');
+	    test[10].add('x');
+	}
+	for (int x = 1; x < test.length-1; x ++) {
+	    int filler = 0;
+	    while (filler < 11) {
 		test [x].add('*');
-		exes++;
+		filler++;
 	    }
 	}
+	for (ArrayList o : test) {
+	    o.remove(0);
+	    o.remove(o.size()-1);
+	    o.add(0,'x');
+	    o.add('x');
+	}
+     
+	    
 	mapLength = 11;
 	mapWidth = 11;
     }
@@ -106,34 +118,7 @@ public class Map {
 	ArrayList glen = new ArrayList ();
 	glen.add("Hello");
         Map one = new Map ();
-	System.out.println (glen);
-	one.userSpawn();
-	one.userMove(4);
-	one.userMove(3);
-	one.userMove(2);
-	one.userMove(3);
-	one.userMove(2);
-	one.userMove(5);
-	one.userMove(4);
-	one.userMove(1);
-	one.userMove(3);
-	one.userMove(4);
-	one.userMove(4);
-	one.userMove(1);
-	one.userMove(2);
-	one.userMove(2);
-	one.userMove(3);
-	one.userMove(4);
-	one.userMove(4);
-	one.userMove(1);
-	one.userMove(1);
-	one.userMove(1);
-	one.userMove(1);
-	one.userMove(4);
-	one.userMove(2);
-	one.userMove(2);
-	one.userMove(2);
-	one.userMove(2);
+	System.out.println (one);
 	
     }
 }

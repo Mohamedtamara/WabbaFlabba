@@ -2,7 +2,7 @@ public abstract class Character{
     
     protected int HP, atk, def, evasion, state, origHP, origAtk, origDef, origEvasion, tempAtk, tempDef, tempEvasion;
 
-    public abstract void attack();
+    public abstract int attack(Character w);
 
     public abstract void defend();
 
@@ -31,15 +31,9 @@ public abstract class Character{
     public void lowerHP(int damage){
 	HP-= damage;
     }
-    public int attack(Character w){
-	int damage = (int)(atk - w.getTempDef());
-	w.lowerHP(damage);
-	return damage;
-    }
+    
 
-    public void defend() {
-	tempDef = (int) (def * 1.5);
-    }
+   
 }
 			   
 

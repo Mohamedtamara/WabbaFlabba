@@ -4,19 +4,19 @@ public class Woo{
 
     //Instance Variables
     private Character hero;
-    private Manster scary;
-    private Map A = new Map();
+    private Monster scary;
+    //  private Map A = new Map();
     private boolean gameover;
 
     // default contructor
     public Woo(){
 	gameover = false;
-	newGame;
+	newGame();
     }
     private void newGame(){
-	String S;
-        A = new Map();
-	hero = new Character();
+	String s;
+	Map A = new Map();
+	hero = new Player();
 	
 	s= " ~~~ Welcome to the Game. ~~~\n";
 	s+="How to play\n MAP\n Press w to move up\n press d to move right\npress s to move down\n press a to move left\n";
@@ -32,10 +32,8 @@ public class Woo{
     }
 
     /* this will be the running map code*/
-    private boolean runMap(){
-        
-	
-        
+    /* private boolean runMap(){
+	char direction;
 	 direction = Keyboard.readChar();
          if(direction == 'w'){
 	     A.userMove(1);
@@ -60,10 +58,13 @@ public class Woo{
         if(direction == 'e'){
 	    return false;
 	}
-    }/* possible issues
+}
+    */
+    /* possible issues
 	Map A might not be able to be intialzied the way it is. Yet, we need to not be made a new each time this method is ran.
 	not quite sure How I want to use its variable, But I definitely need it to. */
-	
+
+    
 
 	
 	
@@ -112,7 +113,7 @@ public class Woo{
 	    System.out.println("Will you Attack (a) or Defend (d)? ");
 	    choose = Keyboard.readChar();
 	    if(choose == 'a'){
-		hero.attack();
+		hero.attack(drag);
        	}else
         if(choose == 'd'){
        	    hero.defend();

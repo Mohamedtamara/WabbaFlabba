@@ -9,16 +9,17 @@ public class Player extends Character{
 	attackName[0]="Attack";
 	attackName[1]="Kung Fu Fist"; //attack 2
 	attackName[2]="Tae Kwon Do Kick";// attack 3
-	attackName[3]="Double Karate Chop";// attack 4
-	identity=1;
+	attackName[3]="Butterfly";// attack 4
     } 
 
-    public attack( ){
-        super.attack();
+     public int attack(Character w){
+	int damage = (int)(atk - w.getTempDef());
+	w.lowerHP(damage);
+	return damage;
     }
 
-    public defend( ){
-        super.defend();
+    public void defend() {
+	tempDef = (int) (def * 1.5);
     }
 
 }

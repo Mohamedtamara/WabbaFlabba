@@ -10,16 +10,17 @@ public class Monster extends Character{
 	attackName[1]="Stone Gaze"; //attack 2
 	attackName[2]="Molest";// attack 3
 	attackName[3]="Sting";// attack 4
-	identity=1;
     } 
 
-    public attack( ){
-        super.attack();
+    public int attack(Character w){
+	int damage = (int)(atk - w.getTempDef());
+	w.lowerHP(damage);
+	return damage;
     }
 
-    public defend( ){
-        super.defend();
+    public void defend() {
+	tempDef = (int) (def * 1.5);
     }
-
+    
 }
 	
