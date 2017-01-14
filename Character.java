@@ -6,6 +6,8 @@ public abstract class Character{
 
     public abstract  void defend();
 
+    protected String [] attackName = new String [8];
+
     public int getHP(){
 	return HP;
 }
