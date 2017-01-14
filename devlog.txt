@@ -47,6 +47,10 @@ Alitquan Mallick: modified Character.java and its subclasses
 Also added boundary marks to the map to mark areas the user
 should not be allowed to enter (albeit the prevention measures
 have yet to be taken)
+
+00:49
+Alitquan Mallick: added movement restriction to userMove() in
+Map.java so that movement to 'x' areas is prohibited
 ==============================================================
 2017-01-14, 19:59
 Alitquan Mallick:: put all of the developed files into the
