@@ -6,20 +6,29 @@ public class Monster extends Character{
 	def = origDef = tempDef = 5;
         evasion = tempEvasion =  origEvasion = 10;
 	state = 0;
-	attackName[0]="Attack";
-	attackName[1]="Stone Gaze"; //attack 2
-	attackName[2]="Molest";// attack 3
-	attackName[3]="Sting";// attack 4
+	attackName[0]="Attack"; //Attack 1
+	attackName[1]="Stone Gaze"; //Attack 2
+	attackName[2]="Molest";//Attack 3
+	attackName[3]="Sting";//Attack 4
+	ID = 1; //For identification purposes
     } 
 
-    public int attack(Character w){
-	int damage = (int)(atk - w.getTempDef());
+    public void attack(Character w){
+	int damage = (int)(atk - w.getTempDefense());
 	w.lowerHP(damage);
-	return damage;
+        System.out.print("Ouch! The Monster did " + damage + "damage to you. Better watch out!");
     }
 
     public void defend() {
 	tempDef = (int) (def * 1.5);
+    }
+
+    public void seeStats(){
+	System.out.println("Time for some stats: ");
+	System.out.println("HP: " + this.getHP() + ".");
+	System.out.println("Attack: " + this.getAttack() + ".");
+	System.out.println("Defense: " + this.getDefense() + ".");
+	System.out.println("Evasion: " + this.getEvasion() + ".");
     }
     
 }

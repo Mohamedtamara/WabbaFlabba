@@ -39,14 +39,28 @@ cd ../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
  \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
   \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
    \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
-    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
-2017-01-16, 00:33
+
+
+==============================================================
+2017-01-15, 00:33
 Alitquan Mallick: modified Character.java and its subclasses
 (player and monster) so that runtime errors would not occur.
 Also added boundary marks to the map to mark areas the user
 should not be allowed to enter (albeit the prevention measures
 have yet to be taken)
+Mohamed Tamara: Added basic comments to all the classes except
+for Map.java. Modified Character.java to contain more get
+methods for future use, as well as an abstract seeStats()
+method, which allows the user to see the stats of both the
+player and the monster. Added a run method for humans, which
+allows them to run away with varying chances of success
+based on the previous attempts to run. Modified the battle
+system in Woo.java to include run option, but currently puts
+the whole game on halt. (Issue to resolve for later)
+
+
 ==============================================================
 2017-01-14, 19:59
 Alitquan Mallick:: put all of the developed files into the
