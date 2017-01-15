@@ -1,7 +1,72 @@
 import cs1.Keyboard;
 
 public class Woo{
-    
+
+    //Instance Variables
+    private Character hero;
+    private Manster scary;
+    private Map A = new Map();
+    private boolean gameover;
+
+    // default contructor
+    public Woo(){
+	gameover = false;
+	newGame;
+    }
+    private void newGame(){
+	String S;
+        A = new Map();
+	hero = new Character();
+	
+	s= " ~~~ Welcome to the Game. ~~~\n";
+	s+="How to play\n MAP\n Press w to move up\n press d to move right\npress s to move down\n press a to move left\n";
+	s+=" BATTLE\n press a to attack\n and d to dodge\n";
+        
+         System.out.print ("Choose a direction to move, or select (i) for movement instructions: ");
+	 A.userSpawn();
+	/* functionallity to be added
+	   1. choose class
+	   2. choose difficulty
+	   3. choose name
+	*/
+    }
+
+    /* this will be the running map code*/
+    private boolean runMap(){
+        
+	
+        
+	 direction = Keyboard.readChar();
+         if(direction == 'w'){
+	     A.userMove(1);
+	     return true;
+         }else
+	 if(direction == 'd'){
+	     A.userMove(2);
+	     return true;
+	 }else
+         if(direction == 's'){
+	     A.userMove(3);
+	     return true;
+	 }else
+         if(direction == 'a'){
+	     A.userMove(4);
+	     return true;
+	 }else
+         if(direction == 'i'){
+	     System.out.println (instructions);
+	     return true;
+        } else
+        if(direction == 'e'){
+	    return false;
+	}
+    }/* possible issues
+	Map A might not be able to be intialzied the way it is. Yet, we need to not be made a new each time this method is ran.
+	not quite sure How I want to use its variable, But I definitely need it to. */
+	
+
+	
+	
 
 
     public static void main(String[] args){
