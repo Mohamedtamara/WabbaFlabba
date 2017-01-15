@@ -24,7 +24,9 @@ UNRESOLVED ISSUES
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
-maybe some of these will move into the Obs.Ovrcm section...
+Moving right sometimes shortened a row
+of the map.
+Map was not able to run continuotusly
 
 COOL STUFF LEARNED
 
@@ -89,6 +91,11 @@ crashing.
 Max Korsun: Added default constructor for Woo and newGame(),
 which launches a new game to be played.
 
+22:58
+Alitquan Mallick: updated Map.java so that it has a helper 
+method for placing l's, which indicate the goal for a map, and
+also robustified implementation of mapWidth so that maps will
+be able to be constructed with different sizes.
 ==============================================================
 2017-01-14, 19:59
 Alitquan Mallick:: put all of the developed files into the
