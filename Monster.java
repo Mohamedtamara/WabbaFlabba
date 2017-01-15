@@ -16,7 +16,7 @@ public class Monster extends Character{
     public void attack(Character w){
 	int damage = (int)(atk - w.getTempDefense());
 	w.lowerHP(damage);
-        System.out.print("Ouch! The Monster did " + damage + "damage to you. Better watch out!");
+        System.out.println("Ouch! The Monster did " + damage + "damage to you. Better watch out!");
     }
 
     public void defend() {

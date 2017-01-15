@@ -45,14 +45,17 @@ cd ../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
 
 ==============================================================
 2017-01-15, 00:33
-Alitquan Mallick: modified Character.java and its subclasses
+Alitquan Mallick:: modified Character.java and its subclasses
 (player and monster) so that runtime errors would not occur.
 Also added boundary marks to the map to mark areas the user
 should not be allowed to enter (albeit the prevention measures
 have yet to be taken)
 
+01:52
+Alitquan Mallick:: Added a second map that has not been 
+implemented into Woo.java
 02:10
-Mohamed Tamara: Added basic comments to all the classes except
+Mohamed Tamara:: Added basic comments to all the classes except
 for Map.java. Modified Character.java to contain more get
 methods for future use, as well as an abstract seeStats()
 method, which allows the user to see the stats of both the
@@ -62,6 +65,9 @@ based on the previous attempts to run. Modified the battle
 system in Woo.java to include run option, but currently puts
 the whole game on halt. (Issue to resolve for later)
 
+18:42
+Alitquan Mallick:: Fixed a plethora of typos and made Woo.java
+continue running even after an enemy is defeated.
 
 ==============================================================
 2017-01-14, 19:59

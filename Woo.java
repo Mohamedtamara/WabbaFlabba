@@ -95,50 +95,60 @@ public class Woo{
 	if (battle == false) {
 	    System.out.println (instructions); //No battle? Time to read!
 	}
-	while(!exit){
+	while(exit == false){
 	    System.out.println ();
 	    System.out.print ("Choose a direction to move, or select (i) for movement instructions: ");
 	    direction = Keyboard.readChar();
 	    if(direction == 'w'){ //Looking up because she down
 		A.userMove(1);
-	    }else if(direction == 'd'){ //Looking right because you left
+	    }
+	    else if(direction == 'd'){ //Looking right because you left
 		A.userMove(2);
-	    }else if(direction == 's'){ // Looking down because you're up
+	    }
+	    else if(direction == 's'){ // Looking down because you're up
 		A.userMove(3);
-	    }else if(direction == 'a'){ //Looking left because you're right
+	    }
+	    else if(direction == 'a'){ //Looking left because you're right
 		A.userMove(4);
-	    }else if(direction == 'i'){ //More reading?
+	    }
+	    else if(direction == 'i'){ //More reading?
 		System.out.println (instructions);
-	    }else if(direction == 'e'){ //Bye bye
+	    }
+	    else if(direction == 'e'){ //Bye bye
 		battle = true;
-		exit = true;
-	    }
-	    else{
-		System.out.print("That's not a valid button!");
-	    }
-	}
-	System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n To battle, press a to do an attack against the monster and press d to defend instead.");
-        while(battle){
-	    System.out.println("Hero's HP: "+ hero.getHP() + ".\nEnemy's HP: "+drag.getHP()+".");
-	    System.out.println("Will you Attack (a), Defend (d), or Run (r)? ");
-	    choose = Keyboard.readChar();
-	    if (choose == 'a'){
-		hero.attack(drag);
-	    }else if (choose == 'd'){
-		hero.defend();
-	    }
-	    else if (choose == 'r'){
-	        if (hero.run() == true) {
-		    battle = true;
-		    System.out.println("You escaped! Sadly, you dropped your XP and potential loot behind.");
+		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n To battle, press a to do an attack against the monster and press d to defend instead.");
+		while(battle == true){
+		    System.out.println("Hero's HP: "+ hero.getHP() + ".\nEnemy's HP: "+drag.getHP()+".");
+		    System.out.println("Will you Attack (a), Defend (d), or Run (r)? ");
+		    choose = Keyboard.readChar();
+		    if (choose == 'a'){
+			hero.attack(drag);
+			drag.attack(hero);
+		    }
+		    else if (choose == 'd'){
+			hero.defend();
+			drag.attack(hero);
+		    }
+		    else if (choose == 'r'){
+			if (hero.run() == true) {
+			    battle = true;
+			    System.out.println("You escaped! Sadly, you dropped your XP and potential loot behind.");
+			}
+		    }
+		    else {
+			System.out.println ("THAT IS NOT AN OPTION. PAY THE PRICE");
+		    }
+		    if (hero.getHP() <= 0) {
+			System.out.println ("You have lost");
+			battle = false;
+		        exit= true;
+		    }
+		    if (drag.getHP() <= 0) {
+			System.out.println ("You have beaten the monster!!!");
+			System.out.println (A);
+			battle = false;
+		    }
 		}
-	    }
-
-	    hero.attack(drag);
-	    drag.attack(hero);
-	    if(hero.getHP() < 0 || drag.getHP() < 0){
-		battle = false;
-		System.out.println("Your HP: " + hero.getHP() + ". The enemy's HP: " + drag.getHP());
 	    }
 	}
     }

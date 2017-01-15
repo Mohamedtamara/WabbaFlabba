@@ -7,7 +7,7 @@ public class Player extends Character{
         evasion = tempEvasion =  origEvasion = 30;
 	state = 0;
 	attackName[0]="Shoryuken";//Attack 1
-	attackName[1]="Kung Fu Fist";//Attack 2
+	attackName[1]="Vash the Stampede";//Attack 2
 	attackName[2]="Tae Kwon Do Kick";//Attack 3
 	attackName[3]="Butterfly";//Attack 4
 	ID = 0;
@@ -16,7 +16,7 @@ public class Player extends Character{
      public void attack(Character w){
 	int damage = (int)(atk - w.getTempDefense());
 	w.lowerHP(damage);
-	System.out.print("Ooh! You dealt " + damage + "damage to the Monster! Great Strike!");
+	System.out.println("Ooh! You dealt " + damage + "damage to the Monster! Great Strike!");
     }
 
     public void defend() {
