@@ -196,10 +196,10 @@ public class Map {
         
 	
     public static void main (String [] args) {
-	ArrayList glen = new ArrayList ();
-	glen.add("Hello");
-        Map one = new Map ();
-	System.out.println (one);
+	//	ArrayList glen = new ArrayList ();
+	//	glen.add("Hello");
+	//    Map one = new Map ();
+	//	System.out.println (one);
 	Map two = new Map (1);
 	System.out.println (two);
 	
