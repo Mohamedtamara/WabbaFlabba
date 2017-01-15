@@ -27,7 +27,7 @@ public class Woo{
     }
     private void newGame(){
 	String s;
-	Map A = new Map();
+	Map A = new Map(1);
 	hero = new Player();
 	
 	s= " ~~~ Welcome to the Game. ~~~\n";
@@ -78,20 +78,18 @@ public class Woo{
 
     
 
-	
-	
-
-
-    public static void main(String[] args){
-	char choose;
-	Monster drag = new Monster();
-	Player hero = new Player();
+    public static void battle() {
+	int level = 1;// level is used by the constructor (see below)
+	char choose;// stores the read user's input for selection of attack
+	Monster drag = new Monster(); // initializes monster
+	Player hero = new Player(); // initializes player
+	// ins
         String instructions = "Press (w) to move upwards.\nPress (a) to move towards the left\nPress (s) to move towards the right\nPress (d) to move down";
-	Map A = new Map();
-	A.userSpawn();
-        char direction;
-	boolean battle = false;
-	boolean exit = false;
+	Map A = new Map(level); // constructor that initializes depending on the map that the user has just finished
+	A.userSpawn(); // spawns location of user on respective map
+        char direction;// stores user's input for direction that they want to move on the map
+	boolean battle = false;// user's battle status is off (user is moving around map, not in battle currently 
+	boolean exit = false;// user is not dead and has not finished the current map
 	if (battle == false) {
 	    System.out.println (instructions); //No battle? Time to read!
 	}
@@ -158,8 +156,103 @@ public class Woo{
 	    }
 	}
     }
+	
+	
+
+
+    public static void main(String[] args){
+	int level = 1;
+	while (level < 3) {
+	    char choose;// stores the read user's input for selection of attack
+	    Monster drag = new Monster(); // initializes monster
+	    Player hero = new Player(); // initializes player
+	    // ins
+	    String instructions = "Press (w) to move upwards.\nPress (a) to move towards the left\nPress (s) to move towards the right\nPress (d) to move down";
+	    Map A = new Map(level); // constructor that initializes depending on the map that the user has just finished
+	    A.userSpawn(); // spawns location of user on respective map
+	    char direction;// stores user's input for direction that they want to move on the map
+	    boolean battle = false;// user's battle status is off (user is moving around map, not in battle currently 
+	    boolean exit = false;// user is not dead and has not finished the current map
+	    if (battle == false) {
+		System.out.println (instructions); //No battle? Time to read!
+	    }
+	    while(exit == false){
+		System.out.println ();
+		System.out.print ("Choose a direction to move, or select (i) for movement instructions: ");
+		direction = Keyboard.readChar();
+		if(direction == 'w'){ //Looking up because she down
+		    A.userMove(1);
+		}
+		else if(direction == 'd'){ //Looking right because you left
+		    A.userMove(2);
+		}
+		else if(direction == 's'){ // Looking down because you're up
+		    A.userMove(3);
+		}
+		else if(direction == 'a'){ //Looking left because you're right
+		    A.userMove(4);
+		}
+		else if(direction == 'i'){ //More reading?
+		    System.out.println (instructions);
+		}
+		else if(direction == 'e'){ //Bye bye
+		    battle = true;
+		    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n To battle, press a to do an attack against the monster and press d to defend instead.");
+		    while(battle == true){
+			System.out.println("Hero's HP: "+ hero.getHP() + ".\nEnemy's HP: "+drag.getHP()+".");
+			System.out.println("Will you Attack (a), Defend (d), Run (r), or see your stats (s) ? ");
+			choose = Keyboard.readChar();
+			if (choose == 'a'){
+			    hero.attack(drag);
+			    drag.attack(hero);
+			}
+			else if (choose == 'd'){
+			    hero.defend();
+			    drag.attack(hero);
+			}
+			else if (choose == 'r'){
+			    if (hero.run() == true) {
+				System.out.println("You escaped! Sadly, you dropped your XP and potential loot behind.");
+				battle = false;
+			    }
+			}
+			else if (choose == 's'){
+			    System.out.println("Time for some stats: ");
+			    hero.seeStats();
+			    drag.seeStats();
+			}
+			else {
+			    System.out.println ("THAT IS NOT AN OPTION. PAY THE PRICE");
+			}
+			if (hero.getHP() <= 0) {
+			    System.out.println ("Take this L brodie");
+			    battle = false;
+			    exit= true;
+			    return;
+			}
+			if (drag.getHP() <= 0) {
+			    System.out.println ("You have beaten the monster!!!");
+			    System.out.println (A);
+			    battle = false;
+			}
+			System.out.println();
+		    }
+		}
+		else {
+		    System.out.println("You are dumb. Here are the instructions, which you can press i to see again:\n" + instructions);
+		}
+		if (A.success == true){
+		    exit = true;
+		    level++;
+	        }
+	    }
+	}
+    }
 }
-		
+    
+
+    
+    
 	       
 
 	    

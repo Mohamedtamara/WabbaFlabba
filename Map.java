@@ -1,42 +1,45 @@
 import java.util.ArrayList;
 
 public class Map {
-    int playerXpos = 5;
-    int playerYpos = 5;
+    int playerXpos;
+    int playerYpos;
     int mapLength;
     int mapWidth;
+    boolean success = false;
 
     public ArrayList [] test = new ArrayList [20];
-   
-    public Map () {
-	mapWidth = 11;
-       	for (int i = 0; i <mapWidth; i ++) {
-	    test [i] = new ArrayList <Character>();
-	}
-	for (int x = 0; x<mapWidth; x++) {
-	    test[0].add('x');
-	    test[mapWidth-1].add('x');
-	}
-	for (int x = 1; x <mapWidth-1; x ++) {
-	    int filler = 0;
-	    while (filler < mapWidth) {
-		test [x].add('*');
-		filler++;
-	    }
-	}
-	for (int x = 0; x <mapWidth-1; x++) {
-	    test[x].remove(0);
-	    test[x].remove(test[x].size() - 1);
-	    test[x].add(0,'x');
-	    test[x].add('x');
-	}
-	levelPlace(1,9);
-	
-    }
 
-     public Map(int mapNum) {
+    public Map(int mapNum) {
 	if (mapNum == 1) {
+	    mapWidth = 11;
+	    playerXpos = 5;
+	    playerYpos = 5;
+	    for (int i = 0; i <mapWidth; i ++) {
+		test [i] = new ArrayList <Character>();
+	    }
+	    for (int x = 0; x<mapWidth; x++) {
+		test[0].add('x');
+		test[mapWidth-1].add('x');
+	    }
+	    for (int x = 1; x <mapWidth-1; x ++) {
+		int filler = 0;
+		while (filler < mapWidth) {
+		    test [x].add('*');
+		    filler++;
+		}
+	    }
+	    for (int x = 0; x <mapWidth-1; x++) {
+		test[x].remove(0);
+		test[x].remove(test[x].size() - 1);
+		test[x].add(0,'x');
+		test[x].add('x');
+	    }
+	    levelPlace(1,9);
+	}
+	else if (mapNum == 2) {
 	    mapWidth = 15;
+	    playerXpos = 1;
+	    playerYpos = 13;
 	    for (int i = 0; i <mapWidth; i ++) {
 		test [i] = new ArrayList <Character>();
 	    }
@@ -84,7 +87,6 @@ public class Map {
 	else {
 	    return;
 	}
-	mapWidth = 15;
     }
 	
     public void swapPlace(int index, int index2) {
@@ -180,6 +182,10 @@ public class Map {
 	    return;
 	}
 	test[oldPlayerYpos].add(oldPlayerXpos, 'm');
+	if ((char) test[playerYpos].get(playerXpos) == 'l') {
+	    this.success = true;
+	    System.out.println ("You have moved on to the next level!!!");
+	}
 	test[playerYpos].remove(playerXpos);
 	if (movementSignal == 1) {
 	    test[playerYpos].add(playerXpos,'o');
@@ -200,15 +206,19 @@ public class Map {
 	if (test[playerYpos].size()  < mapWidth) {
 	    test[playerYpos].add('*');
 	}
+	if ((char) test[playerYpos].get(playerXpos) == 'l') {
+	    this.success = true;
+	    System.out.println ("You have moved on to the next level!!!");
+	}
 	System.out.println (this);
     }
 	
         
 	
     public static void main (String [] args) {
-        Map one = new Map ();
+        Map one = new Map (1);
 	System.out.println (one);
-	Map two = new Map (1);
+	Map two = new Map (2);
 	System.out.println (two);
 	
 	
