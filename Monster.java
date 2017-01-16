@@ -24,11 +24,11 @@ public class Monster extends Character{
     }
 
     public void seeStats(){
-	System.out.println("Time for some stats: ");
+	System.out.println("For da bad dude: ");
 	System.out.println("HP: " + this.getHP() + ".");
 	System.out.println("Attack: " + this.getAttack() + ".");
 	System.out.println("Defense: " + this.getDefense() + ".");
-	System.out.println("Evasion: " + this.getEvasion() + ".");
+	System.out.println("Evasion: " + this.getEvasion() + ".\n");
     }
     
 }

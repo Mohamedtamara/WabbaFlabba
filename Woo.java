@@ -119,7 +119,7 @@ public class Woo{
 		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n To battle, press a to do an attack against the monster and press d to defend instead.");
 		while(battle == true){
 		    System.out.println("Hero's HP: "+ hero.getHP() + ".\nEnemy's HP: "+drag.getHP()+".");
-		    System.out.println("Will you Attack (a), Defend (d), or Run (r)? ");
+		    System.out.println("Will you Attack (a), Defend (d), Run (r), or see your stats (s) ? ");
 		    choose = Keyboard.readChar();
 		    if (choose == 'a'){
 			hero.attack(drag);
@@ -131,15 +131,20 @@ public class Woo{
 		    }
 		    else if (choose == 'r'){
 			if (hero.run() == true) {
-			    battle = true;
 			    System.out.println("You escaped! Sadly, you dropped your XP and potential loot behind.");
+			    battle = false;
 			}
+		    }
+		    else if (choose == 's'){
+			System.out.println("Time for some stats: ");
+			hero.seeStats();
+			drag.seeStats();
 		    }
 		    else {
 			System.out.println ("THAT IS NOT AN OPTION. PAY THE PRICE");
 		    }
 		    if (hero.getHP() <= 0) {
-			System.out.println ("You have lost");
+			System.out.println ("Take this L brodie");
 			battle = false;
 		        exit= true;
 		    }

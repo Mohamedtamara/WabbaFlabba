@@ -73,6 +73,7 @@ public abstract class Character{
 	}
     }
 
+    //Allows for the character to see their stats
     public abstract void seeStats();
 	
     public void lowerHP(int damage){
