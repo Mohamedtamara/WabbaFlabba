@@ -153,6 +153,7 @@ public class Woo{
 			System.out.println (A);
 			battle = false;
 		    }
+		    System.out.println();
 		}
 	    }
 	}

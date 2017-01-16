@@ -35,7 +35,10 @@ public class Player extends Character{
 	int runTimes = 0;
 	int runChance = 50;
 	boolean success = false;
-	while (success == false){
+	if ((Math.random() * 100) <= runChance) {
+	    success = true;
+	    }
+	else{
 	    if (runTimes == 1) {
 		runChance = 40;
 	    }
@@ -52,9 +55,7 @@ public class Player extends Character{
 		runChance = 5;
 	    }
 	    runTimes++;
-	}
-	if ((Math.random() * 100) <= runChance) {
-	    success = true;
+	    System.out.println("Nah, you can't escape that easily");
 	}
 	return success;
     }
