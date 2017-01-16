@@ -24,7 +24,9 @@ UNRESOLVED ISSUES
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
-maybe some of these will move into the Obs.Ovrcm section...
+Moving right sometimes shortened a row
+of the map.
+Map was not able to run continuotusly
 
 COOL STUFF LEARNED
 
@@ -38,6 +40,11 @@ MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 we changed ___ to ___ bc...
 
+We decided to remove pre-positioned enemies
+because the largeness of many maps made it
+unlikely and cumbersome for a player to get
+into battle. Instead we decided to settle 
+for random battles.
 LESSONS LEARNED
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -54,7 +61,10 @@ cd../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
    \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
-
+2017-01-16, 02:59
+Alitquan Mallick:: upgraded Woo.java and Map.java so now that 
+reaching the 'l' location on each map allows the player to go 
+to the next map
 
 ==============================================================
 2017-01-15, 00:33
@@ -89,6 +99,11 @@ crashing.
 Max Korsun: Added default constructor for Woo and newGame(),
 which launches a new game to be played.
 
+22:58
+Alitquan Mallick: updated Map.java so that it has a helper 
+method for placing l's, which indicate the goal for a map, and
+also robustified implementation of mapWidth so that maps will
+be able to be constructed with different sizes.
 ==============================================================
 2017-01-14, 19:59
 Alitquan Mallick:: put all of the developed files into the
