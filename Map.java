@@ -125,25 +125,25 @@ public class Map {
 	int oldPlayerYpos = playerYpos;
 	int oldPlayerXpos = playerXpos;
 	if (movementSignal == 1) {
-	    if (test[playerYpos - 1].get(playerXpos) == 'x') {
+	    if ((char)test[playerYpos - 1].get(playerXpos) == 'x') {
 		System.out.println ("ERROR 404: access denied");
 		return;
 	    }
 	}
-		else if (movementSignal == 2) {
-	    if (test[playerYpos].get(playerXpos+1) == 'x') {
+	else if (movementSignal == 2) {
+	    if ((char)test[playerYpos].get(playerXpos+1) == 'x') {
 		System.out.println ("ERROR 404: access denied");
 		return;
 	    }
 	}
 	else if (movementSignal == 3) {
-	    if (test[playerYpos + 1].get(playerXpos) == 'x') {
+	    if ((char)test[playerYpos + 1].get(playerXpos) == 'x') {
 		System.out.println ("ERROR 404: access denied");
 		return;
 	    }
 	}
 	else if (movementSignal == 4) {
-	    if (test[playerYpos].get(playerXpos - 1) == 'x') {
+	    if ((char)test[playerYpos].get(playerXpos - 1) == 'x') {
 		System.out.println ("ERROR 404: access denied");
 		return;
 	    }
