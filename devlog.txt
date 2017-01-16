@@ -10,23 +10,36 @@ The Ultimate RPG
 /////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
 OBSTACLES OVERCOME
+
+*We got run to work correctly, instead of
+just stopping the whole game in its tracks
+
+*Game is now continued after battle,
+instead of immediately ended
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow we so BOSS bc...
 
 UNRESOLVED ISSUES
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
 maybe some of these will move into the Obs.Ovrcm section...
 
 COOL STUFF LEARNED
+
+*Team work is hard.
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow! oo!...
 
 MID-DEVELOPMENT DESIGN CHANGES
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 we changed ___ to ___ bc...
 
 LESSONS LEARNED
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
 ||||||||||||||||||||||||||||||||||||||||||
@@ -69,6 +82,13 @@ the whole game on halt. (Issue to resolve for later)
 Alitquan Mallick:: Fixed a plethora of typos and made Woo.java
 continue running even after an enemy is defeated.
 
+22:40
+Mohamed Tamara: Added the option to see both the player and
+enemy stats during battle. Got run to fully work, instead of
+crashing.
+Max Korsun: Added default constructor for Woo and newGame(),
+which launches a new game to be played.
+
 ==============================================================
 2017-01-14, 19:59
 Alitquan Mallick:: put all of the developed files into the
@@ -104,7 +124,7 @@ Mohamed Tamara :: added Class Character along with subclasses
 Player and Monster ("Very crappy" - Alitquan Mallick)
 
 03:21
-max Korsun:: the MVP is now complete. there is a bug where HP
+Max Korsun:: the MVP is now complete. there is a bug where HP
  can increase, but the fix is easy. 
 ==============================================================
 2017-01-12, 20:39
@@ -138,7 +158,7 @@ Mallick used to create the UML diagram. Slightly modified the redrafted
 Proposal.
 Mohamed Tamara:: slightly modified the redrafted proposal
 ==============================================================
-2017-01-10, 2:26 (The best time to code)
+2017-01-10, 02:26 (The best time to code)
 Mohamd Tamara: Started work on classes Character, Player, and Monster. Made minor
 changes to Map.java.
 
