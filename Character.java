@@ -80,13 +80,20 @@ public abstract class Character{
 	HP-= damage;
     }
     
-    public void poisoned(){
+    //Attack #2
+    public void poisoned(){ 
 	state = 1;
 	HP -= (HP * .05);
     }
 
+    //Attack #3
     public void paralyzed(){
 	state = 2;
+    }
+
+    //Attack/option #4
+    public void heal(){
+	HP += (0.5 * HP);
     }
    
 }
