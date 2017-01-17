@@ -5,12 +5,41 @@ APCS1 pd04
 1. Make the map functional (Prints out a 2 by 2 2D ArrayList).
 2. Make a test character (circle char) for use on the map.
 3. Allow for movement in the map.
+4. Create a battle system.
+5. Implements random battles.
+6. Make a start menu.
+7. Make an end menu.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PREVIOS TODO, CHANGED OUR TARGET
 4. Create a start menu, which allows you to access the map.
 5. Create options for start menu, like difficulty (doesn't do anything yet).
 6. Create a basic instance of heroes and monsters.
 7. Create battle system.
 8. Add an option to test battles on the start page.
 9. Implement random battles.
-10. Implement Inventory class.
-11. Make a Game class
-12. Add an end screen, whether victory or not.
+10. Add an end screen, whether victory or not.
+11. Make Inventory class
