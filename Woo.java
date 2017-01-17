@@ -76,9 +76,9 @@ public class Woo{
        Map A might not be able to be intialzied the way it is. Yet, we need to not be made a new each time this method is ran.
        not quite sure How I want to use its variable, But I definitely need it to. */
 
-    
+    /*
 
-    public void battle() {
+    public static void battle() {
 
 	char choose;// stores the read user's input for selection of attack
 	Monster drag = new Monster(); // initializes monster
@@ -87,7 +87,7 @@ public class Woo{
 	    System.out.println("Time to d-d-d-d-duel!");
 	}
 	else {
-	    System.out.println("You are safe... for now");
+	    system.out.println("You are safe... for now");
 	}
 
        	System.out.println("\nTo battle, press a to do an attack against the monster and press d to defend instead.");
@@ -140,33 +140,14 @@ public class Woo{
     }
 
     
-	
+    */
 
 
     public static void main(String[] args){
 	int level = 1;
 	while (level < 3) {
 	    char choose;// stores the read user's input for selection of attack
-	    Monster drag;// initiates the monster
-	    /* a random proccess of choosing
-	       the monster that appears
-	    */
-	    int chances = (Math.random() * 10);
-	    if (chances < 2){
-		drag = new Monster(); 
-	    }
-	    else if (chances < 4){
-		drag = new Goblin();
-	    }
-	    else if (chances < 6){
-		drag = new TwelveYearOldKid();
-	    }
-	    else if (chances < 8){
-		drag = new Shark();
-	    }
-	    else{
-		drag = new Shrek();
-		}
+	    Monster drag = new Monster(); // initializes monster
 	    Player hero = new Player(); // initializes player
 	    // ins
 	    String instructions = "Press (w) to move upwards.\nPress (a) to move towards the left\nPress (s) to move towards the right\nPress (d) to move down";
@@ -254,21 +235,8 @@ public class Woo{
 		if (A.success == true){
 		    exit = true;
 		    level++;
-		    if (chances < 2){
-			drag = new Monster(); 
-		    }
-		    else if (chances < 4){
-			drag = new Goblin();
-		    }
-		    else if (chances < 6){
-			drag = new TwelveYearOldKid();
-		    }
-		    else if (chances < 8){
-			drag = new Shark();
-		    }
-		    else{
-			drag = new Shrek();
-			}}
+		    drag = new Monster();
+		}
 	    }
 	}
     }
@@ -280,37 +248,36 @@ public class Woo{
 
 
 /* This will be a template for the new main method using the other methods
-   the template will include randomness
+the template will include randomness
 
-   public static void main(String[] args){
-   state = "map";
+public static void main(String[] args){
+ state = "map";
 
 
-   while(!gameover){
-   if(state == "map"){
-   runMap();
-   if (randomint > .2){
-   state == "battle";
-   }
-   }
-   if(state = battle){
-   battle();
-   - take a look at play turn to see how to model batle. perhaps with this methodology it will simlify how to make bttle() code?
-   }
+while(!gameover){
+if(state == "map"){
+runMap();
+if (randomint > .2){
+state == "battle";
+}
+}
+if(state = battle){
+battle();
+- take a look at play turn to see how to model batle. perhaps with this methodology it will simlify how to make bttle() code?
+}
 
-   if(hero.getHP() <= 0 || Boss == killed){
-   gameover = true;
-   }
-   }
-   if(hero.getHP() <= 0){
-   SOP(ur bad);
-   }
-   if(boss == kill){
-   SOP(Wow ur good);
-   }
-   }*/
-
-   
+if(hero.getHP() <= 0 || Boss == killed){
+gameover = true;
+}
+}
+if(hero.getHP() <= 0){
+SOP(ur bad);
+}
+if(boss == kill){
+SOP(Wow ur good);
+}
+}
+*/
 
 	    
 	

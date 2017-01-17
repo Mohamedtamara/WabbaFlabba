@@ -72,6 +72,12 @@ complete overhaul of the current functionality of main().
 Mohamed Tamara: Added multiple constructors with different
 names and stats from that of Monster(). Implemented random
 method to choose which monster appears in battle.
+
+20:39
+Alitquan Mallick:: added title() to Woo.java. It will display
+a title screen as well as starting options for the player. It,
+however lacks implementation until Woo can be instantiated as
+an object. 
 ==============================================================
 2017-01-16, 02:59
 Alitquan Mallick:: upgraded Woo.java and Map.java so now that 

@@ -12,7 +12,7 @@ public class Monster extends Character{
 	attackName[3]="Sting";//Attack 4
 	ID = 1; //For identification purposes
     }
-
+    /*
     public Goblin(){
 	HP = origHP = 40;
 	atk = origAtk = tempAtk = 12;
@@ -64,7 +64,7 @@ public class Monster extends Character{
 	attackName[3]="Shrek Super-Slam";//Attack 4
 	ID = 5; //For identification purposes
     }
-    
+    */
     public void attack(Character w){
 	int damage = (int)(atk - w.getTempDefense());
 	w.lowerHP(damage);
