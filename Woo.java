@@ -259,6 +259,7 @@ public class Woo{
 		if (A.success == true){
 		    exit = true;
 		    level++;
+		    drag = new Monster();
 		}
 	    }
 	}
