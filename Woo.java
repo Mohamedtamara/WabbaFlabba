@@ -269,7 +269,40 @@ public class Woo{
 
     
     
-	       
+
+
+/* This will be a template for the new main method using the other methods
+the template will include randomness
+
+public static void main(String[] args){
+String state = "map";
+
+
+while(!gameover){
+if(state == "map"){
+runMap();
+if (randomint > .2){
+state == "battle";
+}
+}
+if(state = battle){
+battle();
+- take a look at play turn to see how to model batle. perhaps with this methodology it will simlify how to make bttle() code?
+}
+
+if(hero.getHP() <= 0 || Boss == killed){
+gameover = true;
+}
+}
+if(hero.getHP() <= 0){
+SOP(ur bad);
+}
+if(boss == kill){
+SOP(Wow ur good);
+}
+}
+
+   
 
 	    
 	
