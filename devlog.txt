@@ -66,6 +66,11 @@ Alitquan Mallick:: upgraded Woo.java and Map.java so now that
 reaching the 'l' location on each map allows the player to go 
 to the next map
 
+23:07
+Mohamed Tamara: Added functions in Character for posioned and
+paralyzed states. Added posioned and paralyzed functionality
+in Woo, but unsure if paralyzed fully works.
+
 ==============================================================
 2017-01-15, 00:33
 Alitquan Mallick:: modified Character.java and its subclasses

@@ -116,47 +116,54 @@ public class Woo{
 		battle = true;
 		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n To battle, press a to do an attack against the monster and press d to defend instead.");
 		while(battle == true){
-		    System.out.println("Hero's HP: "+ hero.getHP() + ".\nEnemy's HP: "+drag.getHP()+".");
-		    System.out.println("Will you Attack (a), Defend (d), Run (r), or see your stats (s) ? ");
-		    choose = Keyboard.readChar();
-		    if (choose == 'a'){
-			hero.attack(drag);
-			drag.attack(hero);
+		    if (hero.getState() == 1){
+			System.out.println("Oh no! You've been poisoned!");
 		    }
-		    else if (choose == 'd'){
-			hero.defend();
-			drag.attack(hero);
+		    if (hero.getState() == 2){
+			System.out.println("You can't move!");
 		    }
-		    else if (choose == 'r'){
-			if (hero.run() == true) {
-			    System.out.println("You escaped! Sadly, you dropped your XP and potential loot behind.");
+		    else{
+			System.out.println("Hero's HP: "+ hero.getHP() + ".\nEnemy's HP: "+drag.getHP()+".");
+			System.out.println("Will you Attack (a), Defend (d), Run (r), or see your stats (s) ? ");
+			choose = Keyboard.readChar();
+			if (choose == 'a'){
+			    hero.attack(drag);
+			    drag.attack(hero);
+			}
+			else if (choose == 'd'){
+			    hero.defend();
+			    drag.attack(hero);
+			}
+			else if (choose == 'r'){
+			    if (hero.run() == true) {
+				System.out.println("You escaped! Sadly, you dropped your XP and potential loot behind.");
+				battle = false;
+			    }
+			}
+			else if (choose == 's'){
+			    System.out.println("Time for some stats: ");
+			    hero.seeStats();
+			    drag.seeStats();
+			}
+			else {
+			    System.out.println ("THAT IS NOT AN OPTION. PAY THE PRICE");
+			}
+			if (hero.getHP() <= 0) {
+			    System.out.println ("Take this L brodie");
+			    battle = false;
+			    exit= true;
+			}
+			if (drag.getHP() <= 0) {
+			    System.out.println ("You have beaten the monster!!!");
+			    System.out.println (A);
 			    battle = false;
 			}
+			System.out.println();
 		    }
-		    else if (choose == 's'){
-			System.out.println("Time for some stats: ");
-			hero.seeStats();
-			drag.seeStats();
-		    }
-		    else {
-			System.out.println ("THAT IS NOT AN OPTION. PAY THE PRICE");
-		    }
-		    if (hero.getHP() <= 0) {
-			System.out.println ("Take this L brodie");
-			battle = false;
-		        exit= true;
-		    }
-		    if (drag.getHP() <= 0) {
-			System.out.println ("You have beaten the monster!!!");
-			System.out.println (A);
-			battle = false;
-		    }
-		    System.out.println();
 		}
 	    }
 	}
     }
-	
 	
 
 
@@ -199,43 +206,51 @@ public class Woo{
 		    battle = true;
 		    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n To battle, press a to do an attack against the monster and press d to defend instead.");
 		    while(battle == true){
-			System.out.println("Hero's HP: "+ hero.getHP() + ".\nEnemy's HP: "+drag.getHP()+".");
-			System.out.println("Will you Attack (a), Defend (d), Run (r), or see your stats (s) ? ");
-			choose = Keyboard.readChar();
-			if (choose == 'a'){
-			    hero.attack(drag);
-			    drag.attack(hero);
+			if (hero.getState() == 1){
+			    System.out.println("Oh no! You've been poisoned!");
 			}
-			else if (choose == 'd'){
-			    hero.defend();
-			    drag.attack(hero);
+			if (hero.getState() == 2){
+			    System.out.println("You can't move!");
 			}
-			else if (choose == 'r'){
-			    if (hero.run() == true) {
-				System.out.println("You escaped! Sadly, you dropped your XP and potential loot behind.");
+			else{
+			    System.out.println("Hero's HP: "+ hero.getHP() + ".\nEnemy's HP: "+drag.getHP()+".");
+			    System.out.println("Will you Attack (a), Defend (d), Run (r), or see your stats (s) ? ");
+			    choose = Keyboard.readChar();
+			    if (choose == 'a'){
+				hero.attack(drag);
+				drag.attack(hero);
+			    }
+			    else if (choose == 'd'){
+				hero.defend();
+				drag.attack(hero);
+			    }
+			    else if (choose == 'r'){
+				if (hero.run() == true) {
+				    System.out.println("You escaped! Sadly, you dropped your XP and potential loot behind.");
+				    battle = false;
+				}
+			    }
+			    else if (choose == 's'){
+				System.out.println("Time for some stats: ");
+				hero.seeStats();
+				drag.seeStats();
+			    }
+			    else {
+				System.out.println ("THAT IS NOT AN OPTION. PAY THE PRICE");
+			    }
+			    if (hero.getHP() <= 0) {
+				System.out.println ("Take this L brodie");
+				battle = false;
+				exit= true;
+				return;
+			    }
+			    if (drag.getHP() <= 0) {
+				System.out.println ("You have beaten the monster!!!");
+				System.out.println (A);
 				battle = false;
 			    }
+			    System.out.println();
 			}
-			else if (choose == 's'){
-			    System.out.println("Time for some stats: ");
-			    hero.seeStats();
-			    drag.seeStats();
-			}
-			else {
-			    System.out.println ("THAT IS NOT AN OPTION. PAY THE PRICE");
-			}
-			if (hero.getHP() <= 0) {
-			    System.out.println ("Take this L brodie");
-			    battle = false;
-			    exit= true;
-			    return;
-			}
-			if (drag.getHP() <= 0) {
-			    System.out.println ("You have beaten the monster!!!");
-			    System.out.println (A);
-			    battle = false;
-			}
-			System.out.println();
 		    }
 		}
 		else {
@@ -244,7 +259,7 @@ public class Woo{
 		if (A.success == true){
 		    exit = true;
 		    level++;
-	        }
+		}
 	    }
 	}
     }
