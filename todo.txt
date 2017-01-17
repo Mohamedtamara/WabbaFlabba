@@ -5,10 +5,11 @@ APCS1 pd04
 1. Make the map functional (Prints out a 2 by 2 2D ArrayList).
 2. Make a test character (circle char) for use on the map.
 3. Allow for movement in the map.
-4. Create a battle system.
-5. Implements random battles.
-6. Make a start menu.
-7. Make an end menu.
+4. Make a second floor
+5. Create a battle system.
+6. Implements random battles.
+7. Make a start menu.
+8. Make an end menu.
 
 
 
