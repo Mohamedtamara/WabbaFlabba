@@ -17,6 +17,9 @@ just stopping the whole game in its tracks
 *Game is now continued after battle,
 instead of immediately ended
 
+Made Woo function as an object; successfully
+used methods in the main method rather than
+a mish-mash of code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow we so BOSS bc...
 
@@ -61,6 +64,7 @@ cd../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
    \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
+==============================================================
 2017-01-17, 19:25
 Max Korsun :: Created a template for how the main() should 
 look in the end. Worked in battle() in Woo to more accurately 
@@ -78,6 +82,12 @@ Alitquan Mallick:: added title() to Woo.java. It will display
 a title screen as well as starting options for the player. It,
 however lacks implementation until Woo can be instantiated as
 an object. 
+
+23:35
+Alitquan Mallick:: replaced the jumbles of code in the main 
+method with methods that were written in the body method;
+essentially, Woo can be instantiated as an object and can run
+methods. Title() is now implemented into Woo.
 ==============================================================
 2017-01-16, 02:59
 Alitquan Mallick:: upgraded Woo.java and Map.java so now that 

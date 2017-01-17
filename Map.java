@@ -130,7 +130,6 @@ public class Map {
     public void userSpawn () {
 	test[playerYpos].remove(playerXpos);
 	test[playerYpos].add(playerXpos, 'o');
-	System.out.println (this);
     }
 
     public void userMove(int movementSignal) {
