@@ -61,6 +61,13 @@ cd../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
    \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
+2017 - 01 - 17
+Max Korsun :: Created a template for how the main() should 
+look in the end. Worked in battle() in Woo to more accurately 
+represent how it should be in the end. It is currently untested 
+since runMap() must also be in working order, as well as a 
+complete overhaul of the current functionality of main(). 
+==============================================================
 2017-01-16, 02:59
 Alitquan Mallick:: upgraded Woo.java and Map.java so now that 
 reaching the 'l' location on each map allows the player to go 
