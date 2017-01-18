@@ -2,14 +2,21 @@ Team WabbaFlabba
 Mohamed Tamara, Alitquan Mallick, Max Korsun
 APCS1 pd04
 
-1. Make the map functional (Prints out a 2 by 2 2D ArrayList).
-2. Make a test character (circle char) for use on the map.
-3. Allow for movement in the map.
-4. Make a second floor
-5. Create a battle system.
-6. Implements random battles.
-7. Make a start menu.
-8. Make an end menu.
+1. Make the map functional (Prints out a 2 by 2 2D ArrayList). (done)
+2. Make a test character (circle char) for use on the map. (done)
+3. Allow for movement in the map. (done)
+4. Make a second floor (done)
+5. Create a basic battle system. (done)
+6. Improve the battle system by implementing the usage of different attack
+names via the attackName arrays and the tempAttack instance variable 
+7. Fix the equation errors in attack() and defend() (Mohamed Tamara)
+7. Implements random battles. (Max Korsun)
+8. Make a start menu. (done)
+9. Make an end menu. (I, Alitquan will do)
+10. Add more floors. (I, Alitquan will do)
+11. Add Weapon and Item classes (done)
+12. Implement an inventory and functions for usage in Character.java
+13 Add boss battles
 
 
 
