@@ -19,7 +19,7 @@ public class Woo{
       How to determine when a game ended
       Don't die please
     */
-    private string state;// shows if the user is currently battling or in the map
+    private String state;// shows if the user is currently battling or in the map
     // default contructor
     public Woo(){
 	gameover = false;
@@ -78,7 +78,7 @@ public class Woo{
 
     
 
-    public static void battle() {
+    public void battle() {
 
 	char choose;// stores the read user's input for selection of attack
 	Monster drag = new Monster(); // initializes monster
@@ -87,7 +87,7 @@ public class Woo{
 	    System.out.println("Time to d-d-d-d-duel!");
 	}
 	else {
-	    system.out.println("You are safe... for now");
+	    System.out.println("You are safe... for now");
 	}
 
        	System.out.println("\nTo battle, press a to do an attack against the monster and press d to defend instead.");
@@ -276,7 +276,7 @@ SOP(ur bad);
 if(boss == kill){
 SOP(Wow ur good);
 }
-}
+}*/
 
    
 
