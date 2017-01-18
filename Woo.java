@@ -147,7 +147,25 @@ public class Woo{
 	int level = 1;
 	while (level < 3) {
 	    char choose;// stores the read user's input for selection of attack
-	    Monster drag = new Monster(); // initializes monster
+	    Monster drag;// initiates the monster
+	    /* a random proccess of choosing
+	       the monster that appears
+	    */
+	    if ((Math.random() * 10) < 2){
+		drag = new Monster(); 
+	    }
+	    else if ((Math.random() * 10) < 4){
+		drag = new Goblin();
+	    }
+	    else if ((Math.random() * 10) < 6){
+		drag = new TwelveYearOldKid();
+	    }
+	    else if ((Math.random() * 10) < 8){
+		drag = new Shark();
+	    }
+	    else{
+		drag = new Shrek();
+	    }
 	    Player hero = new Player(); // initializes player
 	    // ins
 	    String instructions = "Press (w) to move upwards.\nPress (a) to move towards the left\nPress (s) to move towards the right\nPress (d) to move down";
@@ -248,35 +266,35 @@ public class Woo{
 
 
 /* This will be a template for the new main method using the other methods
-the template will include randomness
+   the template will include randomness
 
-public static void main(String[] args){
- state = "map";
+   public static void main(String[] args){
+   state = "map";
 
 
-while(!gameover){
-if(state == "map"){
-runMap();
-if (randomint > .2){
-state == "battle";
-}
-}
-if(state = battle){
-battle();
-- take a look at play turn to see how to model batle. perhaps with this methodology it will simlify how to make bttle() code?
-}
+   while(!gameover){
+   if(state == "map"){
+   runMap();
+   if (randomint > .2){
+   state == "battle";
+   }
+   }
+   if(state = battle){
+   battle();
+   - take a look at play turn to see how to model batle. perhaps with this methodology it will simlify how to make bttle() code?
+   }
 
-if(hero.getHP() <= 0 || Boss == killed){
-gameover = true;
-}
-}
-if(hero.getHP() <= 0){
-SOP(ur bad);
-}
-if(boss == kill){
-SOP(Wow ur good);
-}
-}*/
+   if(hero.getHP() <= 0 || Boss == killed){
+   gameover = true;
+   }
+   }
+   if(hero.getHP() <= 0){
+   SOP(ur bad);
+   }
+   if(boss == kill){
+   SOP(Wow ur good);
+   }
+   }*/
 
    
 
