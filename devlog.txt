@@ -65,6 +65,11 @@ cd../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
 ==============================================================
+2017-01-18
+Max Korsun:: Fixed battle() to create a new monster upon 
+starting a battle.
+
+==============================================================
 2017-01-17, 19:25
 Max Korsun :: Created a template for how the main() should 
 look in the end. Worked in battle() in Woo to more accurately 
