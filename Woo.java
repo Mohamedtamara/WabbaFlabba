@@ -3,7 +3,7 @@ import cs1.Keyboard;
 public class Woo{
 
     //Instance Variables
-    private Character hero;
+    private Player hero;
     /*
       The Protagonist of the plot!
       Currently only one available
@@ -42,7 +42,7 @@ public class Woo{
 	String s;
 	A = new Map(level);
 	hero = new Player(playerHP,playerAtk,playerDef,playerEvasion);
-	drag = new Monster();
+	
 	A.userSpawn();
     }
 
@@ -78,7 +78,7 @@ public class Woo{
 		if (A.success == true) {
 		    level++;
 		    if (level < 3) {
-			drag = new Monster();
+			
 			A = new Map (level);
 			A.userSpawn();
 			System.out.println(A);
@@ -93,8 +93,11 @@ public class Woo{
     }
 	
     public void battle() {
+	
 	boolean battling = true;
 	System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n To battle, press a to do an attack against the monster and press d to defend instead.");
+	drag = new Monster();
+	System.out.println("A new monster has appeared!");
 	while(battling == true){
 	    if (hero.getState() == 1){
 		System.out.println("Oh no! You've been poisoned!");
