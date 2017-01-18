@@ -2,11 +2,13 @@ public abstract class Character{
     
     protected int HP, atk, def, evasion, state, origHP, origAtk, origDef, origEvasion, tempAtk, tempDef, tempEvasion, ID;
 
+    protected String name;
+
     public abstract void attack(Character w);
 
     public abstract void defend();
 
-    protected String [] attackName = new String [8];
+    protected String [] attackName = new String [4];
 
     /*
       Whole lotta get methods up ahead. 

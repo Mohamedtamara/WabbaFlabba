@@ -1,9 +1,9 @@
 public class Player extends Character{
 
     public Player(){
-	HP = origHP = 100;
-	atk = origAtk = tempAtk = 30;
-	def = origDef = tempDef = 15;
+	HP = origHP = 200;
+	atk = origAtk = tempAtk = 50;
+	def = origDef = tempDef = 20;
         evasion = tempEvasion =  origEvasion = 30;
 	state = 0;
 	attackName[0]="Shoryuken";//Attack 1
@@ -11,9 +11,10 @@ public class Player extends Character{
 	attackName[2]="Tae Kwon Do Kick";//Attack 3
 	attackName[3]="Butterfly";//Attack 4
 	ID = 0;
+	name ="";
     }
 
-    public Player (int holdHP,int holdAtk,int  holdDef,int holdEvasion) {
+    public Player (String holdName, int holdHP,int holdAtk,int  holdDef,int holdEvasion) {
 	HP = origHP = holdHP;
 	atk = origAtk = tempAtk = holdAtk;
 	def = origDef = tempDef = holdDef;
@@ -24,12 +25,16 @@ public class Player extends Character{
 	attackName[2]="Tae Kwon Do Kick";//Attack 3
 	attackName[3]="Butterfly";//Attack 4
 	ID = 0;
+	name = "";
     }
 
      public void attack(Character w){
 	int damage = (int)(atk - w.getTempDefense());
+	if (damage <= 0){
+	    damage = 0;
+	}
 	w.lowerHP(damage);
-	System.out.println("Ooh! You dealt " + damage + "damage to the Monster! Great Strike!");
+	System.out.println("Ooh! You dealt " + damage + " damage to the Monster! Great Strike!");
     }
 
     public void defend() {
