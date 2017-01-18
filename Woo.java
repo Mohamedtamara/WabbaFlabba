@@ -151,21 +151,22 @@ public class Woo{
 	    /* a random proccess of choosing
 	       the monster that appears
 	    */
-	    if ((Math.random() * 10) < 2){
+	    int chances = (Math.random() * 10);
+	    if (chances < 2){
 		drag = new Monster(); 
 	    }
-	    else if ((Math.random() * 10) < 4){
+	    else if (chances < 4){
 		drag = new Goblin();
 	    }
-	    else if ((Math.random() * 10) < 6){
+	    else if (chances < 6){
 		drag = new TwelveYearOldKid();
 	    }
-	    else if ((Math.random() * 10) < 8){
+	    else if (chances < 8){
 		drag = new Shark();
 	    }
 	    else{
 		drag = new Shrek();
-	    }
+		}
 	    Player hero = new Player(); // initializes player
 	    // ins
 	    String instructions = "Press (w) to move upwards.\nPress (a) to move towards the left\nPress (s) to move towards the right\nPress (d) to move down";
@@ -253,8 +254,21 @@ public class Woo{
 		if (A.success == true){
 		    exit = true;
 		    level++;
-		    drag = new Monster();
-		}
+		    if (chances < 2){
+			drag = new Monster(); 
+		    }
+		    else if (chances < 4){
+			drag = new Goblin();
+		    }
+		    else if (chances < 6){
+			drag = new TwelveYearOldKid();
+		    }
+		    else if (chances < 8){
+			drag = new Shark();
+		    }
+		    else{
+			drag = new Shrek();
+			}}
 	    }
 	}
     }
