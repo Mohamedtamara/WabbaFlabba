@@ -28,6 +28,7 @@ public class Woo{
     private Map A;
     private boolean start = false;
     private String playerName = "player";
+    private int difficulty;
     // default contructor
     public Woo(){
 	gameover = false;
@@ -49,6 +50,17 @@ public class Woo{
     public void runLevel() {
 	while (start == true) {
 	    while (this.level < 3) {
+		double chance;
+		//(if diff = 1 chance it .1 if diff = 2 then .2 if diff is 3 then .3;
+		if (difficulty == 1){
+		    chance = .1;
+		}
+		if(difficulty == 2){
+		    chance = .2;
+		}
+if difficulty = 3
+		    
+		 
 		System.out.println ();
 		System.out.print ("Choose a direction to move, or select (i) for movement instructions: ");
 		String instructions = ("Press w to move up\nPress a to move right\nPress d to move right\nPress s to move down");
@@ -204,6 +216,7 @@ public class Woo{
 	    System.out.println ("pick your difficulty out of these: easy (1), medium (2), hard (3)");
 	    System.out.print ("I feel: ");
 	    choice3 = Keyboard.readInt();
+	    difficulty = choice3;
 	    if (choice3 > 3 || choice3 < 1) {
 		System.out.println ("retart");
 		start = false;
