@@ -42,7 +42,7 @@ public class Woo{
     private void newGame(){
 	String s;
 	A = new Map(level);
-	hero = new Player(playerHP,playerAtk,playerDef,playerEvasion);
+	hero = new Player("Bob",playerHP,playerAtk,playerDef,playerEvasion);
 	
 	A.userSpawn();
     }
@@ -55,10 +55,12 @@ public class Woo{
 		if (difficulty == 1){
 		    chance = .1;
 		}
-		if(difficulty == 2){
+		if (difficulty == 2){
 		    chance = .2;
 		}
-if difficulty = 3
+		if (difficulty == 3){
+		    chance = .3;
+		}
 		    
 		 
 		System.out.println ();
@@ -94,7 +96,7 @@ if difficulty = 3
 			A = new Map (level);
 			A.userSpawn();
 			System.out.println(A);
-			hero = new Player(playerHP,playerAtk,playerDef,playerEvasion);
+			hero = new Player("Bob",playerHP,playerAtk,playerDef,playerEvasion);
 		    }
 		}
 	    }
@@ -205,7 +207,7 @@ if difficulty = 3
 	    return;
 	}
 	else if (choice1 != 1 && choice1 != 0) {
-	    System.out.println ("retart\n");
+	    System.out.println ("restart\n");
 	    start = false;
 	}
 	else {

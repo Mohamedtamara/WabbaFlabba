@@ -6,11 +6,12 @@ public class Goblin extends Monster{
 	def = origDef = tempDef = 6;
 	evasion = tempEvasion =  origEvasion = 8;
 	state = 0;
-	attackName[0]="Attack"; //Attack 1
+	attackName[0]="Storm of Needles"; //Attack 1
 	attackName[1]="Multi Bite"; //Attack 2
 	attackName[2]="Sheer Heart Attack";//Attack 3
 	attackName[3]="Pin Strike";//Attack 4
 	ID = 2; //For identification purposes
+	name = "Goblin";
     }
 
     public Goblin(int difficulty){
@@ -33,7 +34,7 @@ public class Goblin extends Monster{
 	    evasion = tempEvasion =  origEvasion = 16;
 	}
 	state = 0;
-	attackName[0]="Attack"; //Attack 1
+	attackName[0]="Storm of Needles"; //Attack 1
 	attackName[1]="Multi Bite"; //Attack 2
 	attackName[2]="Sheer Heart Attack";//Attack 3
 	attackName[3]="Pin Strike";//Attack 4
