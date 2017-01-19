@@ -54,6 +54,10 @@ because the largeness of many maps made it
 unlikely and cumbersome for a player to get
 into battle. Instead we decided to settle 
 for random battles.
+
+We decided to ditch a Usables parent class 
+and instead settle for an array of objects
+consisting of items and weapons.
 LESSONS LEARNED
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -71,12 +75,20 @@ cd../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
 ==============================================================
-2017-01-18
+2017-01-18, 10:56
+Mohamed Tamara: added several subclasses for Monster
+
+19:03
 Max Korsun:: Fixed battle() to create a new monster upon 
 starting a battle. Also changed runLevel() to allow for random 
 battling. difficuty setting now has a purpose - currently only 
 affects the chance of a monster spawning but will eventually 
 effect the stats of the monster as well.
+
+19:24
+Alitquan Mallick:: Added a weapons class and an Items class, 
+although an inventory as well as equip and use methods still
+have to be added to character.
 
 ==============================================================
 2017-01-17, 19:25
