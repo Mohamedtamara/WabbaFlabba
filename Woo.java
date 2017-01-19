@@ -1,4 +1,4 @@
-import cs1.Keyboard;
+himport cs1.Keyboard;
 
 public class Woo{
 
@@ -56,12 +56,12 @@ public class Woo{
 		if (difficulty == 1){
 		    chance = .1;
 		} else
-		if (difficulty == 2){
-		    chance = .2;
-		} else
-		if (difficulty == 3){
-		    chance = .3;
-		}
+		    if (difficulty == 2){
+			chance = .2;
+		    } else
+			if (difficulty == 3){
+			    chance = .3;
+			}
 		    
 		 
 		System.out.println ();
@@ -89,34 +89,46 @@ public class Woo{
 		else {
 		    System.out.println ("THAT IS NOT AN OPTION. PAY THE PRICE");
 		}
-	     if(Math.random() < chance){
-		 battle();
-	     }   
+		if(Math.random() < chance){
+		    battle();
+		}   
         
 	    }
 	   
-		if (A.success == true) {
-		    level++;
-		    if (level < 3) {
+	    if (A.success == true) {
+		level++;
+		if (level < 3) {
 			
-			A = new Map (level);
-			A.userSpawn();
-			System.out.println(A);
-			hero = new Player("Bob",playerHP,playerAtk,playerDef,playerEvasion);
-		    }
+		    A = new Map (level);
+		    A.userSpawn();
+		    System.out.println(A);
+		    hero = new Player("Bob",playerHP,playerAtk,playerDef,playerEvasion);
 		}
-	}
-	    if (level == 3) {
-		return;
 	    }
+	}
+	if (level == 3) {
+	    return;
+	}
     }
 
-	
+    public void monsterChoose(){
+	prop = (Math.random() * 10);
+	if (prop < 2)
+	    drag = new Monster();
+	else if (prop < 4)
+	    drag = new Goblin();
+	else if (prop < 6)
+	    drag = new TwelveYearOldKid();
+	else if (prop < 8)
+	    drag = new Shark();
+	else
+	    drag = new Shrek();
+    }
     public void battle() {
 	
 	boolean battling = true;
 	System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n To battle, press a to do an attack against the monster and press d to defend instead.");
-	drag = new Monster();
+	monsterChoose();
 	System.out.println("A new monster has appeared!");
 	while(battling == true){
 	    if (hero.getState() == 1){
@@ -204,7 +216,7 @@ public class Woo{
 	titleScreen += "\t\t\t\t\t\t\t\t   $$$$              $$$$$$$$$$$  $$$$        $$$$  $$$$$$$$$$$$   $$$$$$$$$$$$  $$$$        $$$$\n";
 	titleScreen += "\t\t\t\t\t\t\t\t   $$$               $$$$$$$$$$$  $$$$        $$$$  $$$$$$$$$$$    $$$$$$$$$$$   $$$$        $$$$\n";
 	titleScreen += "\n\t\t\t\t\t\t\t\t\t\t\t\t\t        THE  GAME";
-        System.out.println( titleScreen);
+	System.out.println( titleScreen);
 	System.out.println("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t     WILL YOU ENTER?");
 	System.out.println("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t  CHOOSE: (1) YES  (2) NO");
 	System.out.print("I choose: ");
