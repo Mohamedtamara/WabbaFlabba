@@ -27,9 +27,15 @@ UNRESOLVED ISSUES
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
-Moving right sometimes shortened a row
-of the map.
-Map was not able to run continuotusly
+
+if you deal eneough damage to kill the monster
+at the same time it kills you the game 
+continues and you have -HP.
+
+The map does not print out during User.spawn()
+the first time.
+
+
 
 COOL STUFF LEARNED
 
@@ -67,7 +73,10 @@ cd../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
 ==============================================================
 2017-01-18
 Max Korsun:: Fixed battle() to create a new monster upon 
-starting a battle.
+starting a battle. Also changed runLevel() to allow for random 
+battling. difficuty setting now has a purpose - currently only 
+affects the chance of a monster spawning but will eventually 
+effect the stats of the monster as well.
 
 ==============================================================
 2017-01-17, 19:25
