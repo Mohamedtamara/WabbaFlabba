@@ -29,27 +29,31 @@ public class Woo{
     private boolean start = false;
     private String playerName = "player";
     private int difficulty;
+
     // default contructor
     public Woo(){
 	gameover = false;
 	level = 1;
-	newGame();
+	
 	playerHP = 100;
 	playerAtk = 30;
 	playerDef = 15;
 	playerEvasion = 30;
+	newGame();
     }
     private void newGame(){
 	String s;
 	A = new Map(level);
 	hero = new Player("Bob",playerHP,playerAtk,playerDef,playerEvasion);
 	
-	A.userSpawn();
+	
     }
 
     public void runLevel() {
+	A.userspawn();
+	System.out.println(A);
 	while (start == true) {
-	    while (this.level < 3) {
+	    while (level < 3) {
 		double chance;
 		chance = .1;//in case someone misclicks, give them easy mode
 		//(if diff = 1 chance it .1 if diff = 2 then .2 if diff is 3 then .3;
@@ -88,19 +92,18 @@ public class Woo{
 		
 		else {
 		    System.out.println ("THAT IS NOT AN OPTION. PAY THE PRICE");
+		    
 		}
 		if(Math.random() < chance){
 		    battle();
 		}   
+		if (hero.getHP() <=0){
+		    level = 10;
+		    start = false;
+		}
         
 	    }
-	    if (hero.getHP()<=0){
-		System.out.println("You got murked try again");
-		
-	    }
-
-
-	   
+	    	   
 	    if (A.success == true) {
 		level++;
 		if (level < 3) {
@@ -252,6 +255,7 @@ public class Woo{
 		start = false;
 	    }
 	}
+	
     }
 
     /*
@@ -268,7 +272,7 @@ public class Woo{
     public static void main(String[] args){
 	Woo Alitquan = new Woo();
 	Alitquan.title();
-	Alitquan.newGame();
+	
 	Alitquan.runLevel();
     }
     
