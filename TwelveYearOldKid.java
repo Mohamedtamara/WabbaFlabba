@@ -11,7 +11,7 @@ public class TwelveYearOldKid extends Monster{
 	attackName[2]="Microphone Screech";//Attack 3
 	attackName[3]="420 BLAZE IT";//Attack 4
 	ID = 3; //For identification purposes
-	name = "Twelve Year Old Kid"
+	name = "Twelve Year Old Kid";
     }
 
     public TwelveYearOldKid(int difficulty){
