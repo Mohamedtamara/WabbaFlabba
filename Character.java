@@ -4,7 +4,13 @@ public abstract class Character{
 
     protected String name;
 
-    public abstract void attack(Character w);
+    public abstract int attack1(Character w);
+
+    public abstract int attack2(Character w);
+
+    public abstract int attack3(Character w);
+
+    public abstract int attack4(Character w);
 
     public abstract void defend();
 

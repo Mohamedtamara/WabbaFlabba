@@ -28,13 +28,40 @@ public class Player extends Character{
 	name = "";
     }
 
-     public void attack(Character w){
+    public int attack1(Character w){
 	int damage = (int)(atk - w.getTempDefense());
 	if (damage <= 0){
 	    damage = 0;
 	}
 	w.lowerHP(damage);
-	System.out.println("Ooh! You dealt " + damage + " damage to the Monster! Great Strike!");
+        return damage;
+    }
+
+    public int attack2(Character w){
+	int damage = (int)(atk + w.getAttack());
+	if (damage <= 0){
+	    damage = 0;
+	}
+	w.lowerHP(damage);
+        return damage;
+    }
+
+    public int attack3(Character w){
+	int damage = (int)(atk + w.getTempDefense());
+	if (damage <= 0){
+	    damage = 0;
+	}
+	w.lowerHP(damage);
+        return damage;
+    }
+
+    public int attack4(Character w){
+	int damage = (int)(atk + (2 * w.getTempDefense());
+	if (damage <= 0){
+	    damage = 0;
+	}
+	w.lowerHP(damage);
+        return damage;
     }
 
     public void defend() {
@@ -55,7 +82,7 @@ public class Player extends Character{
 	boolean success = false;
 	if ((Math.random() * 100) <= runChance) {
 	    success = true;
-	    }
+	}
 	else{
 	    if (runTimes == 1) {
 		runChance = 40;
