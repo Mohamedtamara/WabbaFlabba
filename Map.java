@@ -36,6 +36,7 @@ public class Map {
 	    }
 	    levelPlace(1,9);
 	}
+	//actually for 5
 	else if (mapNum == 2) {
 	    mapWidth = 15;
 	    playerXpos = 1;
@@ -84,6 +85,49 @@ public class Map {
 	    swapPlace(3,9);
 	    levelPlace(13,13);
 	}
+	// actually for 2
+	else if (mapNum == 3) {
+	    mapWidth = 12;
+	    playerXpos = 1;
+	    playerYpos = 6;
+	    for (int i = 0; i <mapWidth; i ++) {
+		test [i] = new ArrayList <Character>();
+	    }
+	    for (int x = 0; x<mapWidth; x++) {
+		test[0].add('x');
+		test[mapWidth-1].add('x');
+	    }
+	    for (int x = 1; x <mapWidth-1; x ++) {
+		int filler = 0;
+		while (filler < mapWidth) {
+		    test [x].add('*');
+		    filler++;
+		}
+	    }
+	    for (int x = 0; x <mapWidth-1; x++) {
+		test[x].remove(0);
+		test[x].remove(test[x].size() - 1);
+		test[x].add(0,'x');
+		test[x].add('x');
+	    }
+	    swapPlace (8,1);
+	    swapPlace (8,3);
+	    swapPlace (9,3);
+	    swapPlace (10,3);
+	    swapPlace (10,8);
+	    swapPlace (9,8);
+	    swapPlace (8,8);
+	    swapPlace (8,10);
+	    swapPlace (1,3);
+	    swapPlace (2,3);
+	    swapPlace (3,3);
+	    swapPlace (3,1);
+	    swapPlace (1,8);
+	    swapPlace (2,8);
+	    swapPlace (3,8);
+	    swapPlace (3,10);
+	}
+	    
 	else {
 	    return;
 	}
@@ -215,10 +259,10 @@ public class Map {
         
 	
     public static void main (String [] args) {
-        Map one = new Map (1);
-	System.out.println (one);
-	Map two = new Map (2);
-	System.out.println (two);
+	//testing methods, replace the integer in the constructor with a number less than or equal to the highest possible 
+	Map three = new Map (3);
+	three.userSpawn();
+	System.out.println (three);
 	
 	
     }
