@@ -42,10 +42,40 @@ public class Monster extends Character{
 	name = "Monster";
     }
     
-    public void attack(Character w){
-	int damage = (int)(Math.abs(atk - w.getTempDefense()));
+    public int attack1(Character w){
+	int damage = (int)(atk - w.getTempDefense());
+	if (damage <= 0){
+	    damage = 0;
+	}
 	w.lowerHP(damage);
-	System.out.println("Ouch! The Monster did " + damage + " damage to you. Better watch out!");
+        return damage;
+    }
+
+    public int attack2(Character w){
+	int damage = (int)(atk + w.getAttack());
+	if (damage <= 0){
+	    damage = 0;
+	}
+	w.lowerHP(damage);
+        return damage;
+    }
+
+    public int attack3(Character w){
+	int damage = (int)(atk + w.getTempDefense());
+	if (damage <= 0){
+	    damage = 0;
+	}
+	w.lowerHP(damage);
+        return damage;
+    }
+
+    public int attack4(Character w){
+	int damage = (int)(atk + (2 * w.getTempDefense()));
+	if (damage <= 0){
+	    damage = 0;
+	}
+	w.lowerHP(damage);
+        return damage;
     }
 
     public void defend() {

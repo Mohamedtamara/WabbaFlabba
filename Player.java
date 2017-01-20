@@ -56,7 +56,7 @@ public class Player extends Character{
     }
 
     public int attack4(Character w){
-	int damage = (int)(atk + (2 * w.getTempDefense());
+	int damage = (int)(atk + (2 * w.getTempDefense()));
 	if (damage <= 0){
 	    damage = 0;
 	}

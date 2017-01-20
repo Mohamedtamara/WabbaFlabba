@@ -8,7 +8,7 @@ APCS1 pd04
 4. Make a second floor (done)
 5. Create a basic battle system. (done)
 6. Improve the battle system by implementing the usage of different attack
-names via the attackName arrays and the tempAttack instance variable 
+names via the attackName arrays and the tempAttack instance variable (Mohamed Tamara)
 7. Fix the equation errors in attack() and defend() (Mohamed Tamara)
 7. Implements random battles. (Max Korsun)
 8. Make a start menu. (done)
@@ -16,7 +16,7 @@ names via the attackName arrays and the tempAttack instance variable
 10. Add more floors. (I, Alitquan will do)
 11. Add Weapon and Item classes (done)
 12. Implement an inventory and functions for usage in Character.java
-13 Add boss battles
+13. Add boss battles
 
 
 

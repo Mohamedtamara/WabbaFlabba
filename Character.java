@@ -73,6 +73,10 @@ public abstract class Character{
 	return ID;
     }
 
+    public String getName() {
+	return name;
+    }
+
     public void origStats(int type) {
 	// resets attributes after defend command is used
 	if (type == 1) {

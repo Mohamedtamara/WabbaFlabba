@@ -136,7 +136,7 @@ public class Woo{
 	boolean battling = true;
 	System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n To battle, press a to do an attack against the monster and press d to defend instead.");
 	monsterChoose();
-	System.out.println("A new monster has appeared!");
+	System.out.println("A " + drag.getName() + " has appeared!");
 	while(battling == true){
 	    if (hero.getState() == 1){
 		System.out.println("Oh no! You've been poisoned!");
@@ -151,12 +151,12 @@ public class Woo{
 		char choose;
 		choose = Keyboard.readChar();
 		if (choose == 'a'){
-		    hero.attack(drag);
-		    drag.attack(hero);
+		    hero.attack1(drag);
+		    drag.attack1(hero);
 		}
 		else if (choose == 'd'){
 		    hero.defend();
-		    drag.attack(hero);
+		    drag.attack1(hero);
 		}
 		else if (choose == 'r'){
 		    if (hero.run() == true) {
