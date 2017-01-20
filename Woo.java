@@ -50,23 +50,24 @@ public class Woo{
     }
 
     public void runLevel() {
-	A.userspawn();
+	A.userSpawn();
 	System.out.println(A);
 	while (start == true) {
-	    while (level < 3) {
+	    while (this.level < 3) {
 		double chance;
 		chance = .1;//in case someone misclicks, give them easy mode
 		//(if diff = 1 chance it .1 if diff = 2 then .2 if diff is 3 then .3;
 		if (difficulty == 1){
 		    chance = .1;
-		} else
-		    if (difficulty == 2){
-			chance = .2;
-		    } else
-			if (difficulty == 3){
-			    chance = .3;
-			}
-		    
+		}
+		else if (difficulty == 2){
+		    chance = .2;
+		}
+		 else if (difficulty == 3){
+		     chance = .3;
+		 }
+		 else {
+		 }
 		 
 		System.out.println ();
 		System.out.print ("Choose a direction to move, or select (i) for movement instructions: ");
@@ -88,36 +89,31 @@ public class Woo{
 		else if(direction == 'i'){ //More reading?
 		    System.out.println (instructions);
 		}
-	        
-		
 		else {
 		    System.out.println ("THAT IS NOT AN OPTION. PAY THE PRICE");
-		    
 		}
 		if(Math.random() < chance){
 		    battle();
-		}   
+		}
+		
 		if (hero.getHP() <=0){
-		    level = 10;
+		    // level = 10;
 		    start = false;
 		}
-        
-	    }
-	    	   
-	    if (A.success == true) {
-		level++;
-		if (level < 3) {
-
-			
-		    A = new Map (level);
-		    A.userSpawn();
-		    System.out.println(A);
-		    hero = new Player("Bob",playerHP,playerAtk,playerDef,playerEvasion);
+	    
+		if (A.success == true) {
+		    level++;
+		    if (level < 3) {
+			A = new Map (level);
+			A.userSpawn();
+			System.out.println(A);
+			hero = new Player("Bob",playerHP,playerAtk,playerDef,playerEvasion);
+		    }
 		}
 	    }
-	}
-	if (level == 3) {
-	    return;
+	    if (level == 3) {
+		return;
+	    }
 	}
     }
 

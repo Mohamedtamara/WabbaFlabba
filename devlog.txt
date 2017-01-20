@@ -76,6 +76,13 @@ cd../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
 ==============================================================
 2017-01-20, 10:58
 Alitquan Mallick:: added a third map to Map.java
+Max Korsun:: errors in Java, such as inability to die, are 
+fixed
+Mohamed Tamara:: implemented random battles into Woo.java
+
+22:41
+Alitquan Mallick:: fixed error resulting from previous 
+debugging of Woo.java, which prevented level transition
 ==============================================================
 2017-01-18, 10:56
 Mohamed Tamara: added several subclasses for Monster
