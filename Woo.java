@@ -1,4 +1,4 @@
-himport cs1.Keyboard;
+import cs1.Keyboard;
 
 public class Woo{
 
@@ -94,10 +94,17 @@ public class Woo{
 		}   
         
 	    }
+	    if (hero.getHP()<=0){
+		System.out.println("You got murked try again");
+		
+	    }
+
+
 	   
 	    if (A.success == true) {
 		level++;
 		if (level < 3) {
+
 			
 		    A = new Map (level);
 		    A.userSpawn();
@@ -112,14 +119,14 @@ public class Woo{
     }
 
     public void monsterChoose(){
-	prop = (Math.random() * 10);
-	if (prop < 2)
+	double prop = (Math.random() * 10);
+	if (prop < 2.0)
 	    drag = new Monster();
-	else if (prop < 4)
+	else if (prop < 4.0)
 	    drag = new Goblin();
-	else if (prop < 6)
+	else if (prop < 6.0)
 	    drag = new TwelveYearOldKid();
-	else if (prop < 8)
+	else if (prop < 8.0)
 	    drag = new Shark();
 	else
 	    drag = new Shrek();
@@ -169,8 +176,10 @@ public class Woo{
 		}
 	    }
 	    if (hero.getHP() <= 0) {
-		start = false;
+		
 		System.out.println ("You lose");
+		battling = false; 
+		
 	    }
 	    if (drag.getHP() <= 0) {
 		System.out.println ("You won");
@@ -239,7 +248,7 @@ public class Woo{
 	    choice3 = Keyboard.readInt();
 	    difficulty = choice3;
 	    if (choice3 > 3 || choice3 < 1) {
-		System.out.println ("retart");
+		System.out.println ("restart");
 		start = false;
 	    }
 	}
