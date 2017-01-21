@@ -1,6 +1,7 @@
+import java.util.ArrayList;
 public abstract class Character{
     
-    protected int HP, atk, def, evasion, state, origHP, origAtk, origDef, origEvasion, tempAtk, tempDef, tempEvasion, ID;
+    protected int HP, atk, def, evasion, state, origHP, origAtk, origDef, origEvasion, tempAtk, tempDef, tempEvasion, ID, boostState, stateTurns,space;
 
     protected String name;
 
@@ -16,11 +17,14 @@ public abstract class Character{
 
     protected String [] attackName = new String [4];
 
+    protected ArrayList <Equipment>  inventory = new ArrayList <Equipment> ();
+   
+
     /*
       Whole lotta get methods up ahead. 
       Beware.
     */
-    
+
     public int getHP() {
 	return HP;
     }
@@ -84,7 +88,7 @@ public abstract class Character{
 	    evasion = origEvasion;
 	}
     }
-
+    
     //Allows for the character to see their stats
     public abstract void seeStats();
 	
@@ -107,6 +111,81 @@ public abstract class Character{
     public void heal(){
 	HP += (0.5 * HP);
     }
+
+    public String addInventory (Equipment thing) {
+	String info = "";
+	if (space < 10) {
+	    info = "You added " + thing.name + "to your inventory.";
+	    inventory.add(thing);
+	    space -= 1;
+	}
+	else {
+	    info = "You do not have enough space in your inventory";
+	}
+	return info;
+    }
+    
+    public String removeInventory (int index) {
+	String info = "You removed " + inventory.get(index).name + "from your inventory.";
+	inventory.remove(index);
+	return info;
+    }
+		
+
+    public String equip (Weapon tool) {
+	String info = "\nYou equipped " + "tool.name" + "!!!\n";
+	origAtk += tool.getEquipAttack();
+	origDef += tool.getEquipDefense();
+	origEvasion += tool.getEquipEvasion();
+	return info;
+    }
+    
+    public String unequip (Weapon tool) {
+	String info = "\nYou equipped " + "tool.name" + "!!!\n";
+        origAtk -= tool.getEquipAttack();
+	origDef -= tool.getEquipDefense();
+	origEvasion -= tool.getEquipEvasion();
+	return info;
+    }
+    
+
+    public String use (Item tool) {
+	String info = "\nYou used " + tool.name + "!!!\n";
+	HP += tool.getHealthBoost();
+	tempAtk += tool.getAttackBoost();
+	tempDef += tool.getDefenseBoost();
+	tempEvasion += tool.getEvasionBoost();
+	boostState += tool.getNumTurns();
+	if (tool.getCure() == 1 || tool.getCure() == 2) {
+ 	    state = 0;
+	}
+	return info;
+    }
+    
+    public String displayInventory () {
+	int counter = 1;
+	if ( inventory.size() == 0) { return "\nYou have nothing."; }
+	String records = "Here is what is inside your backpack:\n";
+	for (int x = 0; x < inventory.size() - 1; x++) {
+	    records += inventory.get(x).name + " (" + counter + ")\n";
+	    counter++;
+	}
+	return records;
+    }
+    
+    public void resetStats (){
+	if (boostState <= 0) {
+	    tempAtk = atk;
+	    tempDef = def;
+	    tempEvasion = evasion;
+	}
+    }
+    
+    // if 
+    
+    
+    
+    
    
 }
 			   

@@ -1,61 +1,66 @@
 
-public class Weapon {
-    public String weaponName = "";
+public class Weapon extends Equipment{
     private int equipAttack = 0;
     private int  equipDefense = 0;
     private int  equipEvasion = 0;
 
-    public weapon() {
-	weaponName = "Basic Sword";
+    public int getEquipAttack() {
+	return equipAttack;
+    }
+    public int getEquipDefense() {
+	return equipDefense;
+    }
+    public int getEquipEvasion() {
+	return equipEvasion;
+    }
+
+    public Weapon() {
+	name = "Basic Sword";
 	equipAttack = 10;
 	equipDefense = 5;
 	equipEvasion = 5;
     }
 
-    public item (int type) {
+    public Weapon (int type) {
 	if (type == 1) {
-	    weaponName = "a wrench";
+	    name = "a wrench";
 	    equipAttack = 5;
 	    equipDefense = 5;
 	    equipEvasion = 15;
 	}
 	else if (type == 2) {
-	    weaponName = "the Buster Sword";
+	    name = "the Buster Sword";
 	    equipAttack = 25;
 	    equipDefense = 15;
 	    equipEvasion = -10;
 	}
 	else if (type == 3) {
-	    weaponName = "a stick";
+	    name = "a stick";
 	    equipAttack = 5;
 	    equipDefense = 0;
 	    equipEvasion = 20;
 	}
 	else if (type == 4) {
-	    weaponName = "a rock";
+	    name = "a rock";
 	    equipAttack = 10;
 	    equipDefense = 5;
 	    equipEvasion = 10;
 	}
 	else if (type == 5) {
-	    weaponName = "the Good Samaritan";
+	    name = "the Good Samaritan";
 	    equipAttack = 25;
 	    equipDefense = 0;
 	    equipEvasion = 15;
 	}
-	else if (type = 6) {
-	    weaponName = "a crowbar";
+	else if (type == 6) {
+	    name = "a crowbar";
 	    equipAttack = 10;
 	    equipDefense = 5;
 	    equipEvasion = 5;
 	}
 	else {
-	    weapon();
+	    System.out.println ("Wrong number");
 	}
-    }
-
-    public String getWeaponName() {
-	return this.weaponName;
     }
 	
 }
