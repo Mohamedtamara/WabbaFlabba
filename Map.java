@@ -99,6 +99,13 @@ public class Map {
 	    swapPlace(3,9);
 	    levelPlace(13,13);
 	}
+	else if (mapNum == 5) {
+	    mapWidth = 15;
+	    border();
+	    playerXpos = 7;
+	    playerYpos = 6;
+	}
+	    
 	else {
 	    return;
 	}
@@ -249,14 +256,122 @@ public class Map {
 	}
 	System.out.println (this);
     }
+
+    public void finalAnimation() {
+	swapPlace(3,4);
+	transition();
+	//
+	swapPlace(3,3);
+	transition();
+	swapPlace(3,2);
+	transition();
+	swapPlace(4,2);
+	transition();
+	swapPlace(5,2);
+	transition();
+	swapPlace(6,2);
+	transition();
+	swapPlace(7,2);
+	transition();
+	swapPlace(8,2);
+	transition();
+	swapPlace(9,2);
+	transition();
+	swapPlace(10,2);
+	transition();
+	swapPlace(10,3);
+	transition();
+	swapPlace(10,4);
+	transition();
+	swapPlace (9,4);
+	transition();
+	swapPlace(8,4);
+	transition();
+	swapPlace(8,3);
+	transition();
+	//
+	swapPlace(10,6);
+	transition();
+	swapPlace(10,7);
+	transition();
+	swapPlace(10,8);
+	transition();
+	swapPlace(9,6);
+	transition();
+	swapPlace(8,6);
+	transition();
+	swapPlace(8,7);
+	transition();
+	swapPlace(8,8);
+	transition();
+	swapPlace(9,8);
+	transition();
+	swapPlace(7,6);
+	transition();
+	swapPlace(6,6);
+	transition();
+	swapPlace(5,6);
+	transition();
+	swapPlace(4,6);
+	transition();
+	swapPlace(3,6);
+	transition();
+	swapPlace(3,7);
+	transition();
+	swapPlace(3,8);
+	transition();
+	//
+	swapPlace(3,10);
+	transition();
+	swapPlace(3,11);
+	transition();
+	swapPlace(3,12);
+	transition();
+	swapPlace(4,10);
+	transition();
+	swapPlace(5,10);
+	transition();
+	swapPlace(6,10);
+	transition();
+	swapPlace(7,10);
+	transition();
+	swapPlace(8,10);
+	transition();
+	swapPlace(9,10);
+	transition();
+	swapPlace(10,10);
+	transition();
+	swapPlace(10,11);
+	transition();
+	swapPlace(10,12);
+	transition();
+	swapPlace(9,12);
+	transition();
+	swapPlace(8,12);
+	transition();
+	swapPlace(8,11);
+    }
+
+    public void transition() {
+        try {
+	    Thread.sleep(500);
+	}
+	catch(InterruptedException ex) {
+	    Thread.currentThread().interrupt();
+	}
+	System.out.println (this);
+    }
+	
 	
         
 	
     public static void main (String [] args) {
 	//testing methods, replace the integer in the constructor with a number less than or equal to the highest possible 
-	Map four = new Map (4);
-	four.userSpawn();
-	System.out.println (four);
+	Map five = new Map (5);
+	five.userSpawn();
+	System.out.println (five);
+	five.finalAnimation();
+	System.out.println (five);
 	
 	
     }

@@ -84,6 +84,10 @@ for the Monsters have poison and paralyze implementation.
 Alitquan Mallick:: Added a successfully working inventory
 system, although they testing for Items still has to be done 
 
+02:08
+Alitquan Mallick: Added a fifth map, which should be the place 
+of a boss battle . The fifth map uses animation via Thread.sleep(),
+which was largely derived from consulting others.
 ==============================================================
 2017-01-21, 16:27
 Alitquan Mallick:: created an ArrayList known as Inventory 
