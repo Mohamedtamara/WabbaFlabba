@@ -29,6 +29,7 @@ public class Woo{
     private boolean start = false;
     private String playerName = "player";
     private int difficulty;
+    private int equipNum;
 
     // default contructor
     public Woo(){
@@ -89,6 +90,12 @@ public class Woo{
 		else if(direction == 'i'){ //More reading?
 		    System.out.println (instructions);
 		}
+		else if (direction == 'e') {
+		    hero.equipScreen();
+		}
+		else if (direction == 'j') {
+		    System.out.println(hero.displayInventory());
+		}
 		else {
 		    System.out.println ("THAT IS NOT AN OPTION. PAY THE PRICE");
 		}
@@ -130,6 +137,7 @@ public class Woo{
 	else
 	    drag = new Shrek();
     }
+
     public void battle() {
 	
 	boolean battling = true;
@@ -175,20 +183,20 @@ public class Woo{
 		}
 	    }
 	    if (hero.getHP() <= 0) {
-		
 		System.out.println ("You lose");
 		battling = false; 
 		
 	    }
 	    if (drag.getHP() <= 0) {
 		System.out.println ("You won");
+		hero.inventoryCheck(drag);
 		System.out.println(A);
 		battling=false;
 	    }
 		
 	}
     }
-    
+
    
         
 	    
@@ -253,6 +261,11 @@ public class Woo{
 	}
 	
     }
+
+    
+	
+	
+	
 
     /*
     
@@ -402,6 +415,10 @@ public class Woo{
    }
    }
 */
+
+	    
+	
+    
 
 	    
 	

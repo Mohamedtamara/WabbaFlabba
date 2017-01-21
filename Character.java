@@ -133,7 +133,7 @@ public abstract class Character{
 		
 
     public String equip (Weapon tool) {
-	String info = "\nYou equipped " + "tool.name" + "!!!\n";
+	String info = "\nYou equipped " + tool.getName() + "!!!\n";
 	origAtk += tool.getEquipAttack();
 	origDef += tool.getEquipDefense();
 	origEvasion += tool.getEquipEvasion();
@@ -156,19 +156,40 @@ public abstract class Character{
 	tempDef += tool.getDefenseBoost();
 	tempEvasion += tool.getEvasionBoost();
 	boostState += tool.getNumTurns();
-	if (tool.getCure() == 1 || tool.getCure() == 2) {
+	if (tool.getCure() == 1 && state == 1) {
  	    state = 0;
+	}
+	else if ( tool.getCure() == 2 && state == 2) {
+	    state = 0;
+	}
+	else {
 	}
 	return info;
     }
     
     public String displayInventory () {
-	int counter = 1;
-	if ( inventory.size() == 0) { return "\nYou have nothing."; }
-	String records = "Here is what is inside your backpack:\n";
-	for (int x = 0; x < inventory.size(); x++) {
-	    records += inventory.get(x).name + " (" + counter + ")\n";
-	    counter++;
+	String records = "Nothing here!";
+	if (this instanceof Player) {
+	    int counter = 0;
+	    if ( inventory.size() == 0) { return "\nYou have nothing."; }
+	    records = "Here is what is inside your backpack:\n";
+	    for (int x = 0; x < inventory.size(); x++) {
+		records += "(" + counter + ") " + inventory.get(x).name + "\n";
+		counter++;
+	    }
+	    return records;
+	}
+	else if (this instanceof Monster) {
+	    int counter = 0;
+	    records = "The enemy drops:\n";
+	    for (int x = 0; x < this.inventory.size(); x++) {
+		records += "(" + counter + ") " + this.inventory.get(x).name + "\n";
+		counter++;
+	    }
+	    return records;
+	}
+	else {
+	    System.out.println ("ERROR: Target must be subclass of 'player'.");
 	}
 	return records;
     }
