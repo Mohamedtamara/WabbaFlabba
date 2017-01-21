@@ -1,6 +1,7 @@
 public class Player extends Character{
 
     public Player(){
+	inventory.add (  new Weapon(1) );
 	HP = origHP = 200;
 	atk = origAtk = tempAtk = 50;
 	def = origDef = tempDef = 20;
@@ -15,6 +16,7 @@ public class Player extends Character{
     }
 
     public Player (String holdName, int holdHP,int holdAtk,int  holdDef,int holdEvasion) {
+	inventory.add (  new Weapon(1) );
 	HP = origHP = holdHP;
 	atk = origAtk = tempAtk = holdAtk;
 	def = origDef = tempDef = holdDef;
@@ -103,6 +105,11 @@ public class Player extends Character{
 	    System.out.println("Nah, you can't escape that easily");
 	}
 	return success;
+    }
+
+    public static void main (String [] args) {
+	Player Alitquan = new Player();
+	System.out.println (Alitquan.displayInventory ());
     }
     
 }

@@ -80,6 +80,15 @@ within Character.java. This will hold all sorts of equipment
 (weapons and items). Also wrote methods to add to ,remove from,
 or display the inventory.
 
+17:53
+Alitquan Mallick:: added methods to the constructor of each
+subclass of enemy so that each instantiated enemy is generated
+with a random weapon in its inventory, which is equipped. The 
+player, however, is instantiated with a fixed weapon (a wrench).
+Also added a new map, reordered the map cycle, and implemented
+the last map which was made earlier this week but was not 
+implemented. 
+
 ==============================================================
 2017-01-20, 10:58
 Alitquan Mallick:: added a third map to Map.java

@@ -12,6 +12,9 @@ public class Goblin extends Monster{
 	attackName[3]="Pin Strike";//Attack 4
 	ID = 2; //For identification purposes
 	name = "Goblin";
+	int determinant = (int) (Math.random() * 6);
+	inventory.add ( new Weapon (determinant) );
+	equip ((Weapon) inventory.get(0));
     }
 
     public Goblin(int difficulty){
@@ -39,6 +42,9 @@ public class Goblin extends Monster{
 	attackName[2]="Sheer Heart Attack";//Attack 3
 	attackName[3]="Pin Strike";//Attack 4
 	ID = 2; //For identification purposes
+	int determinant = (int) (Math.random() * 6);
+	inventory.add ( new Weapon (determinant) );
+	equip ((Weapon) inventory.get(0));
     }
 
 }

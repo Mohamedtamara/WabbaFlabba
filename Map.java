@@ -14,53 +14,67 @@ public class Map {
 	    mapWidth = 11;
 	    playerXpos = 5;
 	    playerYpos = 5;
-	    for (int i = 0; i <mapWidth; i ++) {
-		test [i] = new ArrayList <Character>();
-	    }
-	    for (int x = 0; x<mapWidth; x++) {
-		test[0].add('x');
-		test[mapWidth-1].add('x');
-	    }
-	    for (int x = 1; x <mapWidth-1; x ++) {
-		int filler = 0;
-		while (filler < mapWidth) {
-		    test [x].add('*');
-		    filler++;
-		}
-	    }
-	    for (int x = 0; x <mapWidth-1; x++) {
-		test[x].remove(0);
-		test[x].remove(test[x].size() - 1);
-		test[x].add(0,'x');
-		test[x].add('x');
-	    }
+	    border(); 
 	    levelPlace(1,9);
 	}
 	//actually for 5
+	// actually for 2
 	else if (mapNum == 2) {
+	    mapWidth = 12;
+	    playerXpos = 1;
+	    playerYpos = 6;
+	    border();
+	    swapPlace (8,1);
+	    swapPlace (8,3);
+	    swapPlace (9,3);
+	    swapPlace (10,3);
+	    swapPlace (10,8);
+	    swapPlace (9,8);
+	    swapPlace (8,8);
+	    swapPlace (8,10);
+	    swapPlace (1,3);
+	    swapPlace (2,3);
+	    swapPlace (3,3);
+	    swapPlace (3,1);
+	    swapPlace (1,8);
+	    swapPlace (2,8);
+	    swapPlace (3,8);
+	    swapPlace (3,10);
+	    levelPlace(10,10);
+	}
+	// actually for 3
+	else if (mapNum == 3) {
+	    mapWidth = 13;
+	    playerXpos = 1;
+	    playerYpos = 6;
+	    border();
+	    swapPlace (4,3);
+	    swapPlace (5,3);
+	    swapPlace (7,3);
+	    swapPlace (8,3);
+	    swapPlace (4,4);
+	    swapPlace (4,7);
+	    swapPlace (4,8);
+	    swapPlace (5,8);
+	    swapPlace (7,8);
+	    swapPlace (8,8);
+	    swapPlace (8,7);
+	    swapPlace (8,4);
+	    swapPlace (9,4);
+	    swapPlace (11,4);
+	    swapPlace (11,7);
+	    swapPlace (9,7);
+	    swapPlace (8,7);
+	    swapPlace (3,4);
+	    swapPlace (1,4);
+	    swapPlace (3,7);
+	    levelPlace (11,11);
+	}
+	else if (mapNum == 4) {
 	    mapWidth = 15;
 	    playerXpos = 1;
 	    playerYpos = 13;
-	    for (int i = 0; i <mapWidth; i ++) {
-		test [i] = new ArrayList <Character>();
-	    }
-	    for (int x = 0; x<mapWidth; x++) {
-		test[0].add('x');
-		test[mapWidth-1].add('x');
-	    }
-	    for (int x = 1; x <mapWidth-1; x ++) {
-		int filler = 0;
-		while (filler < mapWidth) {
-		    test [x].add('*');
-		    filler++;
-		}
-	    }
-	    for (int x = 0; x <mapWidth-1; x++) {
-		test[x].remove(0);
-		test[x].remove(test[x].size() - 1);
-		test[x].add(0,'x');
-		test[x].add('x');
-	    }
+	    border();
 	    swapPlace(9,2);
 	    swapPlace(8,2);
 	    swapPlace(7,2);
@@ -85,51 +99,31 @@ public class Map {
 	    swapPlace(3,9);
 	    levelPlace(13,13);
 	}
-	// actually for 2
-	else if (mapNum == 3) {
-	    mapWidth = 12;
-	    playerXpos = 1;
-	    playerYpos = 6;
-	    for (int i = 0; i <mapWidth; i ++) {
-		test [i] = new ArrayList <Character>();
-	    }
-	    for (int x = 0; x<mapWidth; x++) {
-		test[0].add('x');
-		test[mapWidth-1].add('x');
-	    }
-	    for (int x = 1; x <mapWidth-1; x ++) {
-		int filler = 0;
-		while (filler < mapWidth) {
-		    test [x].add('*');
-		    filler++;
-		}
-	    }
-	    for (int x = 0; x <mapWidth-1; x++) {
-		test[x].remove(0);
-		test[x].remove(test[x].size() - 1);
-		test[x].add(0,'x');
-		test[x].add('x');
-	    }
-	    swapPlace (8,1);
-	    swapPlace (8,3);
-	    swapPlace (9,3);
-	    swapPlace (10,3);
-	    swapPlace (10,8);
-	    swapPlace (9,8);
-	    swapPlace (8,8);
-	    swapPlace (8,10);
-	    swapPlace (1,3);
-	    swapPlace (2,3);
-	    swapPlace (3,3);
-	    swapPlace (3,1);
-	    swapPlace (1,8);
-	    swapPlace (2,8);
-	    swapPlace (3,8);
-	    swapPlace (3,10);
-	}
-	    
 	else {
 	    return;
+	}
+    }
+
+    public void border() {
+	for (int i = 0; i <mapWidth; i ++) {
+	    test [i] = new ArrayList <Character>();
+	}
+	for (int x = 0; x<mapWidth; x++) {
+	    test[0].add('x');
+	    test[mapWidth-1].add('x');
+	}
+	for (int x = 1; x <mapWidth-1; x ++) {
+	    int filler = 0;
+	    while (filler < mapWidth) {
+		test [x].add('*');
+		filler++;
+	    }
+	}
+	for (int x = 0; x <mapWidth-1; x++) {
+	    test[x].remove(0);
+	    test[x].remove(test[x].size() - 1);
+	    test[x].add(0,'x');
+	    test[x].add('x');
 	}
     }
 	
@@ -260,9 +254,9 @@ public class Map {
 	
     public static void main (String [] args) {
 	//testing methods, replace the integer in the constructor with a number less than or equal to the highest possible 
-	Map three = new Map (3);
-	three.userSpawn();
-	System.out.println (three);
+	Map four = new Map (4);
+	four.userSpawn();
+	System.out.println (four);
 	
 	
     }

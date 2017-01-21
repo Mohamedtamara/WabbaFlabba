@@ -12,6 +12,9 @@ public class Shark extends Monster{
 	attackName[3]="Splash";//Attack 4
 	ID = 4; //For identification purposes
 	name = "Shark";
+	int determinant = (int) (Math.random() * 6);
+	inventory.add ( new Weapon (determinant) );
+	equip ((Weapon) inventory.get(0));
     }
 
     public Shark(int difficulty){
@@ -39,6 +42,9 @@ public class Shark extends Monster{
 	attackName[2]="A Whale of a Time";//Attack 3
 	attackName[3]="Splash";//Attack 4
 	ID = 4; //For identification purposes
+	int determinant = (int) (Math.random() * 6);
+	inventory.add ( new Weapon (determinant) );
+	equip ((Weapon) inventory.get(0));
     }
     
 }

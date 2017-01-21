@@ -166,7 +166,7 @@ public abstract class Character{
 	int counter = 1;
 	if ( inventory.size() == 0) { return "\nYou have nothing."; }
 	String records = "Here is what is inside your backpack:\n";
-	for (int x = 0; x < inventory.size() - 1; x++) {
+	for (int x = 0; x < inventory.size(); x++) {
 	    records += inventory.get(x).name + " (" + counter + ")\n";
 	    counter++;
 	}

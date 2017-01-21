@@ -22,37 +22,37 @@ public class Weapon extends Equipment{
     }
 
     public Weapon (int type) {
-	if (type == 1) {
+	if (type == 0) {
 	    name = "a wrench";
 	    equipAttack = 5;
 	    equipDefense = 5;
 	    equipEvasion = 15;
 	}
-	else if (type == 2) {
+	else if (type == 1) {
 	    name = "the Buster Sword";
 	    equipAttack = 25;
 	    equipDefense = 15;
 	    equipEvasion = -10;
 	}
-	else if (type == 3) {
+	else if (type == 2) {
 	    name = "a stick";
 	    equipAttack = 5;
 	    equipDefense = 0;
 	    equipEvasion = 20;
 	}
-	else if (type == 4) {
+	else if (type == 3) {
 	    name = "a rock";
 	    equipAttack = 10;
 	    equipDefense = 5;
 	    equipEvasion = 10;
 	}
-	else if (type == 5) {
+	else if (type == 4) {
 	    name = "the Good Samaritan";
 	    equipAttack = 25;
 	    equipDefense = 0;
 	    equipEvasion = 15;
 	}
-	else if (type == 6) {
+	else if (type == 5) {
 	    name = "a crowbar";
 	    equipAttack = 10;
 	    equipDefense = 5;

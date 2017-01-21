@@ -12,6 +12,9 @@ public class Shrek extends Monster{
 	attackName[3]="Shrek Super-Slam";//Attack 4
 	ID = 5; //For identification purposes
 	name = "Shrek";
+	int determinant = (int) (Math.random() * 6);
+	inventory.add ( new Weapon (determinant) );
+	equip ((Weapon) inventory.get(0));
     }
 
     public Shrek(int difficulty){
@@ -39,6 +42,9 @@ public class Shrek extends Monster{
 	attackName[2]="DON KAY";//Attack 3
 	attackName[3]="Shrek Super-Slam";//Attack 4
 	ID = 5; //For identification purposes
+	int determinant = (int) (Math.random() * 6);
+	inventory.add ( new Weapon (determinant) );
+	equip ((Weapon) inventory.get(0));
     }
     
 }

@@ -12,6 +12,9 @@ public class Monster extends Character{
 	attackName[3]="Sting";//Attack 4
 	ID = 1; //For identification purposes
 	name = "Monster";
+	int determinant = (int) (Math.random() * 6);
+	inventory.add ( new Weapon (determinant) );
+	equip ((Weapon) inventory.get(0));
     }
 
     public Monster(int difficulty){
@@ -89,6 +92,12 @@ public class Monster extends Character{
 	System.out.println("Defense: " + this.getDefense() + ".");
 	System.out.println("Evasion: " + this.getEvasion() + ".\n");
     }
-    
+
+    public static void main (String [] args) {
+	Monster Alitquan = new Monster();
+	System.out.println (Alitquan.displayInventory ());
+    }
+	
+	
 }
 	

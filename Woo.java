@@ -53,7 +53,7 @@ public class Woo{
 	A.userSpawn();
 	System.out.println(A);
 	while (start == true) {
-	    while (this.level < 3) {
+	    while (this.level < 5) {
 		double chance;
 		chance = .1;//in case someone misclicks, give them easy mode
 		//(if diff = 1 chance it .1 if diff = 2 then .2 if diff is 3 then .3;
@@ -103,7 +103,7 @@ public class Woo{
 	    
 		if (A.success == true) {
 		    level++;
-		    if (level < 3) {
+		    if (level < 5) {
 			A = new Map (level);
 			A.userSpawn();
 			System.out.println(A);

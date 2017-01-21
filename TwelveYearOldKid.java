@@ -12,6 +12,9 @@ public class TwelveYearOldKid extends Monster{
 	attackName[3]="420 BLAZE IT";//Attack 4
 	ID = 3; //For identification purposes
 	name = "Twelve Year Old Kid";
+	int determinant = (int) (Math.random() * 6);
+	inventory.add ( new Weapon (determinant) );
+	equip ((Weapon) inventory.get(0));
     }
 
     public TwelveYearOldKid(int difficulty){
@@ -39,6 +42,9 @@ public class TwelveYearOldKid extends Monster{
 	attackName[2]="Microphone Screech";//Attack 3
 	attackName[3]="420 BLAZE IT";//Attack 4
 	ID = 3; //For identification purposes
+	int determinant = (int) (Math.random() * 6);
+	inventory.add ( new Weapon (determinant) );
+	equip ((Weapon) inventory.get(0));
     }
 
 }
