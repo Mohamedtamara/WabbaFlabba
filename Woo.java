@@ -121,7 +121,7 @@ public class Woo{
 		    }
 		}
 	    }
-	    if (level == 3) {
+	    if (level == 6) {
 		return;
 	    }
 	}
@@ -129,16 +129,14 @@ public class Woo{
 
     public void monsterChoose(){
 	double prop = (Math.random() * 10);
-	if (prop < 2.0)
-	    drag = new Monster();
-	else if (prop < 4.0)
-	    drag = new Goblin();
-	else if (prop < 6.0)
-	    drag = new TwelveYearOldKid();
-	else if (prop < 8.0)
-	    drag = new Shark();
-	else
+	if (prop < 2.5)
 	    drag = new Shrek();
+	else if (prop < 5.0)
+	    drag = new Goblin();
+	else if (prop < 7.5)
+	    drag = new TwelveYearOldKid();
+	else if (prop < 10.0)
+	    drag = new Shark();
     }
 
     public void battle() {

@@ -79,7 +79,8 @@ cd../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
 11:50
 Max Korsun::Began work on fixing Github issues and other essential
 bug fixes.At this time, fixed the issues where running from battle 
-does not reprint the map. Added SOP to fix it.
+does not reprint the map. Added SOP to fix it. Fixed issue where 
+not all battled monsters drop items.
 
 00:00
 Mohamed Tamara: Added attacks 1, 2, 3, and 4 for every
