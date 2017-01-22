@@ -165,12 +165,12 @@ public class Map {
     public String arrayListToString (ArrayList felipe) {
 	String result = "[";
 	for (int i = 0; i < felipe.size(); i++) {
-	    /* if (i == felipe.size() - 2) {
-		result +=  felipe.get(i);
+	    if (i == felipe.size() - 1) {
+		result += felipe.get(i);
 	    }
-	    else {*/
+	    else {
 		result += felipe.get(i) + "  ";
-		//  }
+	    }
 	}
 	result += "]";
 	return result;
