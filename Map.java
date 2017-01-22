@@ -123,7 +123,7 @@ public class Map {
 	for (int x = 1; x <mapWidth-1; x ++) {
 	    int filler = 0;
 	    while (filler < mapWidth) {
-		test [x].add('*');
+		test [x].add('.');
 		filler++;
 	    }
 	}
@@ -155,11 +155,25 @@ public class Map {
 	String retStr = "";
 	int x = 0;
 	while (x < mapWidth) {
-	    retStr += test [x];
+	    retStr += arrayListToString(test[x]);
 	    retStr += "\n";
 	    x++;
 	}
 	return retStr;
+    }
+
+    public String arrayListToString (ArrayList felipe) {
+	String result = "[";
+	for (int i = 0; i < felipe.size(); i++) {
+	    /* if (i == felipe.size() - 2) {
+		result +=  felipe.get(i);
+	    }
+	    else {*/
+		result += felipe.get(i) + "  ";
+		//  }
+	}
+	result += "]";
+	return result;
     }
     
     public void moveUp () {
@@ -375,12 +389,18 @@ public class Map {
         
 	
     public static void main (String [] args) {
-	//testing methods, replace the integer in the constructor with a number less than or equal to the highest possible 
+	//testing methods, replace the integer in the constructor with a number less than or equal to the highest possible
+	/* testing method for final map
 	Map five = new Map (5);
 	five.userSpawn();
 	System.out.println (five);
 	five.finalAnimation();
 	System.out.println (five);
+	*/
+
+	Map one = new Map (1);
+	one.userSpawn();
+	System.out.println(one);
 	
 	
     }

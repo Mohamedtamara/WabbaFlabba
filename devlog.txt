@@ -107,6 +107,10 @@ cutscene kept on occurring
 15:22
 Alitquan Mallick:: added access to the different types of attacks
 in battle() within Woo.java
+
+16:04
+Alitquan Mallick: changed the toString() of Map.java to create
+more aesthetic map display
 ==============================================================
 2017-01-21, 16:27
 Alitquan Mallick:: created an ArrayList known as Inventory 
