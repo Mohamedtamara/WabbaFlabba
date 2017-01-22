@@ -150,25 +150,27 @@ public class Player extends Character{
     }
 
      public void equipScreen() {
-	System.out.println (this.displayInventory());
-	System.out.println ("What would you like to equip / use?");
-	System.out.print("Please choose the number of the equipment that you want to equip or use: ");
-	equipNo = Keyboard.readInt();
-	if (equipNo <= this.inventory.size() && equipNo > -1 && this.inventory.get(equipNo) instanceof Weapon) {
-	    this.unequip((Weapon)inventory.get(0));
-	    this.inventory.add (0, inventory.get(equipNo));
-	    this.inventory.remove (equipNo + 1);
-	    this.equip ((Weapon)inventory.get(0));
-	    System.out.println ("You equipped " + inventory.get(0).getName() + ".");
-	}
-	else if (equipNo <= this.inventory.size() && equipNo > -1 && this.inventory.get(equipNo) instanceof Item) {
-	    use((Item)inventory.get(equipNo));
-	    this.inventory.remove(equipNo);
-	}
-	else {
-	    System.out.println ("ERROR in equipScreen");
-	}
-    }
+	 this.seeStats();
+	 System.out.println (this.displayInventory());
+	 System.out.println ("What would you like to equip / use?");
+	 System.out.print("Please choose the number of the equipment that you want to equip or use: ");
+	 equipNo = Keyboard.readInt();
+	 if (equipNo <= this.inventory.size() && equipNo > -1 && this.inventory.get(equipNo) instanceof Weapon) {
+	     this.unequip((Weapon)inventory.get(0));
+	     this.inventory.add (0, inventory.get(equipNo));
+	     this.inventory.remove (equipNo + 1);
+	     this.equip ((Weapon)inventory.get(0));
+	     System.out.println ("You equipped " + inventory.get(0).getName() + ".");
+	 }
+	 else if (equipNo <= this.inventory.size() && equipNo > -1 && this.inventory.get(equipNo) instanceof Item) {
+	     use((Item)inventory.get(equipNo));
+	     this.inventory.remove(equipNo);
+	 }
+	 else {
+	     System.out.println ("ERROR in equipScreen");
+	 }
+	 this.seeStats();
+     }
 
     public void resetStats(){ // this does not need to be here, currentl only for testing battle
 	HP = origHP;

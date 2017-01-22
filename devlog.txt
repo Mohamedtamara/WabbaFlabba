@@ -133,7 +133,17 @@ Weapon, Item, and Equipment
 18:33
 Alitquan Mallick:: modified Character.java and all of the attacks
 of its subclasses to correspond with changes made in Woo.java
-so that poison and paralyze can be fully functional. 
+so that poison and paralyze can be fully functional.
+
+19:27
+Max Korsun:: added in a boss battle, although not functional
+
+23:16
+Alitquan Mallick:: made boss battles functional, fixed several
+text errors, allowed enemies to instantiate with at least one
+item, allowed the j key and the equipment prompt to show
+the stats or info of any instance of equipment
+ 
 ==============================================================
 2017-01-21, 16:27
 Alitquan Mallick:: created an ArrayList known as Inventory 

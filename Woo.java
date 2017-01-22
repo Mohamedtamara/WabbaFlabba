@@ -93,19 +93,16 @@ public class Woo{
 		}
 		else if (direction == 'e') {
 		    hero.equipScreen();
+		    System.out.println (A);
 		}
 		else if (direction == 'j') {
 		    System.out.println(hero.displayInventory());
+		    System.out.println (A);
 		}
 		else {
 		    System.out.println ("THAT IS NOT AN OPTION. PAY THE PRICE");
-		}
-
-		
-		if( A.bossBattle == true){
-		    drag = new Ganondorf(difficulty);
 		    battle();
-		}else
+		}
 		if(Math.random() < chance){
 		    monsterChoose();
 		    battle();
@@ -114,13 +111,7 @@ public class Woo{
 		if (hero.getHP() <=0){
 		    level = 10;
 		    start = false;
-		}else
-		if(drag.getName() == "Ganondorf" && drag.getHP() <= 0){
-		    level = 10;
-		    start = false;
-		    System.out.println("And with that, the journey has come to an end.");
 		}
-	    
 		if (A.success == true) {
 		    level++;
 		    if (level < 6) {
@@ -130,12 +121,19 @@ public class Woo{
 			hero = new Player("Bob",playerHP,playerAtk,playerDef,playerEvasion);
 		    }
 		}
-	    }
-	    if (level == 3) {
-		return;
+		if( A.bossBattle == true){
+		    drag = new Ganondorf(difficulty);
+		    battle();
+		}
+		if(drag.getName() == "Ganondorf" && drag.getHP() <= 0){
+		    level = 10;
+		    start = false;
+		    System.out.println("And with that, the journey has come to an end.");
+		}
 	    }
 	}
     }
+    
 
     public void monsterChoose(){
 	double prop = (Math.random() * 10);
@@ -154,7 +152,7 @@ public class Woo{
     public void battle(  ) {
 	
 	boolean battling = true;
-	System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n To battle, press a to do an attack against the monster and press d to defend instead.");
+	System.out.println("\n\n\n\n\n\n To battle, press a to do an attack against the monster and press d to defend instead.");
 	
 	System.out.println("A " + drag.getName() + " has appeared!");
 	while(battling == true){
@@ -162,36 +160,36 @@ public class Woo{
 		int poisonDamage = (int) (0.1 * hero.HP);
 		hero.HP -= poisonDamage;
 		hero.poisonedTurns -=1;
-		System.out.println ("You lose " + poisonDamage + " from poison!!!");
+		System.out.println (" You lose " + poisonDamage + " from poison!!!");
 		if (hero.poisonedTurns == 0) {
 		    hero.poisoned = false;
-		    System.out.println ("The poison has run out");
+		    System.out.println (" The poison has run out");
 		}
 	    }
 	    if (hero.paralyzed == true){
-		System.out.println("You can't move!");
+		System.out.println(" You can't move!");
 		hero.paralyzedTurns -=1;
 		if (hero.paralyzedTurns == 0) {
 		    hero.paralyzed = false;
-		    System.out.println ("You can move again!");
+		    System.out.println (" You can move again!");
 		}
 	    }
 	    else{
-		System.out.println("Hero's HP: "+ hero.getHP() + ".\nEnemy's HP: "+drag.getHP()+".");
-		System.out.println("What will you do: \n\t(a)  Attack\n\t(d) Defend\n\t(r) Run\n\t(s) See stats ");
-		System.out.print ("I choose: ");
+		System.out.println("\n Hero's HP: "+ hero.getHP() + ".\n Enemy's HP: "+drag.getHP()+".");
+		System.out.println(" What will you do: \n\t(a)  Attack\n\t(d) Defend\n\t(r) Run\n\t(s) See stats ");
+		System.out.print (" I choose: ");
 		char choose;
 		choose = Keyboard.readChar();
 		if (choose == 'a'){
 		    String choices = "";
 		    int attackChoice;
-		    choices = "\nChoose your attack:\n" ;
+		    choices = "\n Choose your attack:\n" ;
 		    choices += "\t1: " + hero.attackName[0] + "\n";
 		    choices += "\t2: " + hero.attackName[1] + "\n";
 		    choices += "\t3: " + hero.attackName[2] + "\n";
 		    choices += "\t4: " + hero.attackName[3] + "\n";;
 		    System.out.println (choices);
-		    System.out.print ("Selection: ");
+		    System.out.print (" Selection: ");
 		    attackChoice = Keyboard.readInt();
 		    int damage = 0;
 		    if (attackChoice == 1) {
@@ -211,7 +209,7 @@ public class Woo{
 			System.out.print( "\n You used " + hero.attackName[attackChoice - 1] + ". You dealt " + damage  +" points of damage." + "\n");
 		    }
 		    else {
-			System.out.println ("You don't know that move....");
+			System.out.println (" You don't know that move....");
 		    }
 		   
 		    dragAttack(hero);
@@ -222,7 +220,7 @@ public class Woo{
 		}
 		else if (choose == 'r'){
 		    if (hero.run() == true) {
-			System.out.println("You escaped! Sadly, you dropped your XP and potential loot behind.");
+			System.out.println(" You escaped! Sadly, you dropped your XP and potential loot behind.");
 			battling = false;
 			System.out.println(A);
 			hero.resetStats();
@@ -233,20 +231,20 @@ public class Woo{
 		    
 		}
 		else if (choose == 's'){
-		    System.out.println("Time for some stats: ");
+		    System.out.println(" Time for some stats: ");
 		    hero.seeStats();
 		    drag.seeStats();
 		}
 		else {
-		    System.out.println ("THAT IS NOT AN OPTION. PAY THE PRICE");
+		    System.out.println (" THAT IS NOT AN OPTION. PAY THE PRICE");
 		}
 	    }
 	    if (hero.getHP() <= 0) {
-		System.out.println ("You lose");
+		System.out.println (" You lose");
 		battling = false; 
 	    }else
 		if (drag.getHP() <= 0) {
-		    System.out.println ("You won");
+		    System.out.println (" You won");
 		    hero.inventoryCheck(drag);
 		    if (hero.getEXP() >= hero.getNeededEXP()){
 			hero.levelUp();
@@ -265,20 +263,20 @@ public class Woo{
 	    drag.poisonedTurns -=1;
 	    if (drag.poisonedTurns == 0) {
 		drag.poisoned = false;
-		System.out.println (drag.getName() + " is no longer poisoned");
+		System.out.println (" " + drag.getName() + " is no longer poisoned");
 	    }
 	}
 	if (drag.paralyzed == true){
-	    System.out.println(drag.getName() + "  can't move!");
+	    System.out.println(" " + drag.getName() + "  can't move!");
 	    drag.paralyzedTurns -=1;
 	    if (drag.paralyzedTurns == 0) {
 		drag.paralyzed = false;
-		System.out.println (drag.getName() + " can move again!");
+		System.out.println (" " + drag.getName() + " can move again!");
 	    }
 	}
 	else {
 	    int monDam = drag.attack1(hero);
-	    System.out.print( "\n"+drag.getName()+" used " + drag.attackName[0] + ". It dealt " + monDam + " points of damage." + "\n");
+	    System.out.print( "\n "+drag.getName()+" used " + drag.attackName[0] + ". It dealt " + monDam + " points of damage." + "\n");
 	}
     }
    
@@ -319,7 +317,7 @@ public class Woo{
 	System.out.println( titleScreen);
 	System.out.println("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t     WILL YOU ENTER?");
 	System.out.println("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t  CHOOSE: (1) YES  (2) NO");
-	System.out.print("I choose: ");
+	System.out.print(" I choose: ");
 	choice1 = Keyboard.readInt();
 	if (choice1 == 0) {
 	    return;
@@ -330,16 +328,16 @@ public class Woo{
 	}
 	else {
 	    start = true;
-	    System.out.println ("WHAT IS YOUR NAME?");
-	    System.out.print ("It is: ");
+	    System.out.println (" WHAT IS YOUR NAME?");
+	    System.out.print (" It is: ");
 	    choice2= Keyboard.readString();
 	    playerName = choice2;
-	    System.out.println ("pick your difficulty out of these: easy (1), medium (2), hard (3)");
-	    System.out.print ("I feel: ");
+	    System.out.println (" pick your difficulty out of these: easy (1), medium (2), hard (3)");
+	    System.out.print (" I feel: ");
 	    choice3 = Keyboard.readInt();
 	    difficulty = choice3;
 	    if (choice3 > 3 || choice3 < 1) {
-		System.out.println ("restart");
+		System.out.println ("Restart the game b");
 		start = false;
 	    }
 	}
@@ -365,7 +363,6 @@ public class Woo{
     public static void main(String[] args){
 	Woo Alitquan = new Woo();
 	Alitquan.title();
-	
 	Alitquan.runLevel();
     }
     

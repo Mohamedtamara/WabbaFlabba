@@ -21,8 +21,10 @@ public class Monster extends Character{
 	level = 1;
 	neededEXP = 100;
 	int determinant = (int) (Math.random() * 6);
+	int determinant2 = (int) (Math.random()* 6);
 	inventory.add ( new Weapon (determinant) );
 	equip ((Weapon) inventory.get(0));
+	inventory.add ( new Item (determinant2) );
     }
 
     //overriden constructor with difficulty

@@ -242,7 +242,6 @@ public abstract class Character{
 	tempAtk += tool.getAttackBoost();
 	tempDef += tool.getDefenseBoost();
 	tempEvasion += tool.getEvasionBoost();
-	boostState += tool.getNumTurns();
 	if (tool.getCure() == 1 && state == 1) {
  	    state = 0;
 	}
@@ -262,7 +261,7 @@ public abstract class Character{
 	    if ( inventory.size() == 0) { return "\nYou have nothing."; }
 	    records = "Here is what is inside your backpack:\n";
 	    for (int x = 0; x < inventory.size(); x++) {
-		records += "(" + counter + ") " + inventory.get(x).name + "\n";
+		records += "(" + counter + ") " + this.inventory.get(x).name + this.inventory.get(x).getStats();;
 		counter++;
 	    }
 	    return records;
@@ -271,7 +270,7 @@ public abstract class Character{
 	    int counter = 0;
 	    records = "The enemy drops:\n";
 	    for (int x = 0; x < this.inventory.size(); x++) {
-		records += "(" + counter + ") " + this.inventory.get(x).name + "\n";
+		records += "(" + counter + ") " + this.inventory.get(x).stats  + "\n";
 		counter++;
 	    }
 	    return records;

@@ -86,7 +86,6 @@ public class Map {
 	    swapPlace(9,5);
 	    swapPlace(9,2);
 	    swapPlace(1,2);
-	    swapPlace(1,6);
 	    swapPlace(2,2);
 	    swapPlace(2,6);
 	    swapPlace(2,3);
@@ -98,6 +97,21 @@ public class Map {
 	    swapPlace(9,7);
 	    swapPlace(3,7);
 	    swapPlace(3,9);
+	    swapPlace(3,10);
+	    swapPlace(4,11);
+	    swapPlace(5,11);
+	    swapPlace(6,11);
+	    swapPlace(7,11);
+	    swapPlace(8,11);
+	    swapPlace(9,11);
+	    swapPlace(10,11);
+	    swapPlace(11,11);
+	    swapPlace(11,10);
+	    swapPlace(11,9);
+	    swapPlace(11,8);
+	    swapPlace(11,7);
+	    swapPlace(12,7);
+	    swapPlace(13,7);
 	    levelPlace(13,13);
 	}
 	else if (mapNum == 5) {
@@ -251,6 +265,10 @@ public class Map {
 	    this.success = true;
 	    System.out.println ("You have moved on to the next level!!!");
 	}
+	if ((char) test[playerYpos].get(playerXpos) == 'b') {
+	    this.bossBattle = true;
+	    System.out.println ("He has awoken");
+	}
 	test[playerYpos].remove(playerXpos);
 	if (movementSignal == 1) {
 	    test[playerYpos].add(playerXpos,'o');
@@ -275,10 +293,7 @@ public class Map {
 	    this.success = true;
 	    System.out.println ("You have moved on to the next level!!!");
 	}
-	if ((char) test[playerYpos].get(playerXpos) == 'b') {
-	    this.bossBattle = true;
-	    System.out.println ("He has awoken");
-	}
+        
 	System.out.println (this);
     }
 
@@ -403,9 +418,9 @@ public class Map {
 	System.out.println (five);
 	*/
 
-	Map one = new Map (1);
-	one.userSpawn();
-	System.out.println(one);
+	Map four = new Map (4);
+	four.userSpawn();
+	System.out.println(four);
 	
 	
     }
