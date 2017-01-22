@@ -1,4 +1,3 @@
-
 public class Item extends Equipment {
     private int healthBoost = 0;
     private int attackBoost = 0;

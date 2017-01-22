@@ -107,6 +107,18 @@ cutscene kept on occurring
 15:22
 Alitquan Mallick:: added access to the different types of attacks
 in battle() within Woo.java
+
+15:34
+Mohamed Tamara: Fixed Stats for Monsters. Should always deal
+damage now.
+
+16:17
+Mohamed Tamara: Implemenred random attacks into battles, except
+they're not truly random. Will fix.
+
+17:41
+Mohamed Tamara: Added comments to All classes except Woo, Map
+Weapon, Item, and Equipment
 ==============================================================
 2017-01-21, 16:27
 Alitquan Mallick:: created an ArrayList known as Inventory 

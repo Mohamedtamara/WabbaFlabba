@@ -1,5 +1,5 @@
-
 public class Weapon extends Equipment{
+    
     private int equipAttack = 0;
     private int  equipDefense = 0;
     private int  equipEvasion = 0;
@@ -7,9 +7,11 @@ public class Weapon extends Equipment{
     public int getEquipAttack() {
 	return equipAttack;
     }
+    
     public int getEquipDefense() {
 	return equipDefense;
     }
+    
     public int getEquipEvasion() {
 	return equipEvasion;
     }

@@ -126,14 +126,16 @@ public class Woo{
 
     public void monsterChoose(){
 	double prop = (Math.random() * 10);
-	if (prop < 2.5)
-	    drag = new Shrek(difficulty);
-	else if (prop < 5.0)
+	if (prop < 2.0)
+	    drag = new Monster(difficulty);
+	else if (prop < 4.0)
 	    drag = new Goblin(difficulty);
-	else if (prop < 7.5)
+	else if (prop < 6.0)
 	    drag = new TwelveYearOldKid(difficulty);
-	else if (prop < 10.0)
+	else if (prop < 8.0)
 	    drag = new Shark(difficulty);
+	else if (prop < 10.0)
+	    drag = new Shrek(difficulty);
     }
 
     public void battle() {
@@ -183,12 +185,14 @@ public class Woo{
 		    else {
 			System.out.println ("You don't know that move....");
 		    }
-		    System.out.print ( "\n You  dealt " + damage  +" points of damage." + "\n");
-		    drag.attack1(hero);
+		    System.out.print( "\n You used " + hero.attackName[attackChoice - 1] + ". You dealt " + damage  +" points of damage." + "\n");
+		    int monDam = drag.attack1(hero);
+		    System.out.print( "\n The Monster used " + drag.attackName[attackChoice - 1] + ". It dealt " + monDam + " points of damage." + "\n");
 		}
 		else if (choose == 'd'){
 		    hero.defend();
-		    drag.attack1(hero);
+		    int monDam = drag.attack1(hero);
+		    System.out.print( "\n The Monster used " + drag.attackName[1] + ". It dealt " + monDam + " points of damage." + "\n");
 		}
 		else if (choose == 'r'){
 		    if (hero.run() == true) {
@@ -220,6 +224,9 @@ public class Woo{
 		if (drag.getHP() <= 0) {
 		    System.out.println ("You won");
 		    hero.inventoryCheck(drag);
+		    if (hero.getEXP() >= hero.getNeededEXP()){
+			hero.levelUp();
+		    }
 		    System.out.println(A);
 		    battling=false;
 		hero.resetStats();

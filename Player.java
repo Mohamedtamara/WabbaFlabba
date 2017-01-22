@@ -1,7 +1,8 @@
-
 import cs1.Keyboard;
+
 public class Player extends Character{
-    private int equipNo;
+    
+    private int equipNo, EXP, neededEXP, level;
 
     public Player(){
 	inventory.add (  new Weapon(0) );
@@ -15,6 +16,9 @@ public class Player extends Character{
 	attackName[2]="Tae Kwon Do Kick";//Attack 3
 	attackName[3]="Butterfly";//Attack 4
 	ID = 0;
+	EXP = 0;
+	level = 1;
+	neededEXP = 100;
 	name ="";
     }
 
@@ -30,6 +34,9 @@ public class Player extends Character{
 	attackName[2]="Tae Kwon Do Kick";//Attack 3
 	attackName[3]="Butterfly";//Attack 4
 	ID = 0;
+	EXP = 0;
+	level = 1;
+	neededEXP = 100;
 	name = "";
     }
 
@@ -169,9 +176,20 @@ public class Player extends Character{
 	def = origDef;
     }
 
+    /*
+      This checks if the EXP of the Player
+      is enough for him to level up.
+    */
+    
+    public void levelUp(){
+	EXP -= neededEXP;
+	neededEXP *= 2;
+	level++;
+    }
+
     public static void main (String [] args) {
-	Player Alitquan = new Player();
-	System.out.println (Alitquan.displayInventory ());
+	Player Maximillian = new Player();
+	System.out.println (Maximillian.displayInventory ());
     }
     
 }
