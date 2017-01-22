@@ -146,8 +146,10 @@ public class Woo{
 	System.out.println("A " + drag.getName() + " has appeared!");
 	while(battling == true){
 	    if (hero.poisoned == true){
-		hero.HP -= (int) (0.1 * hero.HP);
+		int poisonDamage = (int) (0.1 * hero.HP);
+		hero.HP -= poisonDamage;
 		hero.poisonedTurns -=1;
+		System.out.println ("You lose " + poisonDamage + " from poison!!!");
 		if (hero.poisonedTurns == 0) {
 		    hero.poisoned = false;
 		    System.out.println ("The poison has run out");

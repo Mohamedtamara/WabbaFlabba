@@ -169,7 +169,7 @@ public abstract class Character{
     
     //Effect #1
     public void poison(Character opponent){ 
-	opponent.state = 1;
+	opponent.poisoned = true;
 	opponent.poisonedTurns = 5;
 	if (this instanceof Player) {
 	    System.out.println ("You poisoned " + opponent.getName() + "!!!");
@@ -181,7 +181,7 @@ public abstract class Character{
 
     //Effect #2
     public void paralyze(Character opponent){
-	opponent.state = 2;
+	opponent.paralyzed = true;
 	opponent.paralyzedTurns = 3;
 	if (this instanceof Player) {
 	    System.out.println ("You paralyzed " + opponent.getName() + "!!!");
