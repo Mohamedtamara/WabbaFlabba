@@ -25,13 +25,16 @@ public abstract class Character{
       as stats are numerical but not decimals.
     */
     
-    protected int HP, atk, def, evasion, state, origHP, origAtk, origDef, origEvasion, tempAtk, tempDef, tempEvasion, ID, boostState, stateTurns, space, EXP, neededEXP, level;
+    protected int HP, atk, def, evasion, state, origHP, origAtk, origDef, origEvasion, tempAtk, tempDef, tempEvasion, ID, boostState, poisonedTurns,
+	paralyzedTurns, space, EXP,neededEXP, level;
 
     /*
       Name of each monster will differ, but will
       be the same name as of the file name, except
       for the hero.
     */
+
+    protected boolean poisoned, paralyzed;
 
     protected String name;
 
@@ -165,14 +168,27 @@ public abstract class Character{
     }
     
     //Effect #1
-    public void poisoned(){ 
-	state = 1;
-	HP -= (HP * .05);
+    public void poison(Character opponent){ 
+	opponent.state = 1;
+	opponent.poisonedTurns = 5;
+	if (this instanceof Player) {
+	    System.out.println ("You poisoned " + opponent.getName() + "!!!");
+	}
+	else {
+	    System.out.println ("You have been poisoned by " + opponent.getName() + "!!!");
+	}
     }
 
     //Effect #2
-    public void paralyzed(){
-	state = 2;
+    public void paralyze(Character opponent){
+	opponent.state = 2;
+	opponent.paralyzedTurns = 3;
+	if (this instanceof Player) {
+	    System.out.println ("You paralyzed " + opponent.getName() + "!!!");
+	}
+	else {
+	    System.out.println ("You have been paralyzed by " + opponent.getName() + "!!!");
+	}
     }
 
     //Effect #3

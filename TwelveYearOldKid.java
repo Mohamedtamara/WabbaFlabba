@@ -86,7 +86,7 @@ public class TwelveYearOldKid extends Monster{
 	    damage = 0;
 	}
 	w.lowerHP(damage);
-	w.poisoned();
+	poison(w);
         return damage;
     }
 
@@ -97,7 +97,7 @@ public class TwelveYearOldKid extends Monster{
 	    damage = 0;
 	}
 	w.lowerHP(damage);
-	w.paralyzed();
+	paralyze(w);
         return damage;
     }
 

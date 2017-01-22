@@ -84,7 +84,7 @@ public class Shrek extends Monster{
 	    damage = 0;
 	}
 	w.lowerHP(damage);
-	w.paralyzed();
+	paralyze(w);
         return damage;
     }
 

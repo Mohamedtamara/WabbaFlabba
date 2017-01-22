@@ -76,7 +76,7 @@ public class Shark extends Monster{
 	    damage = 0;
 	}
 	w.lowerHP(damage);
-	w.poisoned();
+	poison(w);
         return damage;
     }
 
@@ -107,8 +107,8 @@ public class Shark extends Monster{
 	    damage = 0;
 	}
 	w.lowerHP(damage);
-	w.poisoned();
-	w.paralyzed();
+	poison(w);
+	paralyze(w);
         return damage;
     }
     

@@ -105,7 +105,7 @@ public class Goblin extends Monster{
 	    damage = 0;
 	}
 	w.lowerHP(damage);
-	w.poisoned();
+	poison(w);
         return damage;
     }
 }

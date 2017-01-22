@@ -145,12 +145,21 @@ public class Woo{
 	monsterChoose();
 	System.out.println("A " + drag.getName() + " has appeared!");
 	while(battling == true){
-	    if (hero.getState() == 1){
-		System.out.println("Oh no! You've been poisoned!");
-		
+	    if (hero.poisoned == true){
+		hero.HP -= (int) (0.1 * hero.HP);
+		hero.poisonedTurns -=1;
+		if (hero.poisonedTurns == 0) {
+		    hero.poisoned = false;
+		    System.out.println ("The poison has run out");
+		}
 	    }
-	    if (hero.getState() == 2){
+	    if (hero.paralyzed == true){
 		System.out.println("You can't move!");
+		hero.paralyzedTurns -=1;
+		if (hero.paralyzedTurns == 0) {
+		    hero.paralyzed = false;
+		    System.out.println ("You can move again!");
+		}
 	    }
 	    else{
 		System.out.println("Hero's HP: "+ hero.getHP() + ".\nEnemy's HP: "+drag.getHP()+".");
@@ -171,7 +180,7 @@ public class Woo{
 		    attackChoice = Keyboard.readInt();
 		    int damage = 0;
 		    if (attackChoice == 1) {
-			 damage = hero.attack1 (drag);
+			damage = hero.attack1 (drag);
 		    }
 		    else if (attackChoice == 2) {
 			damage = hero.attack2 (drag);
@@ -186,13 +195,11 @@ public class Woo{
 			System.out.println ("You don't know that move....");
 		    }
 		    System.out.print( "\n You used " + hero.attackName[attackChoice - 1] + ". You dealt " + damage  +" points of damage." + "\n");
-		    int monDam = drag.attack1(hero);
-		    System.out.print( "\n The Monster used " + drag.attackName[attackChoice - 1] + ". It dealt " + monDam + " points of damage." + "\n");
+		    dragAttack(hero);
 		}
 		else if (choose == 'd'){
 		    hero.defend();
-		    int monDam = drag.attack1(hero);
-		    System.out.print( "\n The Monster used " + drag.attackName[1] + ". It dealt " + monDam + " points of damage." + "\n");
+		    dragAttack(hero);
 		}
 		else if (choose == 'r'){
 		    if (hero.run() == true) {
@@ -202,11 +209,10 @@ public class Woo{
 			hero.resetStats();
 		    }
 		    else {
-			drag.attack1(hero);
+		        dragAttack(hero);
 		    }
 		    
 		}
-		
 		else if (choose == 's'){
 		    System.out.println("Time for some stats: ");
 		    hero.seeStats();
@@ -219,7 +225,6 @@ public class Woo{
 	    if (hero.getHP() <= 0) {
 		System.out.println ("You lose");
 		battling = false; 
-		
 	    }else
 		if (drag.getHP() <= 0) {
 		    System.out.println ("You won");
@@ -234,6 +239,29 @@ public class Woo{
 	}
     }
     
+    //incorporate random attacks into here
+    public void dragAttack(Character opponent) {
+	if (drag.poisoned == true){
+	    drag.HP -= (int) (0.1 * hero.HP);
+	    drag.poisonedTurns -=1;
+	    if (drag.poisonedTurns == 0) {
+		drag.poisoned = false;
+		System.out.println (drag.getName() + " is no longer poisoned");
+	    }
+	}
+	if (drag.paralyzed == true){
+	    System.out.println(drag.getName() + "  can't move!");
+	    drag.paralyzedTurns -=1;
+	    if (drag.paralyzedTurns == 0) {
+		drag.paralyzed = false;
+		System.out.println (drag.getName() + " can move again!");
+	    }
+	}
+	else {
+	    int monDam = drag.attack1(hero);
+	    System.out.print( "\n The Monster used " + drag.attackName[0] + ". It dealt " + monDam + " points of damage." + "\n");
+	}
+    }
    
         
 	    

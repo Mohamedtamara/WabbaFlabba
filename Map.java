@@ -6,6 +6,7 @@ public class Map {
     int mapLength;
     int mapWidth;
     boolean success = false;
+    boolean bossBattle = false;
 
     public ArrayList [] test = new ArrayList [20];
 
@@ -273,6 +274,10 @@ public class Map {
 	if ((char) test[playerYpos].get(playerXpos) == 'l') {
 	    this.success = true;
 	    System.out.println ("You have moved on to the next level!!!");
+	}
+	if ((char) test[playerYpos].get(playerXpos) == 'b') {
+	    this.bossBattle = true;
+	    System.out.println ("He has awoken");
 	}
 	System.out.println (this);
     }
