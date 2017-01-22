@@ -60,6 +60,7 @@ public class Monster extends Character{
 	    damage = 0;
 	}
 	w.lowerHP(damage);
+	w.paralyzed();
         return damage;
     }
 
@@ -78,6 +79,7 @@ public class Monster extends Character{
 	    damage = 0;
 	}
 	w.lowerHP(damage);
+	w.poisoned();
         return damage;
     }
 

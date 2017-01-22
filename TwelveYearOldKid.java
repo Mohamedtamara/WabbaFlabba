@@ -47,4 +47,41 @@ public class TwelveYearOldKid extends Monster{
 	equip ((Weapon) inventory.get(0));
     }
 
+    public int attack1(Character w){
+	int damage = (int)(atk - w.getTempDefense());
+	if (damage <= 0){
+	    damage = 0;
+	}
+	w.lowerHP(damage);
+        return damage;
+    }
+
+    public int attack2(Character w){
+	int damage = (int)(atk + w.getAttack());
+	if (damage <= 0){
+	    damage = 0;
+	}
+	w.lowerHP(damage);
+	w.poisoned();
+        return damage;
+    }
+
+    public int attack3(Character w){
+	int damage = (int)(atk + w.getTempDefense());
+	if (damage <= 0){
+	    damage = 0;
+	}
+	w.lowerHP(damage);
+	w.paralyzed();
+        return damage;
+    }
+
+    public int attack4(Character w){
+	int damage = (int)(atk + (2 * w.getTempDefense()));
+	if (damage <= 0){
+	    damage = 0;
+	}
+	w.lowerHP(damage);
+        return damage;
+    }
 }
