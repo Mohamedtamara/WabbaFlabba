@@ -2,7 +2,7 @@ public class Goblin extends Monster{
 
     public Goblin(){
 	HP = origHP = 40;
-	atk = origAtk = tempAtk = 12;
+	atk = origAtk = tempAtk = 20;
 	def = origDef = tempDef = 6;
 	evasion = tempEvasion =  origEvasion = 8;
 	state = 0;
@@ -20,13 +20,13 @@ public class Goblin extends Monster{
     public Goblin(int difficulty){
 	if (difficulty == 1){
 	    HP = origHP = 40;
-	    atk = origAtk = tempAtk = 12;
+	    atk = origAtk = tempAtk = 20;
 	    def = origDef = tempDef = 6;
 	    evasion = tempEvasion =  origEvasion = 8;
 	}
 	if (difficulty == 2){
 	    HP = origHP = 60;
-	    atk = origAtk = tempAtk = 18;
+	    atk = origAtk = tempAtk = 22;
 	    def = origDef = tempDef = 12;
 	    evasion = tempEvasion =  origEvasion = 12;
 	}
@@ -36,6 +36,7 @@ public class Goblin extends Monster{
 	    def = origDef = tempDef = 18;
 	    evasion = tempEvasion =  origEvasion = 16;
 	}
+	name = "Goblin";
 	state = 0;
 	attackName[0]="Storm of Needles"; //Attack 1
 	attackName[1]="Multi Bite"; //Attack 2

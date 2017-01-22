@@ -80,7 +80,12 @@ cd../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
 Max Korsun::Began work on fixing Github issues and other essential
 bug fixes.At this time, fixed the issues where running from battle 
 does not reprint the map. Added SOP to fix it. Fixed issue where 
-not all battled monsters drop items.
+not all battled monsters drop items. Changed stats so that enemies 
+are always able to do damage. You can defend yourself to infinity 
+still, however. Plan on fixing by making a simple max def attribute.
+When you run away but fail the enemy still attacks now. Made a method
+to reset player stats after a battle. this is until we find another
+way to heal up.
 
 00:00
 Mohamed Tamara: Added attacks 1, 2, 3, and 4 for every

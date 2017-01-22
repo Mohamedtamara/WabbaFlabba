@@ -1,3 +1,4 @@
+
 import cs1.Keyboard;
 public class Player extends Character{
     private int equipNo;
@@ -160,6 +161,12 @@ public class Player extends Character{
 	else {
 	    System.out.println ("ERROR in equipScreen");
 	}
+    }
+
+    public void resetStats(){ // this does not need to be here, currentl only for testing battle
+	HP = origHP;
+	state = 0;
+	def = origDef;
     }
 
     public static void main (String [] args) {

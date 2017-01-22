@@ -107,7 +107,7 @@ public class Woo{
 		}
 		
 		if (hero.getHP() <=0){
-		    // level = 10;
+		    level = 10;
 		    start = false;
 		}
 	    
@@ -121,7 +121,7 @@ public class Woo{
 		    }
 		}
 	    }
-	    if (level == 6) {
+	    if (level == 3) {
 		return;
 	    }
 	}
@@ -130,13 +130,13 @@ public class Woo{
     public void monsterChoose(){
 	double prop = (Math.random() * 10);
 	if (prop < 2.5)
-	    drag = new Shrek();
+	    drag = new Shrek(difficulty);
 	else if (prop < 5.0)
-	    drag = new Goblin();
+	    drag = new Goblin(difficulty);
 	else if (prop < 7.5)
-	    drag = new TwelveYearOldKid();
+	    drag = new TwelveYearOldKid(difficulty);
 	else if (prop < 10.0)
-	    drag = new Shark();
+	    drag = new Shark(difficulty);
     }
 
     public void battle() {
@@ -171,7 +171,10 @@ public class Woo{
 			System.out.println("You escaped! Sadly, you dropped your XP and potential loot behind.");
 			battling = false;
 			System.out.println(A);
-			
+			hero.resetStats();
+		    }
+		    else {
+			drag.attack1(hero);
 		    }
 
 		}
@@ -195,6 +198,7 @@ public class Woo{
 		hero.inventoryCheck(drag);
 		System.out.println(A);
 		battling=false;
+		hero.resetStats();
 	    }
 		
 	}

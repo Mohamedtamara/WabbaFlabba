@@ -36,6 +36,8 @@ public class TwelveYearOldKid extends Monster{
 	    def = origDef = tempDef = 40;
 	    evasion = tempEvasion =  origEvasion = 40;
 	}
+	name = "Twelve Year Old Kid";
+
 	state = 0;
 	attackName[0]="NO SCOPED"; //Attack 1
 	attackName[1]="Doritos & Mountain Dew"; //Attack 2

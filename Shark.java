@@ -2,7 +2,7 @@ public class Shark extends Monster{
 
     public Shark(){
 	HP = origHP = 80;
-	atk = origAtk = tempAtk = 18;
+	atk = origAtk = tempAtk = 22;
 	def = origDef = tempDef = 8;
 	evasion = tempEvasion =  origEvasion = 5;
 	state = 0;
@@ -20,7 +20,7 @@ public class Shark extends Monster{
     public Shark(int difficulty){
 	if (difficulty == 1){
 	    HP = origHP = 80;
-	    atk = origAtk = tempAtk = 18;
+	    atk = origAtk = tempAtk = 22;
 	    def = origDef = tempDef = 8;
 	    evasion = tempEvasion =  origEvasion = 5;
 	}
@@ -32,10 +32,11 @@ public class Shark extends Monster{
 	}
 	if (difficulty == 3){
 	    HP = origHP = 160;
-	    atk = origAtk = tempAtk = 30;
+	    atk = origAtk = tempAtk = 26 ;
 	    def = origDef = tempDef = 16;
 	    evasion = tempEvasion =  origEvasion = 15;
 	}
+	name = "Shark";
 	state = 0;
 	attackName[0]="Great White Bite"; //Attack 1
 	attackName[1]="Hammerhead"; //Attack 2

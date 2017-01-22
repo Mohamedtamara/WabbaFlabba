@@ -2,7 +2,7 @@ public class Shrek extends Monster{
 
     public Shrek(){
 	HP = origHP = 120;
-	atk = origAtk = tempAtk = 14;
+	atk = origAtk = tempAtk = 25;
 	def = origDef = tempDef = 10;
 	evasion = tempEvasion =  origEvasion = 16;
 	state = 0;
@@ -20,13 +20,13 @@ public class Shrek extends Monster{
     public Shrek(int difficulty){
 	if (difficulty == 1){
 	    HP = origHP = 120;
-	    atk = origAtk = tempAtk = 14;
+	    atk = origAtk = tempAtk = 25;
 	    def = origDef = tempDef = 10;
 	    evasion = tempEvasion =  origEvasion = 16;
 	}
 	if (difficulty == 2){
 	    HP = origHP = 240;
-	    atk = origAtk = tempAtk = 28;
+	    atk = origAtk = tempAtk = 36;
 	    def = origDef = tempDef = 20;
 	    evasion = tempEvasion =  origEvasion = 32;
 	}
@@ -36,6 +36,8 @@ public class Shrek extends Monster{
 	    def = origDef = tempDef = 20;
 	    evasion = tempEvasion =  origEvasion = 48;
 	}
+	name = "Shrek";
+
 	state = 0;
 	attackName[0]="Layers of Onions"; //Attack 1
 	attackName[1]="The Fibonacchi Sequence"; //Attack 2
