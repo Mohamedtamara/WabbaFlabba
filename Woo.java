@@ -152,11 +152,38 @@ public class Woo{
 	    }
 	    else{
 		System.out.println("Hero's HP: "+ hero.getHP() + ".\nEnemy's HP: "+drag.getHP()+".");
-		System.out.println("Will you Attack (a), Defend (d), Run (r), or see your stats (s) ? ");
+		System.out.println("What will you do: \n\t(a)  Attack\n\t(d) Defend\n\t(r) Run\n\t(s) See stats ");
+		System.out.print ("I choose: ");
 		char choose;
 		choose = Keyboard.readChar();
 		if (choose == 'a'){
-		    hero.attack1(drag);
+		    String choices = "";
+		    int attackChoice;
+		    choices = "\nChoose your attack:\n" ;
+		    choices += "\t1: " + hero.attackName[0] + "\n";
+		    choices += "\t2: " + hero.attackName[1] + "\n";
+		    choices += "\t3: " + hero.attackName[2] + "\n";
+		    choices += "\t4: " + hero.attackName[3] + "\n";;
+		    System.out.println (choices);
+		    System.out.print ("Selection: ");
+		    attackChoice = Keyboard.readInt();
+		    int damage = 0;
+		    if (attackChoice == 1) {
+			 damage = hero.attack1 (drag);
+		    }
+		    else if (attackChoice == 2) {
+			damage = hero.attack2 (drag);
+		    }
+		    else if (attackChoice == 3) {
+			damage = hero.attack3 (drag);
+		    }
+		    else if (attackChoice == 4) {
+			damage= hero.attack4 (drag);
+		    }
+		    else {
+			System.out.println ("You don't know that move....");
+		    }
+		    System.out.print ( "\n You  dealt " + damage  +" points of damage." + "\n");
 		    drag.attack1(hero);
 		}
 		else if (choose == 'd'){
@@ -173,7 +200,7 @@ public class Woo{
 		    else {
 			drag.attack1(hero);
 		    }
-
+		    
 		}
 		
 		else if (choose == 's'){
@@ -190,17 +217,16 @@ public class Woo{
 		battling = false; 
 		
 	    }else
-	    if (drag.getHP() <= 0) {
-		System.out.println ("You won");
-		hero.inventoryCheck(drag);
-		System.out.println(A);
-		battling=false;
+		if (drag.getHP() <= 0) {
+		    System.out.println ("You won");
+		    hero.inventoryCheck(drag);
+		    System.out.println(A);
+		    battling=false;
 		hero.resetStats();
-	    }
-		
+		}
 	}
     }
-
+    
    
         
 	    
