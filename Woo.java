@@ -75,7 +75,7 @@ public class Woo{
 		 
 		System.out.println ();
 		System.out.print ("Choose a direction to move, or select (i) for movement instructions: ");
-		String instructions = ("Press w to move up\nPress a to move right\nPress d to move right\nPress s to move down");
+		String instructions = ("Press w to move up\nPress a to move right\nPress d to move right\nPress s to move down\nPress J to view inventory");
 		char direction;
 		direction = Keyboard.readChar();
 		if(direction == 'w'){ //Looking up because she down
@@ -172,6 +172,8 @@ public class Woo{
 		    if (hero.run() == true) {
 			System.out.println("You escaped! Sadly, you dropped your XP and potential loot behind.");
 			battling = false;
+			System.out.println(A);
+			
 		    }
 
 		}
@@ -189,7 +191,7 @@ public class Woo{
 		System.out.println ("You lose");
 		battling = false; 
 		
-	    }
+	    }else
 	    if (drag.getHP() <= 0) {
 		System.out.println ("You won");
 		hero.inventoryCheck(drag);
