@@ -74,6 +74,13 @@ cd../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
    \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
+2017-01-22, 00:00
+Mohamed Tamara: Added attacks 1, 2, 3, and 4 for every
+Monster. Each Monster has the same attack stats for now, but
+should soon do a varying amount of damage. Also, some attacks
+for the Monsters have poison and paralyze implementation.
+
+==============================================================
 2017-01-21, 16:27
 Alitquan Mallick:: created an ArrayList known as Inventory 
 within Character.java. This will hold all sorts of equipment
@@ -87,7 +94,9 @@ with a random weapon in its inventory, which is equipped. The
 player, however, is instantiated with a fixed weapon (a wrench).
 Also added a new map, reordered the map cycle, and implemented
 the last map which was made earlier this week but was not 
-implemented. 
+implemented.
+
+
 
 ==============================================================
 2017-01-20, 10:58
