@@ -104,6 +104,7 @@ public class Map {
 	    border();
 	    playerXpos = 7;
 	    playerYpos = 6;
+	    finalAnimation();
 	}
 	    
 	else {
@@ -142,6 +143,11 @@ public class Map {
     public void levelPlace (int index, int index2) {
 	test[index].remove(index2);
 	test[index].add(index2,'l');
+    }
+
+    public void bossPlace (int index, int index2) {
+	test[index].remove(index2);
+	test[index].add(index2,'b');
     }
 
     
@@ -350,6 +356,9 @@ public class Map {
 	swapPlace(8,12);
 	transition();
 	swapPlace(8,11);
+	transition();
+	bossPlace (13,7);
+	transition();
     }
 
     public void transition() {
