@@ -74,7 +74,12 @@ cd../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
    \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
-2017-01-22, 01:26
+2017-01-22, 
+17:00
+Max Korsun:: added Ganondorf.java. this will be the final boss.
+currently no implementation.
+
+01:26
 Alitquan Mallick:: Added a successfully working inventory
 system, although they testing for Items still has to be done 
 
