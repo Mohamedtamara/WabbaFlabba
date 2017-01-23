@@ -33,26 +33,26 @@ public class TwelveYearOldKid extends Monster{
     //overriden constructor with difficulty
     public TwelveYearOldKid(int difficulty){
 	if (difficulty == 1){
-	    HP = origHP = 420;
-	    atk = origAtk = tempAtk = 20;
-	    def = origDef = tempDef = 20;
-	    evasion = tempEvasion =  origEvasion = 20;
+	    HP = origHP = 300;
+	    atk = origAtk = tempAtk = 15;
+	    def = origDef = tempDef = 5;
+	    evasion = tempEvasion =  origEvasion = 15;
 	    EXP = 30;
 	    level = 1;
 	}
 	if (difficulty == 2){
-	    HP = origHP = 420;
-	    atk = origAtk = tempAtk = 30;
-	    def = origDef = tempDef = 30;
-	    evasion = tempEvasion =  origEvasion = 30;
+	    HP = origHP = 350;
+	    atk = origAtk = tempAtk = 25;
+	    def = origDef = tempDef = 10;
+	    evasion = tempEvasion =  origEvasion = 20;
 	    EXP = 60;
 	    level = 2;
 	}
 	if (difficulty == 3){
 	    HP = origHP = 420;
-	    atk = origAtk = tempAtk = 40;
-	    def = origDef = tempDef = 40;
-	    evasion = tempEvasion =  origEvasion = 40;
+	    atk = origAtk = tempAtk = 30;
+	    def = origDef = tempDef = 15;
+	    evasion = tempEvasion =  origEvasion = 25;
 	    EXP = 90;
 	    level = 3;
 	}
@@ -71,7 +71,7 @@ public class TwelveYearOldKid extends Monster{
 
     //NO SCOPED
     public int attack1(Character w){
-	int damage = (int)(atk - (0.5 * w.getTempDefense()));
+	int damage = (int)(atk - ( w.getTempDefense()) - 10);
 	if (damage <= 0){
 	    damage = 0;
 	}
@@ -81,7 +81,7 @@ public class TwelveYearOldKid extends Monster{
 
     //Doritos & Mountain Dew
     public int attack2(Character w){
-	int damage = (int)(atk + w.getAttack());
+	int damage = (int)(atk - (.5*  w.getAttack()) - 15);
 	if (damage <= 0){
 	    damage = 0;
 	}
@@ -92,7 +92,7 @@ public class TwelveYearOldKid extends Monster{
 
     //Microphone Screech
     public int attack3(Character w){
-	int damage = (int)(atk + w.getTempDefense());
+	int damage = (int)(atk +  ( .1 * w.getTempDefense()) - 5);
 	if (damage <= 0){
 	    damage = 0;
 	}
@@ -103,7 +103,7 @@ public class TwelveYearOldKid extends Monster{
 
     //420 BLAZE IT
     public int attack4(Character w){
-	int damage = (int)(atk + (2 * w.getTempDefense()));
+	int damage = (int)(atk + (.5 * w.getTempDefense()) - 10);
 	if (damage <= 0){
 	    damage = 0;
 	}

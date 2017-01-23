@@ -1,3 +1,6 @@
+/* a subclass of equipment that provides permanent 
+attribute boosts to a character
+*/
 public class Item extends Equipment {
 
     private int healthBoost = 0;
@@ -21,37 +24,38 @@ public class Item extends Equipment {
 	if (type == 0) {
 	    name = "Red Bull";
 	    healthBoost = 100;
-	    attackBoost = 15;
-	    defenseBoost = 10;
-	    evasionBoost = 10;
-	    stats = "\t" + this.name + "Increases health. Also boosts  attack, defense, and evasion for three turns.";
+	    attackBoost = 5;
+	    defenseBoost = 5;
+	    evasionBoost = 5;
+	    stats = getName() + "\t" + "Increases health. Also boosts  attack, defense, and evasion.";
 	}
 	else if (type == 1) {
 	    name = "Ambrosia";
+	    healthBoost += (int) ( 50 + (Math.random() * 10));
 	    cure = 1;
-	    stats = "\t" + this.name + "Cures paralysis";
+	    stats = getName() + "\t" + "Cures paralysis";
 	}
 	else if (type == 2) {
 	    name = "RadaAway";
 	    cure = 2;
-	    stats = "\t" + this.name + "Cures poison";
+	    stats = getName() + "\t"  + "Cures poison";
 	}
 	else if (type == 3) {
 	    name = "Buffout";
-	    attackBoost = 65;
-	    stats = "\t" + this.name + "Increases strength tremendously.";
+	    attackBoost = (int) ( 15 + (Math.random() * 15));
+	    stats = getName() + "\t" + "Increases strength tremendously.";
 	}
 	else if (type == 4) {
 	    name = "Senzu Bean";
-	    healthBoost = 200;
-	    attackBoost = 50;
-	    evasionBoost = 10;
-	    stats= "\t" + this.name + "Increases health and strength.";
+	    healthBoost = (int) ( 200 + (Math.random() * 100));
+	    attackBoost = (int) ( 10 + (Math.random() * 10));
+	    evasionBoost = (int) ( 5 + (Math.random() * 10));
+	    stats= getName() + "\t"  + "Increases health and strength.";
 	}
 	else if (type == 5) {
 	    name = "Med-X";
-	    defenseBoost = 35;
-	    stats= "\t" + this.name + "Raises defense";
+	    defenseBoost = (int) ( 10 + (Math.random() * 10));
+	    stats= getName() + "\t"  + "Raises defense";
 	}
 	else {
 	    System.out.println ("NO, that is not an item.");

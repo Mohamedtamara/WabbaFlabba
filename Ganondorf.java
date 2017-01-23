@@ -19,20 +19,20 @@ public class Ganondorf extends Monster{
       public Ganondorf(int difficulty){
 	  if (difficulty == 1){
 	      HP = origHP = 500;
-	      atk = origAtk = tempAtk = 32;
-	      def = origDef = tempDef = 20;
+	      atk = origAtk = tempAtk = 35;
+	      def = origDef = tempDef = 25;
 	      evasion = tempEvasion = origEvasion = 19;
 	  }else
 	  if (difficulty == 2){
 	      HP = origHP = 700;
-	      atk = origAtk = tempAtk = 38;
-	      def = origDef = tempDef = 25;
+	      atk = origAtk = tempAtk = 41;
+	      def = origDef = tempDef = 30;
 	      evasion = tempEvasion = origEvasion = 25;
 	  }else
 	  if (difficulty == 3){
 	      HP = origHP = 900;
-	      atk = origAtk = tempAtk = 44;
-	      def = origDef = tempDef = 30;
+	      atk = origAtk = tempAtk = 45;
+	      def = origDef = tempDef = 35;
 	      evasion = tempEvasion = origEvasion = 31;
 	  }
 	  state = 0;
@@ -78,18 +78,16 @@ public class Ganondorf extends Monster{
     }
 
     public int attack4(Character w){
-	int heal = 20;
+	int heal = 30 + (int) (Math.random() * 20);
+	HP += heal;
 	if (HP + heal >= origHP){
 	    HP = origHP;
 	}
-	
+	System.out.println ("Ganondorf recovered " + heal + " health!!!");
         return 0;
     }
 }
 
 
     
-    
-	
-    
-    
+  

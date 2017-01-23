@@ -78,7 +78,7 @@ public class Monster extends Character{
 
     //Stone Gaze
     public int attack2(Character w){
-	int damage = (int)(atk + w.getAttack());
+	int damage = (int)(atk + (0.5 * w.getAttack()));
 	if (damage <= 0){
 	    damage = 0;
 	}
@@ -99,7 +99,7 @@ public class Monster extends Character{
 
     //Sting
     public int attack4(Character w){
-	int damage = (int)(atk + (2 * w.getTempDefense()));
+	int damage = (int)(atk + (0.5 * w.getTempDefense()));
 	if (damage <= 0){
 	    damage = 0;
 	}

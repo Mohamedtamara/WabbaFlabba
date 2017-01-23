@@ -10,10 +10,10 @@ public class Goblin extends Monster{
 
     //default constructor
     public Goblin(){
-	HP = origHP = 40;
+	HP = origHP = 100;
 	atk = origAtk = tempAtk = 20;
 	def = origDef = tempDef = 6;
-	evasion = tempEvasion =  origEvasion = 8;
+	evasion = tempEvasion =  origEvasion = 20;
 	state = 0;
 	attackName[0]="Storm of Needles"; //Attack 1
 	attackName[1]="Multi Bite"; //Attack 2
@@ -32,7 +32,7 @@ public class Goblin extends Monster{
     //overriden constructor with difficulty
     public Goblin(int difficulty){
 	if (difficulty == 1){
-	    HP = origHP = 40;
+	    HP = origHP = 80;
 	    atk = origAtk = tempAtk = 20;
 	    def = origDef = tempDef = 6;
 	    evasion = tempEvasion =  origEvasion = 8;
@@ -40,7 +40,7 @@ public class Goblin extends Monster{
 	    level = 1;
 	}
 	if (difficulty == 2){
-	    HP = origHP = 60;
+	    HP = origHP = 95;
 	    atk = origAtk = tempAtk = 22;
 	    def = origDef = tempDef = 12;
 	    evasion = tempEvasion =  origEvasion = 12;
@@ -48,7 +48,7 @@ public class Goblin extends Monster{
 	    level = 2;
 	}
 	if (difficulty == 3){
-	    HP = origHP = 80;
+	    HP = origHP = 120;
 	    atk = origAtk = tempAtk = 24;
 	    def = origDef = tempDef = 18;
 	    evasion = tempEvasion =  origEvasion = 16;
@@ -70,7 +70,7 @@ public class Goblin extends Monster{
 
     //Storm of Needles
     public int attack1(Character w){
-	int damage = (int)(atk - (0.5 * w.getTempDefense()));
+	int damage = (int)(atk - (1.5* w.getTempDefense()) - 5);
 	if (damage <= 0){
 	    damage = 0;
 	}
@@ -90,7 +90,7 @@ public class Goblin extends Monster{
 
     //Sheer Heart Attack
     public int attack3(Character w){
-	int damage = (int)(atk + w.getTempDefense());
+	int damage = (int)(atk +  w.getTempDefense());
 	if (damage <= 0){
 	    damage = 0;
 	}
@@ -100,7 +100,7 @@ public class Goblin extends Monster{
 
     //Pin Strike
     public int attack4(Character w){
-	int damage = (int)(atk + (2 * w.getTempDefense()));
+	int damage = (int)(atk + (0.5 * w.getTempDefense()));
 	if (damage <= 0){
 	    damage = 0;
 	}
@@ -109,3 +109,4 @@ public class Goblin extends Monster{
         return damage;
     }
 }
+

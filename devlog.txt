@@ -11,6 +11,8 @@ The Ultimate RPG
 ------------------------------------------
 OBSTACLES OVERCOME
 
+Made Map.java function
+
 *We got run to work correctly, instead of
 just stopping the whole game in its tracks
 
@@ -20,10 +22,25 @@ instead of immediately ended
 Made Woo function as an object; successfully
 used methods in the main method rather than
 a mish-mash of code
+
+Successful implementation of poison, paralysis,
+and items & options to overcome them
+
+Implementation of inventory and equipment of
+weapons.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow we so BOSS bc...
 
 UNRESOLVED ISSUES
+
+A strange lack phenomenon occurs
+when the map is printed (probably due to 
+the code for userMove in Map.java
+
+Subclass balancing has not been done.
+
+Leveling up system for characters has not
+been implemented
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
@@ -35,11 +52,13 @@ continues and you have -HP.
 The map does not print out during User.spawn()
 the first time.
 
-
+In the equipment screen, selecting a number
+for equipment that is not there will break
+the program and cause an error
 
 COOL STUFF LEARNED
 
-*Team work is hard.
+Group projects are horrible
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow! oo!...
@@ -55,16 +74,14 @@ unlikely and cumbersome for a player to get
 into battle. Instead we decided to settle 
 for random battles.
 
-We decided to ditch a Usables parent class 
-and instead settle for an array of objects
-consisting of items and weapons.
 LESSONS LEARNED
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
 ||||||||||||||||||||||||||||||||||||||||||
-
-
+PIck group members that do work rather 
+than friends
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  ______   ______   __   __   __       ______   _______     
 /_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
@@ -74,12 +91,25 @@ cd../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
    \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
-2017-01-22, 
+2017-01-23, 04:37
+Alitquan Mallick:: a full record of what I have done has been
+destroyed, due to merge conflicts with teammates despite my 
+warnings.....
 
-19:37
-Max Korsun :: Added in boss fight code. Made the UML.
-
-01:26
+I have added several equipment prompts, including one during
+battles and one during maps. I've completely debugged anything
+to do with inventory, except for the bugs stated at the top of 
+this log. I've added a base story to the game. I've added 
+successful paralysis, poison, and evasion implementation 
+during battling. I've rebalanced the subclasses as much as I've
+could. I've updated the instructions. I've added stats printout
+to the inventory, as well as to the equip page. I've made it so 
+that the player can progress to the next map with the same 
+equipment and the same stats. I finished up the foruth map, which
+was having some issues because it was not yet completed.
+There was much more, but sadly the merge conflict .....
+==============================================================
+2017-01-22, 01:26
 Alitquan Mallick:: Added a successfully working inventory
 system, although they testing for Items still has to be done 
 

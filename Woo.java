@@ -1,4 +1,5 @@
 import cs1.Keyboard;
+import java.util.ArrayList;
 
 public class Woo{
 
@@ -20,6 +21,16 @@ public class Woo{
       Don't die please
     */
     private String state;// shows if the user is currently battling or in the map
+    /* variables for holding the player's stats 
+       for carrying on to the next map
+    */
+    private String playerName;
+    private int hpHolder;
+    private int atkHolder;
+    private int defHolder;
+    private int evasionHolder;
+    /* player's base stats
+     */
     private int playerHP;
     private int playerAtk;
     private int playerDef;
@@ -27,27 +38,27 @@ public class Woo{
     private int level;
     private Map A;
     private boolean start = false;
-    private String playerName = "player";
     private int difficulty;
     private int equipNum;
+    private ArrayList <Equipment>  inventorySave = new ArrayList <Equipment> ();
 
     // default contructor
     public Woo(){
 	gameover = false;
 	level = 1;
-	
-	playerHP = 100;
-	playerAtk = 30;
+	playerHP = 400;
+	playerAtk = 35;
 	playerDef = 15;
 	playerEvasion = 30;
-	newGame();
+	inventorySave.add(new Weapon (0));
+	inventorySave.add(new Item(4));
+	inventorySave.add(new Item(1));
     }
     private void newGame(){
 	String s;
 	A = new Map(level);
-	hero = new Player("Bob",playerHP,playerAtk,playerDef,playerEvasion);
-	
-	
+	A.playerName2 = this.playerName;
+	hero = new Player(playerHP,playerAtk,playerDef,playerEvasion,inventorySave);
     }
 
     public void runLevel() {
@@ -72,8 +83,8 @@ public class Woo{
 		 }
 		 
 		System.out.println ();
-		System.out.print ("Choose a direction to move, or select (i) for movement instructions: ");
-		String instructions = ("Press w to move up\nPress a to move right\nPress d to move right\nPress s to move down\nPress J to view inventory");
+		System.out.print (" Choose a direction to move, or select (i) for movement instructions: ");
+		String instructions = (" Press w to move up\n Press a to move right\n Press d to move right\n Press s to move down\n Press J to view inventory\n Press E to equip a weapon or to use an item\n Press p to print map, if not displayed\n  Travel to the nearest 'l' or 'b' to advance to the next level.");
 		char direction;
 		direction = Keyboard.readChar();
 		if(direction == 'w'){ //Looking up because she down
@@ -95,6 +106,9 @@ public class Woo{
 		    hero.equipScreen();
 		    System.out.println (A);
 		}
+		else if (direction == 'p') {
+		    System.out.println (A);
+		}
 		else if (direction == 'j') {
 		    System.out.println(hero.displayInventory());
 		    System.out.println (A);
@@ -113,12 +127,35 @@ public class Woo{
 		    start = false;
 		}
 		if (A.success == true) {
+		    inventorySave = hero.inventory;
 		    level++;
+		    hpHolder = hero.HP + 100;
+		    atkHolder = hero.atk;
+		    defHolder = hero.def;
+		    evasionHolder = hero.evasion;
 		    if (level < 6) {
 			A = new Map (level);
+			A.playerName2 = this.playerName;
 			A.userSpawn();
-			System.out.println(A);
-			hero = new Player("Bob",playerHP,playerAtk,playerDef,playerEvasion);
+			System.out.println (A);
+			hero = new Player(hpHolder,atkHolder,defHolder,evasionHolder,inventorySave);
+		        if (level == 2) {
+			    System.out.println (" You arrive at a town. Everyone is dead. It smells of his odor. You find a trail of blood. You start following it");
+			}
+			else if (level == 3) {
+			    System.out.println (" You arrive at an abandoned PetLand. All the dogs are dead. That monster. He has to be stopped.");
+			}
+			else if (level == 4) {
+			    System.out.println (" His house. There it is. Bayridge, Brooklyn. Typical. You lift up your " + hero.inventory.get(0).getName()+ ".");
+			    System.out.println (" You walk inside.");
+			}
+			else {
+			    System.out.println (" You feel it. It's him. The guy who did not care about your group project.");
+			    System.out.println (" The guy that had to do his APUSH homework when you had a deadline the next day.");
+			    System.out.println (" The guy who never did anything. ");
+			    System.out.println (" You remember those dogs in Pentland.");
+			    System.out.println (" It's time to get revenge. ");
+			}
 		    }
 		}
 		if( A.bossBattle == true){
@@ -134,7 +171,7 @@ public class Woo{
 	}
     }
     
-
+    // randomly instantiates a monster based on the difficulty chosen
     public void monsterChoose(){
 	double prop = (Math.random() * 10);
 	if (prop < 2.0)
@@ -142,105 +179,135 @@ public class Woo{
 	else if (prop < 4.0)
 	    drag = new Goblin(difficulty);
 	else if (prop < 6.0)
-	    drag = new TwelveYearOldKid(difficulty);
+	    drag = new Shrek(difficulty);
 	else if (prop < 8.0)
 	    drag = new Shark(difficulty);
 	else if (prop < 10.0)
-	    drag = new Shrek(difficulty);
+	    drag = new TwelveYearOldKid(difficulty);
     }
 
+    // method for running battles 
     public void battle(  ) {
-	
 	boolean battling = true;
 	System.out.println("\n\n\n\n\n\n To battle, press a to do an attack against the monster and press d to defend instead.");
-	
 	System.out.println("A " + drag.getName() + " has appeared!");
 	while(battling == true){
+	    // next two blocks of code for checking for poisoning and/or paralysis
 	    if (hero.poisoned == true){
 		int poisonDamage = (int) (0.1 * hero.HP);
 		hero.HP -= poisonDamage;
 		hero.poisonedTurns -=1;
-		System.out.println (" You lose " + poisonDamage + " from poison!!!");
+		System.out.println (" " + playerName + " loses " + poisonDamage + " from poison!!!");
 		if (hero.poisonedTurns == 0) {
 		    hero.poisoned = false;
 		    System.out.println (" The poison has run out");
 		}
 	    }
 	    if (hero.paralyzed == true){
-		System.out.println(" You can't move!");
+		System.out.println(" " + playerName +" is paralyzed!\n " + playerName + " cannot attack or run!!!");
 		hero.paralyzedTurns -=1;
 		if (hero.paralyzedTurns == 0) {
 		    hero.paralyzed = false;
-		    System.out.println (" You can move again!");
-		}
-	    }
-	    else{
-		System.out.println("\n Hero's HP: "+ hero.getHP() + ".\n Enemy's HP: "+drag.getHP()+".");
-		System.out.println(" What will you do: \n\t(a)  Attack\n\t(d) Defend\n\t(r) Run\n\t(s) See stats ");
-		System.out.print (" I choose: ");
-		char choose;
-		choose = Keyboard.readChar();
-		if (choose == 'a'){
-		    String choices = "";
-		    int attackChoice;
-		    choices = "\n Choose your attack:\n" ;
-		    choices += "\t1: " + hero.attackName[0] + "\n";
-		    choices += "\t2: " + hero.attackName[1] + "\n";
-		    choices += "\t3: " + hero.attackName[2] + "\n";
-		    choices += "\t4: " + hero.attackName[3] + "\n";;
-		    System.out.println (choices);
-		    System.out.print (" Selection: ");
-		    attackChoice = Keyboard.readInt();
-		    int damage = 0;
-		    if (attackChoice == 1) {
-			damage = hero.attack1 (drag);
-			System.out.print( "\n You used " + hero.attackName[attackChoice - 1] + ". You dealt " + damage  +" points of damage." + "\n");
-		    }
-		    else if (attackChoice == 2) {
-			damage = hero.attack2 (drag);
-			System.out.print( "\n You used " + hero.attackName[attackChoice - 1] + ". You dealt " + damage  +" points of damage." + "\n");
-		    }
-		    else if (attackChoice == 3) {
-			damage = hero.attack3 (drag);
-			System.out.print( "\n You used " + hero.attackName[attackChoice - 1] + ". You dealt " + damage  +" points of damage." + "\n");
-		    }
-		    else if (attackChoice == 4) {
-			damage= hero.attack4 (drag);
-			System.out.print( "\n You used " + hero.attackName[attackChoice - 1] + ". You dealt " + damage  +" points of damage." + "\n");
-		    }
-		    else {
-			System.out.println (" You don't know that move....");
-		    }
-		   
-		    dragAttack(hero);
-		}
-		else if (choose == 'd'){
-		    hero.defend();
-		    dragAttack(hero);
-		}
-		else if (choose == 'r'){
-		    if (hero.run() == true) {
-			System.out.println(" You escaped! Sadly, you dropped your XP and potential loot behind.");
-			battling = false;
-			System.out.println(A);
-			hero.resetStats();
-		    }
-		    else {
-		        dragAttack(hero);
-		    }
-		    
-		}
-		else if (choose == 's'){
-		    System.out.println(" Time for some stats: ");
-		    hero.seeStats();
-		    drag.seeStats();
+		    System.out.println ((playerName) + " can move again!");
 		}
 		else {
-		    System.out.println (" THAT IS NOT AN OPTION. PAY THE PRICE");
+		    System.out.print (" Would " + playerName + "  like to equip or use something?\n\t(y) yes\t(n)no\n " + playerName + " chooses: ");
+		    char choose;
+		    choose = Keyboard.readChar();
+		    if (choose == 'y') {
+			hero.equipScreen();
+		    }
+		    else {
+			System.out.println (" You made your choice ;(");
+		    }
 		}
+		dragAttack(hero);
+	    }
+	    // if hero is not paralyzed
+	    else{
+		    System.out.println("\n Hero's HP: "+ hero.getHP() + ".\n Enemy's HP: "+drag.getHP()+".");
+		    System.out.println(" What will " + playerName + " do: \n\t(a) Attack\n\t(d) Defend\n\t(r) Run\n\t(s) Scan\n\t(e) Equip/Use ");
+		    System.out.print (playerName +" will choose: ");
+		    char choose;
+		    choose = Keyboard.readChar();
+		    if (choose == 'a'){
+			String choices = "";
+			int attackChoice;
+			choices = "\n " + playerName+ " chooses  attack:\n" ;
+			choices += "\t1: " + hero.attackName[0] + "\n";
+			choices += "\t2: " + hero.attackName[1] + "\n";
+			choices += "\t3: " + hero.attackName[2] + "\n";
+			choices += "\t4: " + hero.attackName[3] + "\n";;
+			System.out.println (choices);
+			// player is choosing one of his moves
+			System.out.print (" Selection: ");
+			attackChoice = Keyboard.readInt();
+			int damage = 0;
+			if (attackChoice == 1) {
+			    if (drag.getEvasion() < (int) (Math.random () * 100) ){
+				damage = hero.attack1 (drag);
+				System.out.print( "\n " + playerName + " used " + hero.attackName[attackChoice - 1] + ". " + playerName+ " dealt " + damage  +" points of damage." + "\n");
+			    }
+			    else { System.out.println (playerName + " missed the attack!!!");}
+			}
+			else if (attackChoice == 2) {
+			    if (drag.getEvasion() < (int) (Math.random ()* 100) ){
+				damage = hero.attack2 (drag);
+				System.out.print( "\n " + playerName + " used " + hero.attackName[attackChoice - 1] + ". " + playerName + " dealt" + damage  +" points of damage." + "\n");
+			    }
+			    else { System.out.println (" " + playerName + " missed the attack!!!");}
+			}
+			else if (attackChoice == 3) {
+			    if (drag.getEvasion() < (int) (Math.random ()* 100) ){
+				damage = hero.attack3 (drag);
+				System.out.print( "\n " + playerName + " used " + hero.attackName[attackChoice - 1]+ ". " + playerName+ " dealt" + damage  +" points of damage." + "\n");
+			    }
+			    else { System.out.println (" " + playerName + " missed the attack!!!");}
+			}
+			else if (attackChoice == 4) {
+			    if (drag.getEvasion() < (int) (Math.random ()*100) ){
+			    damage= hero.attack4 (drag);
+			    System.out.print( "\n " + playerName + " used " + hero.attackName[attackChoice - 1] + ". " + playerName+ " dealt" + damage   +" points of damage." + "\n");
+			    }
+			    else { System.out.println (" " + playerName + " missed the attack!!!");}
+			}
+			else {
+			    System.out.println (" " + playerName + "  doesn't know that move....");
+			}
+			dragAttack(hero);
+		    }
+		    else if (choose == 'd'){
+			hero.defend();
+			dragAttack(hero);
+		    }
+		    else if (choose == 'r'){
+			if (hero.run() == true) {
+			    if (hero.HP < 500) {
+				hero.HP += 50;
+			    }
+			    System.out.println(hero.getName() + " escaped! Sadly, you dropped your XP and potential loot behind.");
+			    battling = false;
+			    System.out.println(A);
+			}
+			else {
+			    dragAttack(hero);
+			}
+		    }
+		    else if (choose == 's'){
+			System.out.println(" Time for some stats: ");
+			hero.seeStats();
+			drag.seeStats();
+		    }
+		    else if (choose== 'e') {
+			hero.equipScreen();
+		    }
+		    else {
+			System.out.println (" THAT IS NOT AN OPTION. PAY THE PRICE\n");
+			dragAttack(hero);
+		    }
 	    }
 	    if (hero.getHP() <= 0) {
-		System.out.println (" You lose");
+		System.out.println ("\n " + playerName + " loses");
 		battling = false; 
 	    }else
 		if (drag.getHP() <= 0) {
@@ -251,7 +318,9 @@ public class Woo{
 		    }
 		    System.out.println(A);
 		    battling=false;
-		hero.resetStats();
+		    if (hero.HP < 500) {
+			hero.HP += 100;
+		    }
 		}
 	}
     }
@@ -275,8 +344,29 @@ public class Woo{
 	    }
 	}
 	else {
-	    int monDam = drag.attack1(hero);
-	    System.out.print( "\n "+drag.getName()+" used " + drag.attackName[0] + ". It dealt " + monDam + " points of damage." + "\n");
+	    if (opponent.getEvasion() < (int) (Math.random() * 100)) {
+		int monDam = 0;
+		int determinant = (int) (Math.random() * 4);
+		if (determinant == 0){
+		    monDam = drag.attack1(hero);
+		}
+		else if (determinant == 1) {
+		    monDam = drag.attack2(hero);
+		}
+		else if (determinant == 2) {
+		    monDam = drag.attack3(hero);
+		}
+		else if (determinant == 3) {
+		    monDam = drag.attack4(hero);
+		}
+		else {
+		    monDam = drag.attack1 (hero);
+		}
+		System.out.print( "\n "+drag.getName()+" used " + drag.attackName[0] + ". It dealt " + monDam + " points of damage." + "\n");
+	    }
+	    else {
+		System.out.println (playerName + " dodged " + drag.getName() + "'s attack!!");
+	    }
 	}
     }
    
@@ -331,9 +421,9 @@ public class Woo{
 	    System.out.println (" WHAT IS YOUR NAME?");
 	    System.out.print (" It is: ");
 	    choice2= Keyboard.readString();
-	    playerName = choice2;
-	    System.out.println (" pick your difficulty out of these: easy (1), medium (2), hard (3)");
-	    System.out.print (" I feel: ");
+	    this.playerName = choice2;
+	    System.out.println (" How is " + playerName + " feeling today?\n (1) crappy\n (2) okay\n (3) hard \n");
+	    System.out.print (" " + playerName + " feels: ");
 	    choice3 = Keyboard.readInt();
 	    difficulty = choice3;
 	    if (choice3 > 3 || choice3 < 1) {
@@ -363,6 +453,7 @@ public class Woo{
     public static void main(String[] args){
 	Woo Alitquan = new Woo();
 	Alitquan.title();
+	Alitquan.newGame();
 	Alitquan.runLevel();
     }
     
@@ -510,6 +601,3 @@ public class Woo{
 
 	
     
-
-
-

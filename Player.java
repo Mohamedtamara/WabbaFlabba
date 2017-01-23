@@ -1,12 +1,37 @@
 import cs1.Keyboard;
+import java.util.ArrayList;
+
+/*
+  This is the only playable subclass in the game. 
+  The leveling up system has been abandoned, due 
+  to a lack of dedication of time by the Character
+  level Progression development team
+*/
 
 public class Player extends Character{
-    
     private int equipNo, EXP, neededEXP, level;
 
-    public Player(){
+    public Player () {
 	inventory.add (  new Weapon(0) );
-	HP = origHP = 200;
+	HP = origHP = 350;
+	atk = origAtk = tempAtk = 50;
+	def = origDef = tempDef = 20;
+        evasion = tempEvasion =  origEvasion = 30;
+	state = 0;
+	attackName[0]="Shoryuken";//Attack 1
+	attackName[1]="Vash the Stampede";//Attack 2
+	attackName[2]="Tae Kwon Do Kick";//Attack 3
+	attackName[3]="Butterfly";//Attack 4
+	ID = 0;
+	EXP = 0;
+	level = 1;
+	neededEXP = 100;
+	name ="";
+    }
+    public Player(String targetName){
+	name = targetName;
+	inventory.add (  new Weapon(0) );
+	HP = origHP = 350;
 	atk = origAtk = tempAtk = 50;
 	def = origDef = tempDef = 20;
         evasion = tempEvasion =  origEvasion = 30;
@@ -22,8 +47,8 @@ public class Player extends Character{
 	name ="";
     }
 
-    public Player (String holdName, int holdHP,int holdAtk,int  holdDef,int holdEvasion) {
-	inventory.add (  new Weapon(0) );
+    public Player ( int holdHP,int holdAtk,int  holdDef,int holdEvasion, ArrayList <Equipment> holdInventory) {
+	inventory = holdInventory;
 	HP = origHP = holdHP;
 	atk = origAtk = tempAtk = holdAtk;
 	def = origDef = tempDef = holdDef;
@@ -40,17 +65,19 @@ public class Player extends Character{
 	name = "";
     }
 
+    // prompts user to check inventory of enemy for desirable items
     public void inventoryCheck (Monster dude) {
+	System.out.println(" Here is your inventory. The first slot is your currently equipped weapon: " + this.displayInventory());
 	char yesno;
 	System.out.println (dude.displayInventory());
-	System.out.print ("Do you want want any of these?\n(y) yes \t(n) no\nSelection: ");
+	System.out.print ("Do you want want any of these?\n\t(y) yes \t(n) no\nSelection: ");
 	yesno = Keyboard.readChar();
 	if (yesno == 'y') {
 	    for (int x = 0; x < dude.inventory.size(); x++) {
 		if (this.inventory.size() < 11) {
 		    char decision;
-		    System.out.println ("Do you want to add " + dude.inventory.get(x).getName()+ "to your inventory? ");
-		    System.out.println ("(y) yes \t(n) no");
+		    System.out.println (" Do you want to add " + dude.inventory.get(x).getName()+ " to your inventory? ");
+		    System.out.println ("\t(y) yes \t(n) no");
 		    System.out.print ("Selection: ");
 		    decision = Keyboard.readChar();
 		    if (decision == 'y') {
@@ -149,8 +176,11 @@ public class Player extends Character{
 	return success;
     }
 
+    // used by user to equip or use a weapon or item
      public void equipScreen() {
+	 System.out.println ("These are your stats right now: ");
 	 this.seeStats();
+	 System.out.println ("This is what you have equipped at this moment: " + this.inventory.get(0).stats);
 	 System.out.println (this.displayInventory());
 	 System.out.println ("What would you like to equip / use?");
 	 System.out.print("Please choose the number of the equipment that you want to equip or use: ");
@@ -171,12 +201,6 @@ public class Player extends Character{
 	 }
 	 this.seeStats();
      }
-
-    public void resetStats(){ // this does not need to be here, currentl only for testing battle
-	HP = origHP;
-	state = 0;
-	def = origDef;
-    }
 
     /*
       This checks if the EXP of the Player

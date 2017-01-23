@@ -1,15 +1,19 @@
 import java.util.ArrayList;
+/* class for generating maps
+ */
 
 public class Map {
     int playerXpos;
     int playerYpos;
     int mapLength;
     int mapWidth;
+    String playerName2;
     boolean success = false;
     boolean bossBattle = false;
-
+    // uses an array of arrayLists to operate
     public ArrayList [] test = new ArrayList [20];
 
+    // integer-based constructor that lays out map design
     public Map(int mapNum) {
 	if (mapNum == 1) {
 	    mapWidth = 11;
@@ -17,6 +21,9 @@ public class Map {
 	    playerYpos = 5;
 	    border(); 
 	    levelPlace(1,9);
+	    System.out.println (" You wake up in a field of daisies. Your head hurts. You recall what had just happened to you.");
+	    System.out.println (" You were doing a group project. You did almost all of the work, while your teammates did little to no work in comparison.");
+	    System.out.println (" You hear a whispering noise. It's him. The guy who did minimal work on your project.  It's coming from your upper right upper-right.");
 	}
 	//actually for 5
 	// actually for 2
@@ -127,6 +134,7 @@ public class Map {
 	}
     }
 
+    // places x's on the edges of the 'map' while putting .'s in the space between
     public void border() {
 	for (int i = 0; i <mapWidth; i ++) {
 	    test [i] = new ArrayList <Character>();
@@ -149,7 +157,8 @@ public class Map {
 	    test[x].add('x');
 	}
     }
-	
+
+    // the next three methods just help save time in my mapdesign
     public void swapPlace(int index, int index2) {
 	test[index].remove(index2);
 	test[index].add(index2,'x');
@@ -165,7 +174,7 @@ public class Map {
 	test[index].add(index2,'b');
     }
 
-    
+    // prints out the array to look like a map
     public String toString() {
 	String retStr = "";
 	int x = 0;
@@ -190,7 +199,8 @@ public class Map {
 	result += "]";
 	return result;
     }
-    
+
+    // next four methods are just for convenience
     public void moveUp () {
 	playerYpos --; 
     }
@@ -212,6 +222,7 @@ public class Map {
 	test[playerYpos].add(playerXpos, 'o');
     }
 
+    // swapping mechanic that moves the player's icon via 'swapping'
     public void userMove(int movementSignal) {
 	int oldPlayerYpos = playerYpos;
 	int oldPlayerXpos = playerXpos;
@@ -272,31 +283,32 @@ public class Map {
 	test[playerYpos].remove(playerXpos);
 	if (movementSignal == 1) {
 	    test[playerYpos].add(playerXpos,'o');
-	    System.out.println ("Character has moved one unit up");
+	    System.out.println (playerName2 + " has moved one unit up");
 	}
 	else if (movementSignal == 2) {
 	    test[playerYpos].add(playerXpos, 'o');
-	    System.out.println ("Character has moved one unit right!");
+	    System.out.println (playerName2 + " has moved one unit right!");
 	}
 	else if (movementSignal == 3) {
 	    test [playerYpos].add(playerXpos, 'o');
-	    System.out.println ("Character has moved one down!");
+	    System.out.println (playerName2 + " has moved one down!");
 	}
 	else {
 	    test[playerYpos].add(playerXpos, 'o');
-	    System.out.println ("Character has moved one unit to the left!");
+	    System.out.println (playerName2 + " has moved one unit to the left!");
 	}
 	if (test[playerYpos].size()  < mapWidth) {
 	    test[playerYpos].add('*');
 	}
 	if ((char) test[playerYpos].get(playerXpos) == 'l') {
 	    this.success = true;
-	    System.out.println ("You have moved on to the next level!!!");
+	    System.out.println (playerName2 + " has moved on to the next level!!!");
 	}
         
 	System.out.println (this);
     }
 
+    // animation solely for last map
     public void finalAnimation() {
 	swapPlace(3,4);
 	transition();
@@ -396,6 +408,7 @@ public class Map {
     }
 
     public void transition() {
+	// makes system wait for a short period of time (dramatic effect)
         try {
 	    Thread.sleep(500);
 	}

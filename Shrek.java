@@ -69,7 +69,7 @@ public class Shrek extends Monster{
 
     //Layers of Onions
     public int attack1(Character w){
-	int damage = (int)(atk - (0.5 * w.getTempDefense()));
+	int damage = (int)(atk - (2 * w.getTempDefense()) - 10);
 	if (damage <= 0){
 	    damage = 0;
 	}
@@ -90,7 +90,7 @@ public class Shrek extends Monster{
 
     //DON KAY
     public int attack3(Character w){
-	int damage = (int)(atk + w.getTempDefense());
+	int damage = (int)(atk + (.5 * w.getTempDefense()) - 50);
 	if (damage <= 0){
 	    damage = 0;
 	}
@@ -100,7 +100,7 @@ public class Shrek extends Monster{
 
     //Shrek Super-Slam
     public int attack4(Character w){
-	int damage = (int)(atk + (2 * w.getTempDefense()));
+	int damage = (int)(atk + ( w.getTempDefense()) - 90);
 	if (damage <= 0){
 	    damage = 0;
 	}

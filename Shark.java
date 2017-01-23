@@ -71,7 +71,7 @@ public class Shark extends Monster{
 
     //Great White Bite
     public int attack1(Character w){
-	int damage = (int)(atk - (0.5 * w.getTempDefense()));
+	int damage = (int)(atk - (1.75 * w.getTempDefense()) - 5);
 	if (damage <= 0){
 	    damage = 0;
 	}
@@ -82,7 +82,7 @@ public class Shark extends Monster{
 
     //Hammerhead
     public int attack2(Character w){
-	int damage = (int)(atk + w.getAttack());
+	int damage = (int)(atk - w.getAttack());
 	if (damage <= 0){
 	    damage = 0;
 	}
@@ -92,7 +92,7 @@ public class Shark extends Monster{
 
     //A Whale of a Time
     public int attack3(Character w){
-	int damage = (int)(atk + w.getTempDefense());
+	int damage = (int)(atk   + ( -.5 *  w.getTempDefense()));
 	if (damage <= 0){
 	    damage = 0;
 	}
@@ -102,7 +102,7 @@ public class Shark extends Monster{
 
     //Splash
     public int attack4(Character w){
-	int damage = (int)(atk + (2 * w.getTempDefense()));
+	int damage = (int)(atk +  w.getTempDefense());
 	if (damage <= 0){
 	    damage = 0;
 	}

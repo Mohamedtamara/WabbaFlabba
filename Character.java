@@ -23,6 +23,13 @@ public abstract class Character{
       their favorite color is. Well, maybe not that
       much detail. Int is the way to go with these,
       as stats are numerical but not decimals.
+
+      All of the "temp" and "orig" variables have not
+      been implemented by lack of time from the Primary
+      Battle Development Team. The leveling system
+      (i.e. :EXP, neededEXP, level) also has limited 
+      implementation also due to the level progression 
+      team.
     */
     
     protected int HP, atk, def, evasion, state, origHP, origAtk, origDef, origEvasion, tempAtk, tempDef, tempEvasion, ID, boostState, poisonedTurns,
@@ -74,6 +81,8 @@ public abstract class Character{
 
     /*
       This is the list of items available to a Character.
+      It is an ArrayList so that the inventory can be
+      constantly updated
     */
 
     protected ArrayList <Equipment>  inventory = new ArrayList <Equipment> ();
@@ -168,26 +177,33 @@ public abstract class Character{
     }
     
     //Effect #1
-    public void poison(Character opponent){ 
-	opponent.poisoned = true;
-	opponent.poisonedTurns = 5;
-	if (this instanceof Player) {
-	    System.out.println ("You poisoned " + opponent.getName() + "!!!");
-	}
-	else {
-	    System.out.println ("You have been poisoned by " + opponent.getName() + "!!!");
+    public void poison(Character opponent){
+	if (opponent.poisoned == false) {
+	    opponent.poisoned = true;
+	    opponent.poisonedTurns = 5;
+	    if (this instanceof Player) {
+		System.out.println ("You poisoned " + opponent.getName() + "!!!");
+	    }
+	    else {
+		System.out.println ("You have been poisoned by " + opponent.getName() + "!!!");
+	    }
 	}
     }
 
     //Effect #2
     public void paralyze(Character opponent){
-	opponent.paralyzed = true;
-	opponent.paralyzedTurns = 3;
-	if (this instanceof Player) {
-	    System.out.println ("You paralyzed " + opponent.getName() + "!!!");
-	}
-	else {
-	    System.out.println ("You have been paralyzed by " + opponent.getName() + "!!!");
+	if (opponent.paralyzed == false) {
+	    if ( (int) (Math.random() * 100) > 45) {
+		opponent.paralyzed = true;
+		opponent.paralyzedTurns = 2;
+		opponent.def += 15;
+	    }
+	    if (this instanceof Player) {
+		System.out.println ("You paralyzed " + opponent.getName() + "!!!");
+	    }
+	    else {
+		System.out.println ("You have been paralyzed by " + this.getName() + "!!!");
+	    }
 	}
     }
 
@@ -220,18 +236,18 @@ public abstract class Character{
     //time for action!
     public String equip (Weapon tool) {
 	String info = "\nYou equipped " + tool.getName() + "!!!\n";
-	origAtk += tool.getEquipAttack();
-	origDef += tool.getEquipDefense();
-	origEvasion += tool.getEquipEvasion();
+	atk += tool.getEquipAttack();
+	def += tool.getEquipDefense();
+	evasion += tool.getEquipEvasion();
 	return info;
     }
 
     //time to settle down!
     public String unequip (Weapon tool) {
 	String info = "\nYou equipped " + "tool.name" + "!!!\n";
-        origAtk -= tool.getEquipAttack();
-	origDef -= tool.getEquipDefense();
-	origEvasion -= tool.getEquipEvasion();
+        atk -= tool.getEquipAttack();
+	def -= tool.getEquipDefense();
+	evasion -= tool.getEquipEvasion();
 	return info;
     }
 
@@ -239,9 +255,9 @@ public abstract class Character{
     public String use (Item tool) {
 	String info = "\nYou used " + tool.name + "!!!\n";
 	HP += tool.getHealthBoost();
-	tempAtk += tool.getAttackBoost();
-	tempDef += tool.getDefenseBoost();
-	tempEvasion += tool.getEvasionBoost();
+	atk += tool.getAttackBoost();
+	def += tool.getDefenseBoost();
+	evasion += tool.getEvasionBoost();
 	if (tool.getCure() == 1 && state == 1) {
  	    state = 0;
 	}
@@ -261,7 +277,7 @@ public abstract class Character{
 	    if ( inventory.size() == 0) { return "\nYou have nothing."; }
 	    records = "Here is what is inside your backpack:\n";
 	    for (int x = 0; x < inventory.size(); x++) {
-		records += "(" + counter + ") " + this.inventory.get(x).name + this.inventory.get(x).getStats();;
+		records += "\t(" + counter + ") " +  this.inventory.get(x).getStats() + "\n";
 		counter++;
 	    }
 	    return records;
@@ -270,7 +286,7 @@ public abstract class Character{
 	    int counter = 0;
 	    records = "The enemy drops:\n";
 	    for (int x = 0; x < this.inventory.size(); x++) {
-		records += "(" + counter + ") " + this.inventory.get(x).stats  + "\n";
+		records += "\t(" + counter + ") " + this.inventory.get(x).getStats() + "\n";
 		counter++;
 	    }
 	    return records;
@@ -284,9 +300,9 @@ public abstract class Character{
     //after an effect wears off
     public void resetStats (){
 	if (boostState <= 0) {
-	    tempAtk = atk;
-	    tempDef = def;
-	    tempEvasion = evasion;
+	    atk = origAtk;
+	    def = origDef;
+	    evasion = origEvasion;
 	}
     }
     
