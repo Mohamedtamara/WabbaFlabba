@@ -51,6 +51,7 @@ public class Woo{
     }
 
     public void runLevel() {
+	drag = new Monster(); // this is to avoid a bug, serves no other functional purpose
 	A.userSpawn();
 	System.out.println(A);
 	while (start == true) {
@@ -99,13 +100,25 @@ public class Woo{
 		else {
 		    System.out.println ("THAT IS NOT AN OPTION. PAY THE PRICE");
 		}
+
+		
+		if( A.bossBattle == true){
+		    drag = new Ganondorf(difficulty);
+		    battle();
+		}else
 		if(Math.random() < chance){
+		    monsterChoose();
 		    battle();
 		}
 		
 		if (hero.getHP() <=0){
 		    level = 10;
 		    start = false;
+		}else
+		if(drag.getName() == "Ganondorf" && drag.getHP() <= 0){
+		    level = 10;
+		    start = false;
+		    System.out.println("And with that, the journey has come to an end.");
 		}
 	    
 		if (A.success == true) {
@@ -138,11 +151,11 @@ public class Woo{
 	    drag = new Shrek(difficulty);
     }
 
-    public void battle() {
+    public void battle(  ) {
 	
 	boolean battling = true;
 	System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n To battle, press a to do an attack against the monster and press d to defend instead.");
-	monsterChoose();
+	
 	System.out.println("A " + drag.getName() + " has appeared!");
 	while(battling == true){
 	    if (hero.poisoned == true){
@@ -183,20 +196,24 @@ public class Woo{
 		    int damage = 0;
 		    if (attackChoice == 1) {
 			damage = hero.attack1 (drag);
+			System.out.print( "\n You used " + hero.attackName[attackChoice - 1] + ". You dealt " + damage  +" points of damage." + "\n");
 		    }
 		    else if (attackChoice == 2) {
 			damage = hero.attack2 (drag);
+			System.out.print( "\n You used " + hero.attackName[attackChoice - 1] + ". You dealt " + damage  +" points of damage." + "\n");
 		    }
 		    else if (attackChoice == 3) {
 			damage = hero.attack3 (drag);
+			System.out.print( "\n You used " + hero.attackName[attackChoice - 1] + ". You dealt " + damage  +" points of damage." + "\n");
 		    }
 		    else if (attackChoice == 4) {
 			damage= hero.attack4 (drag);
+			System.out.print( "\n You used " + hero.attackName[attackChoice - 1] + ". You dealt " + damage  +" points of damage." + "\n");
 		    }
 		    else {
 			System.out.println ("You don't know that move....");
 		    }
-		    System.out.print( "\n You used " + hero.attackName[attackChoice - 1] + ". You dealt " + damage  +" points of damage." + "\n");
+		   
 		    dragAttack(hero);
 		}
 		else if (choose == 'd'){
@@ -261,7 +278,7 @@ public class Woo{
 	}
 	else {
 	    int monDam = drag.attack1(hero);
-	    System.out.print( "\n The Monster used " + drag.attackName[0] + ". It dealt " + monDam + " points of damage." + "\n");
+	    System.out.print( "\n"+drag.getName()+" used " + drag.attackName[0] + ". It dealt " + monDam + " points of damage." + "\n");
 	}
     }
    
