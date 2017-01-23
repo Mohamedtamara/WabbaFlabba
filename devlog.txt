@@ -25,7 +25,6 @@ wow we so BOSS bc...
 
 UNRESOLVED ISSUES
 
-Bos battle fight does not work.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
 
@@ -76,9 +75,9 @@ cd../\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
 2017-01-22, 
+
 19:37
-Max Korsun :: Added in boss fight code. Should be functional,
-but is not.
+Max Korsun :: Added in boss fight code. Made the UML.
 
 01:26
 Alitquan Mallick:: Added a successfully working inventory
