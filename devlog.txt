@@ -114,9 +114,21 @@ cutscene kept on occurring
 Alitquan Mallick:: added access to the different types of attacks
 in battle() within Woo.java
 
+15:34
+Mohamed Tamara: Fixed Stats for Monsters. Should always deal
+damage now.
+
 16:04
 Alitquan Mallick:: changed the toString() of Map.java to create
 more aesthetic map display
+
+16:17
+Mohamed Tamara: Implemenred random attacks into battles, except
+they're not truly random. Will fix.
+
+17:41
+Mohamed Tamara: Added comments to All classes except Woo, Map
+Weapon, Item, and Equipment
 
 18:33
 Alitquan Mallick:: modified Character.java and all of the attacks
