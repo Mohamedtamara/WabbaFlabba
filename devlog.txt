@@ -33,14 +33,16 @@ wow we so BOSS bc...
 
 UNRESOLVED ISSUES
 
-A strange lack phenomenon occurs
+A strange lag phenomenon occurs
 when the map is printed (probably due to 
 the code for userMove in Map.java
 
 Subclass balancing has not been done.
 
 Leveling up system for characters has not
-been implemented
+been implemented.
+
+Things from inventory cannot be removed.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
@@ -55,6 +57,13 @@ the first time.
 In the equipment screen, selecting a number
 for equipment that is not there will break
 the program and cause an error
+
+Sometimes the player equips a wrench for 
+no reason (rarely occurs).
+
+Sometimes, during battles, the player and 
+the enemy will miss each other several times
+(probably balancing errors).
 
 COOL STUFF LEARNED
 
